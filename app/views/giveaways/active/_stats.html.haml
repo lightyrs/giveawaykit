@@ -1,0 +1,4 @@
+- if giveaway.canhaz_advanced_analytics?
+  = render 'giveaways/active/stats/advanced', giveaway: giveaway
+- elsif giveaway.facebook_page.canhaz_basic_analytics?
+  = render 'giveaways/active/stats/basic', giveaway: giveaway

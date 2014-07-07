@@ -1,0 +1,42 @@
+#form-wizard.wizard.clearfix
+  %ul.steps
+    %li.active{"data-target" => "#step1"}<
+      %span.badge.badge-info> 1
+      Basic Info
+    %li{"data-target" => "#step2"}<
+      %span.badge> 2
+      Schedule
+    %li{"data-target" => "#step3"}<
+      %span.badge> 3
+      Images
+    %li{"data-target" => "#step4"}<
+      %span.badge> 4
+      Terms
+    %li{"data-target" => "#step5"}<
+      %span.badge> 5
+      Options
+  .actions
+    %button.btn.btn-default.btn-xs.btn-prev{"data-target" => "#form-wizard", "data-wizard" => "previous", disabled: "disabled", type: "button"} Prev
+    %button.btn.btn-default.btn-xs.btn-next{"data-last" => "Finish", "data-target" => "#form-wizard", "data-wizard" => "next", type: "button"} Next
+.step-content
+  = simple_form_for [page, giveaway], html: { class: 'giveaway-form fluid', multipart: true } do |f|
+    = render 'shared/error_messages', object: f.object
+    #step1.step-pane.active.basic-info
+      = render "giveaways/form/basic_info", f: f
+    #step2.step-pane.schedule
+      = render "giveaways/form/schedule", f: f
+    #step3.step-pane.images
+      = render "giveaways/form/images", f: f
+    #step4.step-pane.terms
+      = render "giveaways/form/terms", f: f
+    #step5.step-pane.preferences
+      = render "giveaways/form/preferences", f: f
+  .actions.m-t.btn-group.btn-group-relaxed
+    %button.btn.btn-default.btn-lg.btn-left.btn-prev{"data-target" => "#form-wizard", "data-wizard" => "previous", disabled: "disabled", type: "button"} Previous
+    %button.btn.btn-primary.btn-lg.btn-right.btn-next{"data-last" => "Finish", "data-target" => "#form-wizard", "data-wizard" => "next", type: "button"} Next
+
+    -# = f.button :submit, class: 'ui teal submit button'
+
+    -# - unless giveaway.active? || giveaway.new_record?
+    -#   .ui.right.floated.tiny.red.buttons
+    -#     = link_to 'Delete', facebook_page_giveaway_path(page, giveaway), method: :delete, 'data-confirm' => "Are you sure you want to delete the giveaway? You will not be able to recover this giveaway if you proceed.", class: 'ui button'

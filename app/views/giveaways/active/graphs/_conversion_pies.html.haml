@@ -1,0 +1,38 @@
+.row.conversion-rates
+  .col-sm-6.col-md-4
+    %section.panel.panel-default.chart-panel
+      %header.panel-heading
+        %strong Likes
+        %span.pull-right Conversion Rate
+      .panel-body.text-center
+        .inline
+          .easypiechart.easyPieChart{"data-bar-color" => "#4cc0c1", "data-line-cap" => "butt", "data-line-width" => "30", "data-percent" => "#{percentage_number(giveaway.fan_conversion_rate)}", "data-scale-color" => "#fff", "data-size" => "200", "data-track-color" => "#eee", style: "width: 200px; height: 200px; line-height: 188px;"}
+            %span.h2.step> #{percentage_number(giveaway.fan_conversion_rate)}
+            \%
+            .easypie-text<
+              non-fans<br />liked
+  .col-sm-6.col-md-4
+    %section.panel.panel-default.chart-panel
+      %header.panel-heading
+        %strong Entries
+        %span.pull-right Conversion Rate
+      .panel-body.text-center
+        .inline
+          .easypiechart.easyPieChart{"data-bar-color" => "#65bd77", "data-line-cap" => "butt", "data-line-width" => "30", "data-percent" => "#{percentage_number(giveaway.entry_conversion_rate)}", "data-scale-color" => "#fff", "data-size" => "200", "data-track-color" => "#eee", style: "width: 200px; height: 200px; line-height: 188px;"}
+            %span.h2.step> #{percentage_number(giveaway.entry_conversion_rate)}
+            \%
+            .easypie-text<
+              visitors<br />entered
+  .clearfix.visible-sm
+  .col-sm-12.col-md-4
+    %section.panel.panel-default.chart-panel
+      %header.panel-heading
+        %strong Shares
+        %span.pull-right Conversion Rate
+      .panel-body.text-center
+        .inline
+          .easypiechart.easyPieChart{"data-bar-color" => "#ffc333", "data-line-cap" => "butt", "data-line-width" => "30", "data-percent" => "#{percentage_number(giveaway.entry_share_conversion_rate)}", "data-scale-color" => "#fff", "data-size" => "200", "data-track-color" => "#eee", style: "width: 200px; height: 200px; line-height: 188px;"}
+            %span.h2.step> #{percentage_number(giveaway.entry_share_conversion_rate)}
+            \%
+            .easypie-text<
+              entries<br />shared

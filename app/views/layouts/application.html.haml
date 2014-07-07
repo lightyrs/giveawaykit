@@ -1,0 +1,46 @@
+!!!
+%html{lang: "en", class: "app"}
+  %head
+    %meta{charset: "utf-8"}
+    %meta{content: "224405887571151", property: "fb:app_id"}
+    %title Simple Giveaways
+
+    %meta{content: "Easily create, deploy, and manage giveaways on your Facebook pages.", name: "description"}
+    %meta{content: "width=device-width, initial-scale=1, maximum-scale=1", name: "viewport"}
+
+    = google_analytics_tracking_javascript
+
+    /[if lt IE 9]
+      = javascript_include_tag "//html5shim.googlecode.com/svn/trunk/html5.js"
+
+    = javascript_include_tag :jquery
+    = javascript_include_tag :sg, 'data-turbolinks-track' => true
+
+    = stylesheet_link_tag :application, media: 'all', 'data-turbolinks-track' => true
+
+    = csrf_meta_tags
+
+  %body
+    = render 'shared/flash', flash: flash
+    = render 'shared/init_breadcrumbs'
+    %section.vbox
+      = render 'layouts/header'
+      %section
+        %section.hbox.stretch
+          = render 'layouts/sidebar'
+          = render 'layouts/content'
+          %aside#notes.bg-light.lter.b-l.aside-md.hide
+            .wrapper Notification
+
+    #hover_popover_container.popover-container
+    #modal_pickadate_outlet
+    #spinner_target
+
+    .hide.preload-images
+      = image_tag '/assets/check.png'
+      = image_tag '/assets/cross.png'
+
+    = javascript_include_tag :application
+    = render 'shared/init_globals'
+
+    %noscript= utm_tag

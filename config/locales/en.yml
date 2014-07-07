@@ -1,23 +1,116 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  brand:
+    name: "Simple Giveaways"
+  flash:
+    defaults:
+      alert:
+        unknown_error:
+          title: "An unknown error occurred."
+          content: "Please try again or contact support for assistance. We apologize for the inconvenience."
+    giveaways:
+      create:
+        success:
+          title: "Success"
+          content: "%{giveaway} was successfully created."
+          cannot_schedule: "<br /><i class='info icon'></i>Scheduling giveaways requires an active Pro subscription. Since %{page} does not currently meet this criteria, the giveaway schedule will be deactivated for now.<br />If you'd like to schedule the giveaway, please <a href='%{link}'>subscribe to a Pro plan</a>. If you're not sure right now, no problem. You can choose or upgrade a plan whenever you like."
+        error:
+          title: "Error"
+          content: "There was a problem creating the giveaway. Please fix the following errors and try again.<br />%{errors}"
+      update:
+        success:
+          title: "Success"
+          content: "%{giveaway} was successfully updated."
+          cannot_schedule: "<br /><i class='info icon'></i>Scheduling giveaways requires an active Pro subscription. Since %{page} does not currently meet this criteria, the giveaway schedule will be deactivated for now.<br />If you'd like to schedule the giveaway, please <a href='%{link}'>subscribe to a Pro plan</a>. If you're not sure right now, no problem. You can choose or upgrade a plan whenever you like."
+        error:
+          title: "Error"
+          content: "There was a problem updating the giveaway. Please fix the following errors and try again.<br />%{errors}"
+        unknown_error:
+          title: "An unknown error occurred."
+          content: "There was a problem updating the giveaway. Please try again or contact support for assistance. We apologize for the inconvenience."
+      destroy:
+        success:
+          title: "The giveaway was successfully deleted."
+          content: "%{giveaway} has been successfully deleted."
+        error:
+          title: "Error"
+          content: "There was a problem deleting the giveaway. Please fix the following errors and try again.<br />%{errors}"
+        unknown_error:
+          title: "An unknown error occurred."
+          content: "There was a problem deleting the giveaway. Please try again or contact support for assistance. We apologize for the inconvenience."
+      start:
+        success:
+          title: "%{giveaway} was successfully started."
+          content: "%{giveaway} is now active on your Facebook Page.<br /><a href='%{giveaway_url}' target='_blank'>Click here</a> to view the live giveaway."
+        error:
+          title: "Error"
+          content: "There was a problem publishing %{giveaway}. Please fix the following errors and try again.<br />%{errors}"
+        unknown_error:
+          title: "An unknown error occurred."
+          content: "There was a problem publishing %{giveaway}. Please try again or contact support for assistance. We apologize for the inconvenience."
+      end:
+        success:
+          title: "%{giveaway} was successfully ended."
+          content: "%{giveaway} has ended and will no longer accept entries."
+        error:
+          title: "Error"
+          content: "There was a problem ending %{giveaway}. Please fix the following errors and try again.<br />%{errors}"
+        unknown_error:
+          title: "An unknown error occurred."
+          content: "There was a problem ending %{giveaway}. Please try again or contact support for assistance. We apologize for the inconvenience."
+      clone:
+        success:
+          title: "Success"
+          content: "%{giveaway} was successfully cloned, however, it still needs to be edited and saved."
+        error:
+          title: "Error"
+          content: "There was a problem cloning %{giveaway}. Please fix the following errors and try again.<br />%{errors}"
+        unknown_error:
+          title: "An unknown error occurred."
+          content: "There was a problem cloning the giveaway. Please try again or contact support for assistance. We apologize for the inconvenience."
+    subscriptions:
+      subscribed:
+        title: "You were successfully subscribed."
+        content: "You are now subscribed to the %{plan} plan. Thank you for using <strong>Simple Giveaways</strong>."
+      unsubscribed:
+        title: "You were successfully unsubscribed."
+        content: "You will still be able to enjoy the benefits of your subscription until the end of the current billing cycle. Thank you for using <strong>Simple Giveaways</strong>."
+      unknown_error:
+        subscribe:
+          title: "An unknown error occurred."
+          content: "We were unable to process your subscription request. Please try again or contact support for assistance. We apologize for the inconvenience."
+        unsubscribe:
+          title: "An unknown error occurred."
+          content: "We were unable to unsubscribe you from your plan. Please try again or contact support for assistance. We apologize for the inconvenience."
+    users:
+      onboarding:
+        title: "Welcome to <strong>Simple Giveaways.</strong>"
+        content: "Please hold on a moment while we fetch your Facebook Pages."
+    sessions:
+      logout:
+        facebook_session:
+          title: "Logged Out"
+          content: "You have been logged out due to a change in your facebook session."
+        default:
+          title: "Logged Out"
+          content: "You have been successfully logged out. Thank you for using <strong>Simple Giveaways</strong>."
+    facebook_pages:
+      onboarding:
+        title: "Successfully fetched your Facebook Pages."
+        content: "You can now start building your first giveaway. Thank you for using <strong>Simple Giveaways</strong>"
+      subscribed:
+        title: "%{page} has been successfully subscribed."
+        content: "%{page} has been successfully subscribed to the #{plan} plan. Thank you for using <strong>Simple Giveaways</strong>."
+  will_paginate:
+    previous_label: '<i class="fa fa-chevron-left"></i>'
+    next_label: '<i class="fa fa-chevron-right"></i>'
+    page_entries_info:
+      single_page:
+        zero:  "No %{model} found"
+        one:   "1 %{model} total"
+        other: "All %{count} %{model}"
+      single_page_html:
+        zero:  "No <span class='pagination-model'>%{model}</span> found"
+        one:   "<b>1</b> <span class='pagination-model'>%{model}</span> total"
+        other: "All <b>%{count}</b> <span class='pagination-model'>%{model}</span>"
+      multi_page: "%{model} %{from} - %{to} of %{count} total"
+      multi_page_html: "<span class='pagination-model'>%{model}</span> <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> total"

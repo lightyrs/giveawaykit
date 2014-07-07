@@ -1,0 +1,13 @@
+.stats.m-t-sm-xs.m-r-sm.clearfix
+  .col-xs-4.active-giveaways
+    = link_to active_facebook_page_giveaways_path(facebook_page) do
+      %span.m-b-xs.h3.block= facebook_page.active_giveaways_count
+      %small.text-muted Active
+  .col-xs-4.pending-giveaways
+    = link_to pending_facebook_page_giveaways_path(facebook_page) do
+      %span.m-b-xs.h3.block= facebook_page.pending_giveaways_count
+      %small.text-muted Pending
+  .col-xs-4.completed-giveaways
+    = link_to completed_facebook_page_giveaways_path(facebook_page) do
+      %span.m-b-xs.h3.block= facebook_page.completed_giveaways_count
+      %small.text-muted Completed

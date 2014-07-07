@@ -1,0 +1,12 @@
+development:
+  app_id: FB_APP_ID
+  secret_key: FB_APP_SECRET
+  oauth_key: FB_OAUTH_KEY
+test:
+  app_id: FB_APP_ID
+  secret_key: FB_APP_SECRET
+  oauth_key: FB_OAUTH_KEY
+production:
+  app_id: FB_APP_ID
+  secret_key: FB_APP_SECRET
+  oauth_key: FB_OAUTH_KEY

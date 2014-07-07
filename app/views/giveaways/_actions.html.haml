@@ -1,0 +1,11 @@
+- if giveaway.active?
+
+  = render 'giveaways/actions/active', giveaway: giveaway
+
+- elsif giveaway.pending?
+
+  = render 'giveaways/actions/pending', giveaway: giveaway
+
+- elsif giveaway.completed?
+
+  = render 'giveaways/actions/completed', giveaway: giveaway

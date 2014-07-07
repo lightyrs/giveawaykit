@@ -1,0 +1,47 @@
+.row
+  .col-md-8
+    %section.panel.panel-default
+      %header.panel-heading.font-bold Statistics
+      .panel-body
+        #flot-1ine{style: "height:210px"}
+      %footer.panel-footer.bg-white.no-padder
+        .row.text-center.no-gutter
+          .col-xs-3.b-r.b-light
+            %span.h4.font-bold.m-t.block 5,860
+            %small.text-muted.m-b.block Orders
+          .col-xs-3.b-r.b-light
+            %span.h4.font-bold.m-t.block 10,450
+            %small.text-muted.m-b.block Sellings
+          .col-xs-3.b-r.b-light
+            %span.h4.font-bold.m-t.block 21,230
+            %small.text-muted.m-b.block Items
+          .col-xs-3
+            %span.h4.font-bold.m-t.block 7,230
+            %small.text-muted.m-b.block Customers
+  .col-md-4
+    %section.panel.panel-default
+      %header.panel-heading.font-bold Data graph
+      .bg-light.dk.wrapper
+        %span.pull-right Friday
+        %span.h4
+          $540
+          %br/
+          %small.text-muted +1.05(2.15%)
+        .text-center.m-b-n.m-t-sm
+          .sparkline{"data-fill-color" => "", "data-height" => "65", "data-highlight-line-color" => "#fff", "data-line-color" => "#dddddd", "data-line-width" => "2", "data-resize" => "true", "data-spot-color" => "#bbbbbb", "data-spot-radius" => "3", "data-type" => "line", "data-width" => "100%", values: "280,320,220,385,450,320,345,250,250,250,400,380"}
+          .sparkline.inline{"data-bar-color" => "#65bd77", "data-bar-spacing" => "6", "data-bar-width" => "6", "data-height" => "45", "data-type" => "bar"} 10,9,11,10,11,10,12,10,9,10,11,9,8
+      .panel-body
+        %div
+          %span.text-muted Total:
+          %span.h3.block $2500.00
+        .line.pull-in
+        .row.m-t-sm
+          .col-xs-4
+            %small.text-muted.block Market
+            %span $1500.00
+          .col-xs-4
+            %small.text-muted.block Referal
+            %span $600.00
+          .col-xs-4
+            %small.text-muted.block Affiliate
+            %span $400.00

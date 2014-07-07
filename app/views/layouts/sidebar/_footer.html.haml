@@ -1,0 +1,29 @@
+%footer.footer.lt.hidden-xs.b-t.b-dark
+  #chat.dropup
+    %section.dropdown-menu.on.aside-md.m-l-n
+      %section.panel.bg-white
+        %header.panel-heading.b-b.b-light Active chats
+        .panel-body.animated.fadeInRight
+          %p.text-sm No active chats.
+          %p
+            %a.btn.btn-sm.btn-default{href: "#"} Start a chat
+  #invite.dropup
+    %section.dropdown-menu.on.aside-md.m-l-n
+      %section.panel.bg-white
+        %header.panel-heading.b-b.b-light
+          John
+          %i.fa.fa-circle.text-success
+        .panel-body.animated.fadeInRight
+          %p.text-sm No contacts in your lists.
+          %p
+            %a.btn.btn-sm.btn-facebook{href: "#"}
+              %i.fa.fa-fw.fa-facebook
+              Invite from Facebook
+  %a.pull-right.btn.btn-sm.btn-dark.btn-icon{"data-toggle" => "class:nav-xs", href: "#nav"}
+    %i.fa.fa-angle-left.text
+    %i.fa.fa-angle-right.text-active
+  .btn-group.hidden-nav-xs
+    %button.btn.btn-icon.btn-sm.btn-dark{"data-target" => "#chat", "data-toggle" => "dropdown", title: "Chats", type: "button"}
+      %i.fa.fa-comment-o
+    %button.btn.btn-icon.btn-sm.btn-dark{"data-target" => "#invite", "data-toggle" => "dropdown", title: "Contacts", type: "button"}
+      %i.fa.fa-facebook

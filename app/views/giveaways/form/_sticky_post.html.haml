@@ -1,0 +1,7 @@
+%p.fieldset-help
+  %i.icon-info-sign
+  We strongly recommend promoting all giveaways with a sticky post.
+
+/= f.input :sticky_post_enabled?, as: :select, selected: "true", label: "Promote with Sticky Post?", input_html: { class: "input-mini" }, wrapper_html: { class: "double" }
+/= f.input :sticky_post_title, label: "Sticky Post Title", input_html: { maxlength: 200 }
+/= f.input :sticky_post_body, as: :text, label: "Sticky Post Body"

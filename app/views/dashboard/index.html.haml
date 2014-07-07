@@ -1,0 +1,11 @@
+- content_for :page_heading do
+  Dashboard
+
+- content_for :page_subheading do
+  Welcome back, #{current_user.first_name}
+
+= render 'users/facebook_pages'
+
+- unless current_user.finished_onboarding?
+
+  #pages_poller

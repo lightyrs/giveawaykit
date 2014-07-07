@@ -1,0 +1,11 @@
+%section#content{class: body_class}
+  %section.vbox
+    %section{class: "#{body_class.include?('users-edit') ? '' : 'scrollable padder'}"}
+
+      - unless body_class.include?('users-edit')
+        = render 'layouts/navigation/breadcrumbs'
+        = render 'layouts/navigation/header'
+
+      = yield
+
+  %a.hide.nav-off-screen-block{"data-target" => "#nav", "data-toggle" => "class:nav-off-screen", href: "#"}

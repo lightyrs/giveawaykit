@@ -1,0 +1,28 @@
+:javascript
+  (function() {
+    function deepFreeze (o) {
+      var prop, propKey;
+      Object.freeze(o);
+      for (propKey in o) {
+        prop = o[propKey];
+        if (!o.hasOwnProperty(propKey) || !(typeof prop === "object") || Object.isFrozen(prop)) {
+          continue;
+        }
+        deepFreeze(prop);
+      }
+    }
+
+    _SG = {
+      Config: {
+        FB_APP_ID: '#{FB_APP_ID}',
+        SG_SSL_DOMAIN: '#{SG_SSL_DOMAIN}'
+      },
+      CurrentGiveaway: #{giveaway_hash.to_json},
+      Paths: {
+        likes: '#{likes_path}',
+        giveawayEntry: '#{facebook_page_giveaway_entries_path(giveaway_hash.current_page, giveaway_hash.giveaway.id)}'
+      }
+    }
+
+    deepFreeze(_SG);
+  }());

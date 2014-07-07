@@ -1,0 +1,7 @@
+.ui.header.center.aligned
+  = link_to image_tag(current_user.avatar, alt: current_user.name, width: 150), dashboard_path, class: 'ui circular image'
+  %h4.ui.header
+    = current_user.name
+  .sub.header
+    .ui.label.small
+      #{current_user.facebook_pages.count} Pages

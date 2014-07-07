@@ -1,0 +1,32 @@
+- if giveaway.status == "Active"
+
+  %header.active
+    .image= image_tag(giveaway.feed_image.feed.url)
+    %h1= truncate(giveaway.title, length: 26)
+    %p is #{giveaway.status}
+
+- elsif giveaway.status == "Pending"
+
+  %header.giveaway_preview
+    .image
+      = image_tag(giveaway.feed_image.feed.url)
+    .title
+      %h1= link_to truncate(giveaway.title, length: 26), facebook_page_giveaway_path(page, giveaway)
+      %h2
+        %span.gray Prize
+        = giveaway.prize
+    .buttons
+      = link_to "<i class='icon-edit'></i> Edit".html_safe, facebook_page_giveaway_path(page, giveaway), class: "btn btn-large btn-edit"
+
+      = render 'publish_button', giveaway: giveaway, page: page
+
+- elsif giveaway.status == "Completed"
+
+  %tr
+    %td= image_tag(giveaway.feed_image.thumb.url)
+    %td= link_to truncate(giveaway.title, length: 26), facebook_page_giveaway_path(page, giveaway)
+    %td= giveaway.end_date.strftime('%m/%d/%Y %l:%M %p')
+    %td= giveaway.entries.count
+    %td= giveaway.impressionist_count
+    %td= giveaway.page_likes_while_active
+

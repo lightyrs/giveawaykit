@@ -1,0 +1,30 @@
+!!!
+%html{lang: "en"}
+  %head
+    %meta{charset: "utf-8"}
+    %meta{content: "224405887571151", property: "fb:app_id"}
+    %title= @giveaway_hash.giveaway.title
+    = google_analytics_tracking_javascript
+    %meta{property: "og:type", content: "website"}
+    %meta{content: @giveaway_hash.giveaway.feed_image_url.gsub('https://', 'http://'), name: "image"}
+    %meta{property: "og:image", content: "#{@giveaway_hash.giveaway.feed_image_url.gsub('https://', 'http://')}"}
+    %meta{content: @giveaway_hash.current_page.name, name: "title"}
+    %meta{property: "og:title", content: "#{@giveaway_hash.current_page.name}"}
+    %meta{content: @giveaway_hash.giveaway.description, name: "description"}/
+    %meta{property: "og:description", content: "#{@giveaway_hash.giveaway.description}"}
+    %meta{property: "og:url", content: "#{@giveaway_hash.giveaway.giveaway_url}"}
+    %link{rel: 'canonical', href: "#{@giveaway_hash.giveaway.giveaway_url}"}
+    = stylesheet_link_tag "//#{SG_SSL_DOMAIN}/assets/tab.css"
+    /[if lt IE 9]
+      = javascript_include_tag "//html5shim.googlecode.com/svn/trunk/html5.js"
+
+    = javascript_include_tag :jquery
+    = javascript_include_tag "//#{SG_SSL_DOMAIN}/assets/tab.js"
+
+    = csrf_meta_tags
+  %body
+    = render "giveaways/init_tab_globals", giveaway_hash: @giveaway_hash
+    #tab_container
+      = yield
+
+    %noscript= utm_tag

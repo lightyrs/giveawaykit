@@ -1,0 +1,7 @@
+.ui.header.center.aligned
+  = link_to '', facebook_page_path(facebook_page), class: 'ui circular image masked-avatar', style: "background-image: url('#{facebook_page.avatar_large}');"
+  %h4.ui.header
+    = facebook_page.name
+  .sub.header
+    .ui.label.small
+      #{facebook_page.likes} Likes

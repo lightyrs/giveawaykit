@@ -1,0 +1,94 @@
+@import 'bootstrap-mixins';
+/* iCheck plugin Line skin, aero
+----------------------------------- */
+.icheckbox_line-aero,
+.iradio_line-aero {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #717171;
+    background: #FAFAFA;
+    border: 1px solid #DADADA;
+    border-bottom-color: #CCC;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    @include box-shadow(0 1px 1px rgba(90, 90, 90, 0.1));
+    cursor: pointer;
+}
+    .icheckbox_line-aero .icheck_line-icon,
+    .iradio_line-aero .icheck_line-icon {
+        display: inline-block;
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        padding-right: 8px;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+        &:before {
+            content: "\f096";
+        }
+    }
+    .icheckbox_line-aero.hover,
+    .icheckbox_line-aero.checked.hover,
+    .iradio_line-aero.hover {
+        color: #717171 !important;
+        background-color: #EDEDED;
+        border-color: #C6C6C6;
+    }
+    .icheckbox_line-aero.checked,
+    .iradio_line-aero.checked {
+        color: #FFF !important;
+        background-color: #4CC0C1;
+        border-color: #4CC0C1;
+    }
+        .icheckbox_line-aero.checked .icheck_line-icon,
+        .iradio_line-aero.checked .icheck_line-icon,
+        .icheck-container.fake-check .icheck_line-icon {
+
+            &:before {
+                content: "\f046";
+            }
+        }
+    .icheckbox_line-aero.disabled,
+    .iradio_line-aero.disabled {
+        background-color: #FAFAFA;
+        border-color: #DADADA;
+        pointer-events: none;
+        cursor: not-allowed;
+        opacity: 0.65;
+        filter: alpha(opacity=65);
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+        .icheckbox_line-aero.disabled .icheck_line-icon,
+        .iradio_line-aero.disabled .icheck_line-icon {
+            background-position: -30px 0;
+        }
+    .icheckbox_line-aero.checked.disabled,
+    .iradio_line-aero.checked.disabled {
+        background-color: #FAFAFA;
+        border-color: #DADADA;
+    }
+        .icheckbox_line-aero.checked.disabled .icheck_line-icon,
+        .iradio_line-aero.checked.disabled .icheck_line-icon {
+            background-position: -45px 0;
+        }
+
+/* Retina support */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (-moz-min-device-pixel-ratio: 1.5),
+       only screen and (-o-min-device-pixel-ratio: 3/2),
+       only screen and (min-device-pixel-ratio: 1.5) {
+    .icheckbox_line-aero .icheck_line-icon,
+    .iradio_line-aero .icheck_line-icon {
+        background-image: image-url('icheck/line@2x.png');
+        -webkit-background-size: 60px 13px;
+        background-size: 60px 13px;
+    }
+}

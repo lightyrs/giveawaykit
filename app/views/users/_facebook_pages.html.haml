@@ -1,0 +1,2 @@
+%ul#user_facebook_pages.list-group.facebook-pages{ 'data-pids' => current_user.facebook_page_ids }
+  = render collection: current_user.facebook_pages, partial: 'facebook_pages/preview', as: :facebook_page

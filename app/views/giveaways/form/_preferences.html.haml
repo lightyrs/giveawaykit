@@ -1,0 +1,25 @@
+.m-t-xs
+
+  = f.input :email_required, as: :boolean, wrapper: :inline_checkbox, label: 'Auth Required for Entry?' do
+    = f.input_field :email_required, as: :boolean, boolean_style: :inline, checked: true
+    %span
+
+  = f.input :autoshow_share_dialog, as: :boolean, wrapper: :inline_checkbox, label: 'Autoshow Share Dialog?' do
+    = f.input_field :autoshow_share_dialog, as: :boolean, boolean_style: :inline
+    %span
+
+  = f.input :allow_multi_entries, as: :boolean, wrapper: :inline_checkbox, label: 'Multiple Entries Per User?' do
+    = f.input_field :allow_multi_entries, as: :boolean, boolean_style: :inline
+    %span
+
+  - if f.object.facebook_page.canhaz_referral_tracking?
+
+    = f.input :bonus_value, as: :string, input_html: { value: "#{f.object.persisted? ? f.object.bonus_value : '5'}", placeholder: 'Bonus Entry Value', 'data-trigger' => 'change', 'data-required' => 'true' }, label: 'Bonus Entry Value'
+
+  - elsif f.object.allow_multi_entries == "1" || f.object.active?
+
+    = f.input :bonus_value, as: :string, input_html: { value: "#{f.object.persisted? ? f.object.bonus_value : '5'}", placeholder: 'Bonus Entry Value' }, label: 'Bonus Entry Value', wrapper_html: { id: 'bonus_value_wrapper' }
+
+  - else
+
+    = f.input :bonus_value, as: :string, input_html: { value: "#{f.object.persisted? ? f.object.bonus_value : '5'}", placeholder: 'Bonus Entry Value' }, label: 'Bonus Entry Value', wrapper_html: { style: 'display:none', id: 'bonus_value_wrapper' }

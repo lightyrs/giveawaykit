@@ -1,0 +1,4 @@
+- if object.errors.any?
+  - callout type: 'danger', title: "The form contains #{pluralize(object.errors.count, "error")}.", class: 'error-messages' do
+    - object.errors.full_messages.each do |msg|
+      %p= msg

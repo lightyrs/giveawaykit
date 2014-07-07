@@ -1,0 +1,21 @@
+#giveaway_details
+
+  .row
+
+    .col-md-6.m-t-xs
+
+      = render 'giveaways/details/actions', giveaway: giveaway
+
+      = render 'giveaways/details/basic_info', giveaway: giveaway
+
+      = render 'giveaways/details/schedule', giveaway: giveaway
+
+      = render 'giveaways/details/preferences', giveaway: giveaway
+
+      = render 'giveaways/details/terms', giveaway: giveaway
+
+    .col-md-6.m-t-xs
+
+      = render 'giveaways/details/giveaway_image', giveaway: giveaway
+
+      = render 'giveaways/details/feed_image', giveaway: giveaway

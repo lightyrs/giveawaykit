@@ -1,0 +1,116 @@
+table {
+
+  &.footable {
+
+    thead {
+
+      th {
+        cursor: pointer;
+        font-size: 0.9em;
+        background-color: rgba(0, 0, 0, 0.05);
+        text-align: center;
+        color: #717171;
+        vertical-align: middle;
+
+        &:hover,
+        &.footable-sorted,
+        &.footable-sorted-desc,
+        &.footable-sorted-asc {
+          background-color: rgba(0, 0, 0, 0.13);
+          color: rgba(0, 0, 0, 0.8);
+        }
+
+        &.footable-sortable {
+
+          .footable-sort-indicator {
+            color: rgba(0, 0, 0, 0.3);
+          }
+
+          &.footable-sorted,
+          &.footable-sorted-desc,
+          &.footable-sorted-asc {
+
+            .footable-sort-indicator {
+              color: rgba(0, 0, 0, 0.8);
+            }
+          }
+        }
+
+        &:first-child {
+          text-align: left;
+        }
+
+        &.first-child {
+          text-align: left;
+        }
+
+        &.last-child {
+          text-align: left;
+        }
+      }
+    }
+
+    tr {
+
+      &.entry-row {
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba(0, 0, 50, 0.02);
+        }
+      }
+
+      td {
+        vertical-align: middle;
+        text-align: center;
+
+        &:first-child,
+        &.first-child {
+          text-align: left;
+        }
+
+        &.last-child {
+          text-align: left;
+        }
+      }
+    }
+
+    tfoot {
+      margin-bottom: 0;
+
+      td {
+        cursor: auto;
+        font-size: 0.9em;
+        background-color: rgba(0, 0, 0, 0.05);
+        text-align: center;
+        color: rgba(0, 0, 0, 0.8);
+        vertical-align: middle;
+      }
+    }
+  }
+
+  &#entries_table {
+
+    td {
+
+      .entry-name-email {
+        display: inline-block;
+      }
+    }
+
+    tfoot {
+
+      td {
+        text-align: center;
+      }
+    }
+
+    .footable-row-detail-value {
+      @include word-wrap;
+    }
+
+    .entries-pager {
+      vertical-align: middle;
+    }
+  }
+}

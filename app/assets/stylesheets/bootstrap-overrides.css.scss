@@ -1,0 +1,108 @@
+.nav-tabs .open .dropdown-toggle,
+.nav-pills .open .dropdown-toggle,
+.nav > .open.active > a:hover {
+  color: white;
+  background-color: #999;
+  border-color: #999;
+}
+
+.modal-body {
+  max-height: 300px;
+
+  &.end {
+    color:red;
+  }
+}
+
+.modal-header {
+  border: 0px;
+}
+
+.modal, .modal.fade, .modal.fade.in {
+  top: 5%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  margin: 0 auto;
+  max-height: 330px;
+}
+
+form {
+
+  p.fieldset-help {
+    padding: 18px 0;
+  }
+
+  p.help-block {
+    color: #999;
+    width: 440px;
+  }
+
+  input, textarea, select, .uneditable-input {
+    width: 360px;
+  }
+
+  textarea {
+    height: 150px;
+  }
+
+  .control-group.hidden {
+    visibility: hidden;
+  }
+
+  .control-group.error .help-block,
+  .control-group.error .help-inline {
+    clear: both;
+    padding: 8px 0 0;
+    margin-left: 5px;
+  }
+
+  .control-group.error input,
+  .control-group.error select,
+  .control-group.error textarea {
+    color: inherit;
+  }
+
+  .control-group {
+
+    &.double {
+
+      label {
+        margin-top: -8px;
+      }
+    }
+  }
+}
+
+.label {
+  padding: 2px 4px 3px;
+  font-size: 11.049999999999999px;
+  font-weight: bold;
+  color: white;
+  text-transform: none;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.btn-xlarge {
+  font-size: 20px;
+  font-weight: normal;
+  padding: 14px 156px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  line-height: normal;
+}
+
+.btn-page-header {
+  font-size: 16px;
+  font-weight: normal;
+  padding: 10px 46px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  line-height: normal;
+}

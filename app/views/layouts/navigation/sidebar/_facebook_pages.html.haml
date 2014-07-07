@@ -1,0 +1,35 @@
+- activate = defined?(active) ? active : %w(facebook_pages giveaways).include?(controller.controller_name)
+
+%li#facebook_pages_nav{class: activate ? 'active' : ''}
+  %a{href: "#pages", class: activate ? 'active' : ''}
+    %i.fa.fa-facebook-square.icon
+      %b.bg-info
+    %span.pull-right
+      %i.fa.fa-angle-down.text
+      %i.fa.fa-angle-up.text-active
+    %span Pages
+  %ul.nav.lt.pages
+    - current_user.facebook_pages.each do |page|
+      - if page == @page
+        %li.active
+          %a.active{href: "##{page.slug}"}
+            %i.fa.fa-angle-down.text
+            %i.fa.fa-angle-up.text-active
+            %span= page.name
+          %ul.nav.bg
+            = active_link_to active_facebook_page_giveaways_path(page), wrap_tag: :li do
+              %i.fa.fa-bolt
+              %span Active Giveaway
+            = active_link_to pending_facebook_page_giveaways_path(page), wrap_tag: :li do
+              %i.fa.fa-clock-o
+              %span Pending Giveaways
+            = active_link_to completed_facebook_page_giveaways_path(page), wrap_tag: :li do
+              %i.fa.fa-archive
+              %span Completed Giveaways
+            = active_link_to new_facebook_page_giveaway_path(page), wrap_tag: :li do
+              %i.fa.fa-plus
+              %span New Giveaway
+      - else
+        = active_link_to facebook_page_path(page), wrap_tag: :li do
+          %i.fa.fa-angle-right
+          %span= page.name

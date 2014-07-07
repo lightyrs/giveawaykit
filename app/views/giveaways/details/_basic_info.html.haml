@@ -1,0 +1,31 @@
+%section.info.panel.panel-default
+  .panel-heading
+    %h3.panel-title Basic Info
+  %ul.list-group
+    %li.list-group-item.editable-parent
+      .m-b-xs.editable-trigger
+        %span.editable-label
+          Prize
+          %span.editable-error
+        %a.pull-right{href: "#"}
+          %i.fa.fa-pencil
+      = editable giveaway, :prize, url: facebook_page_giveaway_path(giveaway.facebook_page, giveaway), type: 'textarea', class: 'editable-textarea'
+    %li.list-group-item.description.editable-parent
+      .m-b-xs.editable-trigger
+        %span.editable-label
+          Description
+          %span.editable-error
+        %a.pull-right{href: "#"}
+          %i.fa.fa-pencil
+      - if giveaway.completed?
+        = giveaway.description.html_safe
+      - else
+        = editable giveaway, :description, url: facebook_page_giveaway_path(giveaway.facebook_page, giveaway), value: h(giveaway.description), type: 'textarea', class: 'editable-wysiwyg', escape: false
+    %li.list-group-item.editable-parent
+      .m-b-xs.editable-trigger
+        %span.editable-label
+          Custom Tab Name
+          %span.editable-error
+        %a.pull-right{href: "#"}
+          %i.fa.fa-pencil
+      = editable giveaway, :custom_fb_tab_name, url: facebook_page_giveaway_path(giveaway.facebook_page, giveaway)

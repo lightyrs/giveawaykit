@@ -1,0 +1,7 @@
+= f.input :title, input_html: { maxlength: 100, placeholder: 'Title', 'data-trigger' => 'change', 'data-required' => 'true' }
+
+= f.input :description, input_html: { id: 'editor', class: 'form-control', 'data-required' => 'true', 'data-trigger' => 'change' }, as: :ckeditor
+
+= f.input :prize, input_html: { placeholder: 'Prize', 'data-trigger' => 'change', 'data-required' => 'true' }
+
+= f.input :custom_fb_tab_name, label: 'Custom Tab Name', input_html: { placeholder: 'Custom Tab Name', 'data-trigger' => 'change', 'data-required' => 'true' }

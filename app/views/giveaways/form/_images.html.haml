@@ -1,0 +1,21 @@
+.form-group.row
+
+  .col-sm-6
+    %section.giveaway-image.panel.image-panel{class: "#{f.object.errors[:image].any? ? 'panel-danger' : 'panel-default'}"}
+      .panel-heading.clearfix
+        %h3.panel-title.pull-left Giveaway Image
+      .panel-body
+        = f.input :image, as: :file, label: false, input_html: { class: 'filestyle', 'data-trigger' => 'change', 'data-required' => "#{f.object.image_cache.nil? && f.object.image.url.blank?}", 'data-classbutton' => 'btn btn-default', 'data-classinput' => 'form-control inline input-s', 'data-icon' => 'false' }
+        = f.input :image_cache, as: :hidden
+        - if f.object.image.present? && f.object.errors[:image].empty?
+          .ui.image.m-b= image_tag f.object.image.preview.url, alt: f.object.title
+
+  .col-sm-6
+    %section.feed-image.panel.image-panel{class: "#{f.object.errors[:feed_image].any? ? 'panel-danger' : 'panel-default'}"}
+      .panel-heading.clearfix
+        %h3.panel-title.pull-left Feed Image
+      .panel-body
+        = f.input :feed_image, as: :file, label: false, input_html: { class: 'filestyle', 'data-trigger' => 'change', 'data-required' => "#{f.object.feed_image_cache.nil? && f.object.feed_image.url.blank?}", 'data-classbutton' => 'btn btn-default', 'data-classinput' => 'form-control inline input-s', 'data-icon' => 'false' }
+        = f.input :feed_image_cache, as: :hidden
+        - if f.object.feed_image.present? && f.object.errors[:feed_image].empty?
+          .ui.image= image_tag f.object.feed_image.thumb.url, alt: f.object.title

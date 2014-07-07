@@ -1,0 +1,612 @@
+!!!
+%html.app{lang: "en"}
+  %head
+    %meta{charset: "utf-8"}/
+    %title Notebook | Web Application
+    %meta{content: "app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav", name: "description"}/
+    %meta{content: "width=device-width, initial-scale=1, maximum-scale=1", name: "viewport"}/
+    %link{href: "css/bootstrap.css", rel: "stylesheet", type: "text/css"}/
+    %link{href: "css/animate.css", rel: "stylesheet", type: "text/css"}/
+    %link{href: "css/font-awesome.min.css", rel: "stylesheet", type: "text/css"}/
+    %link{cache: "false", href: "css/font.css", rel: "stylesheet", type: "text/css"}/
+    %link{cache: "false", href: "js\\calendar/bootstrap_calendar.css", rel: "stylesheet", type: "text/css"}/
+    %link{href: "css/app.css", rel: "stylesheet", type: "text/css"}/
+    /[if lt IE 9]
+      <script src="js/ie/html5shiv.js" cache="false"></script>
+      <script src="js/ie/respond.min.js" cache="false"></script>
+      <script src="js/ie/excanvas.js" cache="false"></script>
+  %body
+    %section.vbox
+      %header.bg-dark.dk.header.navbar.navbar-fixed-top-xs
+        .navbar-header.aside-md
+          %a.btn.btn-link.visible-xs{"data-target" => "#nav", "data-toggle" => "class:nav-off-screen"}
+            %i.fa.fa-bars
+          %a.navbar-brand{"data-toggle" => "fullscreen", href: "#"}
+            %img.m-r-sm{src: "images/logo.png"}>/
+            Notebook
+          %a.btn.btn-link.visible-xs{"data-target" => ".nav-user", "data-toggle" => "dropdown"}
+            %i.fa.fa-cog
+        %ul.nav.navbar-nav.hidden-xs
+          %li.dropdown
+            %a.dropdown-toggle.dker{"data-toggle" => "dropdown", href: "#"}
+              %i.fa.fa-building-o
+              %span.font-bold Activity
+            %section.dropdown-menu.aside-xl.on.animated.fadeInLeft.no-borders.lt
+              .wrapper.lter.m-t-n-xs
+                %a.thumb.pull-left.m-r{href: "#"}
+                  %img.img-circle{src: "images/avatar.jpg"}/
+                .clear
+                  %a{href: "#"}
+                    %span.text-white.font-bold @Mike Mcalidek
+                  %small.block Art Director
+                  %a.btn.btn-xs.btn-success.m-t-xs{href: "#"} Upgrade
+              .row.m-l-none.m-r-none.m-b-n-xs.text-center
+                .col-xs-4
+                  .padder-v
+                    %span.m-b-xs.h4.block.text-white 245
+                    %small.text-muted Followers
+                .col-xs-4.dk
+                  .padder-v
+                    %span.m-b-xs.h4.block.text-white 55
+                    %small.text-muted Likes
+                .col-xs-4
+                  .padder-v
+                    %span.m-b-xs.h4.block.text-white 2,035
+                    %small.text-muted Photos
+          %li
+            .m-t.m-l
+              %a.dropdown-toggle.btn.btn-xs.btn-primary{href: "price.html", title: "Upgrade"}
+                %i.fa.fa-long-arrow-up
+        %ul.nav.navbar-nav.navbar-right.hidden-xs.nav-user
+          %li.hidden-xs
+            %a.dropdown-toggle.dk{"data-toggle" => "dropdown", href: "#"}
+              %i.fa.fa-bell
+              %span.badge.badge-sm.up.bg-danger.m-l-n-sm.count 2
+            %section.dropdown-menu.aside-xl
+              %section.panel.bg-white
+                %header.panel-heading.b-light.bg-light
+                  %strong
+                    You have
+                    %span.count 2
+                    notifications
+                .list-group.list-group-alt.animated.fadeInRight
+                  %a.media.list-group-item{href: "#"}
+                    %span.pull-left.thumb-sm
+                      %img.img-circle{alt: "John said", src: "images/avatar.jpg"}/
+                    %span.media-body.block.m-b-none
+                      Use awesome animate.css
+                      %br/
+                      %small.text-muted 10 minutes ago
+                  %a.media.list-group-item{href: "#"}
+                    %span.media-body.block.m-b-none
+                      1.0 initial released
+                      %br/
+                      %small.text-muted 1 hour ago
+                %footer.panel-footer.text-sm
+                  %a.pull-right{href: "#"}
+                    %i.fa.fa-cog
+                  %a{"data-toggle" => "class:show animated fadeInRight", href: "#notes"} See all the notifications
+          %li.dropdown.hidden-xs
+            %a.dropdown-toggle.dker{"data-toggle" => "dropdown", href: "#"}
+              %i.fa.fa-fw.fa-search
+            %section.dropdown-menu.aside-xl.animated.fadeInUp
+              %section.panel.bg-white
+                %form{role: "search"}
+                  .form-group.wrapper.m-b-none
+                    .input-group
+                      %input.form-control{placeholder: "Search", type: "text"}/
+                      %span.input-group-btn
+                        %button.btn.btn-info.btn-icon{type: "submit"}
+                          %i.fa.fa-search
+          %li.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+              %span.thumb-sm.avatar.pull-left
+                %img{src: "images/avatar.jpg"}/
+              John.Smith
+              %b.caret
+            %ul.dropdown-menu.animated.fadeInRight
+              %span.arrow.top
+              %li
+                %a{href: "#"} Settings
+              %li
+                %a{href: "profile.html"} Profile
+              %li
+                %a{href: "#"}
+                  %span.badge.bg-danger.pull-right 3
+                  Notifications
+              %li
+                %a{href: "docs.html"} Help
+              %li.divider
+              %li
+                %a{"data-toggle" => "ajaxModal", href: "modal.lockme.html"} Logout
+      %section
+        %section.hbox.stretch
+          / .aside
+          %aside#nav.bg-dark.lter.aside-md.hidden-print
+            %section.vbox
+              %header.header.bg-primary.lter.text-center.clearfix
+                .btn-group
+                  %button.btn.btn-sm.btn-dark.btn-icon{title: "New project", type: "button"}
+                    %i.fa.fa-plus
+                  .btn-group.hidden-nav-xs
+                    %button.btn.btn-sm.btn-primary.dropdown-toggle{"data-toggle" => "dropdown", type: "button"}
+                      Switch Project
+                      %span.caret
+                    %ul.dropdown-menu.text-left
+                      %li
+                        %a{href: "#"} Project
+                      %li
+                        %a{href: "#"} Another Project
+                      %li
+                        %a{href: "#"} More Projects
+              %section.w-f.scrollable
+                .slim-scroll{"data-color" => "#333333", "data-disable-fade-out" => "true", "data-distance" => "0", "data-height" => "auto", "data-size" => "5px"}
+                  / nav
+                  %nav.nav-primary.hidden-xs
+                    %ul.nav
+                      %li.active
+                        %a.active{href: "index.html"}
+                          %i.fa.fa-dashboard.icon
+                            %b.bg-danger
+                          %span Workset
+                      %li
+                        %a{href: "#layout"}
+                          %i.fa.fa-columns.icon
+                            %b.bg-warning
+                          %span.pull-right
+                            %i.fa.fa-angle-down.text
+                            %i.fa.fa-angle-up.text-active
+                          %span Layouts
+                        %ul.nav.lt
+                          %li
+                            %a{href: "layout-c.html"}
+                              %i.fa.fa-angle-right
+                              %span Color option
+                          %li
+                            %a{href: "layout-r.html"}
+                              %i.fa.fa-angle-right
+                              %span Right nav
+                          %li
+                            %a{href: "layout-h.html"}
+                              %i.fa.fa-angle-right
+                              %span H-Layout
+                      %li
+                        %a{href: "#uikit"}
+                          %i.fa.fa-flask.icon
+                            %b.bg-success
+                          %span.pull-right
+                            %i.fa.fa-angle-down.text
+                            %i.fa.fa-angle-up.text-active
+                          %span UI kit
+                        %ul.nav.lt
+                          %li
+                            %a{href: "buttons.html"}
+                              %i.fa.fa-angle-right
+                              %span Buttons
+                          %li
+                            %a{href: "icons.html"}
+                              %b.badge.bg-info.pull-right 369
+                              %i.fa.fa-angle-right
+                              %span Icons
+                          %li
+                            %a{href: "grid.html"}
+                              %i.fa.fa-angle-right
+                              %span Grid
+                          %li
+                            %a{href: "widgets.html"}
+                              %b.badge.pull-right 8
+                              %i.fa.fa-angle-right
+                              %span Widgets
+                          %li
+                            %a{href: "components.html"}
+                              %i.fa.fa-angle-right
+                              %span Components
+                          %li
+                            %a{href: "list.html"}
+                              %i.fa.fa-angle-right
+                              %span List group
+                          %li
+                            %a{href: "#table"}
+                              %i.fa.fa-angle-down.text
+                              %i.fa.fa-angle-up.text-active
+                              %span Table
+                            %ul.nav.bg
+                              %li
+                                %a{href: "table-static.html"}
+                                  %i.fa.fa-angle-right
+                                  %span Table static
+                              %li
+                                %a{href: "table-datatable.html"}
+                                  %i.fa.fa-angle-right
+                                  %span Datatable
+                              %li
+                                %a{href: "table-datagrid.html"}
+                                  %i.fa.fa-angle-right
+                                  %span Datagrid
+                          %li
+                            %a{href: "#form"}
+                              %i.fa.fa-angle-down.text
+                              %i.fa.fa-angle-up.text-active
+                              %span Form
+                            %ul.nav.bg
+                              %li
+                                %a{href: "form-elements.html"}
+                                  %i.fa.fa-angle-right
+                                  %span Form elements
+                              %li
+                                %a{href: "form-validation.html"}
+                                  %i.fa.fa-angle-right
+                                  %span Form validation
+                              %li
+                                %a{href: "form-wizard.html"}
+                                  %i.fa.fa-angle-right
+                                  %span Form wizard
+                          %li
+                            %a{href: "chart.html"}
+                              %i.fa.fa-angle-right
+                              %span Chart
+                          %li
+                            %a{href: "fullcalendar.html"}
+                              %i.fa.fa-angle-right
+                              %span Fullcalendar
+                          %li
+                            %a{href: "portlet.html"}
+                              %i.fa.fa-angle-right
+                              %span Portlet
+                          %li
+                            %a{href: "timeline.html"}
+                              %i.fa.fa-angle-right
+                              %span Timeline
+                      %li
+                        %a{href: "#pages"}
+                          %i.fa.fa-file-text.icon
+                            %b.bg-primary
+                          %span.pull-right
+                            %i.fa.fa-angle-down.text
+                            %i.fa.fa-angle-up.text-active
+                          %span Pages
+                        %ul.nav.lt
+                          %li
+                            %a{href: "gallery.html"}
+                              %i.fa.fa-angle-right
+                              %span Gallery
+                          %li
+                            %a{href: "profile.html"}
+                              %i.fa.fa-angle-right
+                              %span Profile
+                          %li
+                            %a{href: "invoice.html"}
+                              %i.fa.fa-angle-right
+                              %span Invoice
+                          %li
+                            %a{href: "intro.html"}
+                              %i.fa.fa-angle-right
+                              %span Intro
+                          %li
+                            %a{href: "master.html"}
+                              %i.fa.fa-angle-right
+                              %span Master
+                          %li
+                            %a{href: "gmap.html"}
+                              %i.fa.fa-angle-right
+                              %span Google Map
+                          %li
+                            %a{href: "signin.html"}
+                              %i.fa.fa-angle-right
+                              %span Signin
+                          %li
+                            %a{href: "signup.html"}
+                              %i.fa.fa-angle-right
+                              %span Signup
+                          %li
+                            %a{href: "404.html"}
+                              %i.fa.fa-angle-right
+                              %span 404
+                      %li
+                        %a{href: "mail.html"}
+                          %b.badge.bg-danger.pull-right 3
+                          %i.fa.fa-envelope-o.icon
+                            %b.bg-primary.dker
+                          %span Message
+                      %li
+                        %a{href: "notebook.html"}
+                          %i.fa.fa-pencil.icon
+                            %b.bg-info
+                          %span Notes
+                  / / nav
+              %footer.footer.lt.hidden-xs.b-t.b-dark
+                #chat.dropup
+                  %section.dropdown-menu.on.aside-md.m-l-n
+                    %section.panel.bg-white
+                      %header.panel-heading.b-b.b-light Active chats
+                      .panel-body.animated.fadeInRight
+                        %p.text-sm No active chats.
+                        %p
+                          %a.btn.btn-sm.btn-default{href: "#"} Start a chat
+                #invite.dropup
+                  %section.dropdown-menu.on.aside-md.m-l-n
+                    %section.panel.bg-white
+                      %header.panel-heading.b-b.b-light
+                        John
+                        %i.fa.fa-circle.text-success
+                      .panel-body.animated.fadeInRight
+                        %p.text-sm No contacts in your lists.
+                        %p
+                          %a.btn.btn-sm.btn-facebook{href: "#"}
+                            %i.fa.fa-fw.fa-facebook
+                            Invite from Facebook
+                %a.pull-right.btn.btn-sm.btn-dark.btn-icon{"data-toggle" => "class:nav-xs", href: "#nav"}
+                  %i.fa.fa-angle-left.text
+                  %i.fa.fa-angle-right.text-active
+                .btn-group.hidden-nav-xs
+                  %button.btn.btn-icon.btn-sm.btn-dark{"data-target" => "#chat", "data-toggle" => "dropdown", title: "Chats", type: "button"}
+                    %i.fa.fa-comment-o
+                  %button.btn.btn-icon.btn-sm.btn-dark{"data-target" => "#invite", "data-toggle" => "dropdown", title: "Contacts", type: "button"}
+                    %i.fa.fa-facebook
+          / /.aside
+          %section#content
+            %section.vbox
+              %section.scrollable.padder
+                %ul.breadcrumb.no-border.no-radius.b-b.b-light.pull-in
+                  %li
+                    %a{href: "index.html"}
+                      %i.fa.fa-home
+                      Home
+                  %li.active Workset
+                .m-b-md
+                  %h3.m-b-none Workset
+                  %small Welcome back, Noteman
+                %section.panel.panel-default
+                  .row.m-l-none.m-r-none.bg-light.lter
+                    .col-sm-6.col-md-3.padder-v.b-r.b-light
+                      %span.fa-stack.fa-2x.pull-left.m-r-sm
+                        %i.fa.fa-circle.fa-stack-2x.text-info
+                        %i.fa.fa-male.fa-stack-1x.text-white
+                      %a.clear{href: "#"}
+                        %span.h3.block.m-t-xs
+                          %strong 52,000
+                        %small.text-muted.text-uc New robots
+                    .col-sm-6.col-md-3.padder-v.b-r.b-light.lt
+                      %span.fa-stack.fa-2x.pull-left.m-r-sm
+                        %i.fa.fa-circle.fa-stack-2x.text-warning
+                        %i.fa.fa-bug.fa-stack-1x.text-white
+                        %span.easypiechart.pos-abt{"data-animate" => "2000", "data-line-cap" => "butt", "data-line-width" => "4", "data-percent" => "100", "data-scale-color" => "false", "data-size" => "50", "data-target" => "#bugs", "data-track-color" => "#fff", "data-update" => "3000"}
+                      %a.clear{href: "#"}
+                        %span.h3.block.m-t-xs
+                          %strong#bugs 468
+                        %small.text-muted.text-uc Bugs intruded
+                    .col-sm-6.col-md-3.padder-v.b-r.b-light
+                      %span.fa-stack.fa-2x.pull-left.m-r-sm
+                        %i.fa.fa-circle.fa-stack-2x.text-danger
+                        %i.fa.fa-fire-extinguisher.fa-stack-1x.text-white
+                        %span.easypiechart.pos-abt{"data-animate" => "3000", "data-line-cap" => "butt", "data-line-width" => "4", "data-percent" => "100", "data-scale-color" => "false", "data-size" => "50", "data-target" => "#firers", "data-track-color" => "#f5f5f5", "data-update" => "5000"}
+                      %a.clear{href: "#"}
+                        %span.h3.block.m-t-xs
+                          %strong#firers 359
+                        %small.text-muted.text-uc Extinguishers ready
+                    .col-sm-6.col-md-3.padder-v.b-r.b-light.lt
+                      %span.fa-stack.fa-2x.pull-left.m-r-sm
+                        %i.fa.fa-circle.fa-stack-2x.icon-muted
+                        %i.fa.fa-clock-o.fa-stack-1x.text-white
+                      %a.clear{href: "#"}
+                        %span.h3.block.m-t-xs
+                          %strong 31:50
+                        %small.text-muted.text-uc Left to exit
+                .row
+                  .col-md-8
+                    %section.panel.panel-default
+                      %header.panel-heading.font-bold Statistics
+                      .panel-body
+                        #flot-1ine{style: "height:210px"}
+                      %footer.panel-footer.bg-white.no-padder
+                        .row.text-center.no-gutter
+                          .col-xs-3.b-r.b-light
+                            %span.h4.font-bold.m-t.block 5,860
+                            %small.text-muted.m-b.block Orders
+                          .col-xs-3.b-r.b-light
+                            %span.h4.font-bold.m-t.block 10,450
+                            %small.text-muted.m-b.block Sellings
+                          .col-xs-3.b-r.b-light
+                            %span.h4.font-bold.m-t.block 21,230
+                            %small.text-muted.m-b.block Items
+                          .col-xs-3
+                            %span.h4.font-bold.m-t.block 7,230
+                            %small.text-muted.m-b.block Customers
+                  .col-md-4
+                    %section.panel.panel-default
+                      %header.panel-heading.font-bold Data graph
+                      .bg-light.dk.wrapper
+                        %span.pull-right Friday
+                        %span.h4
+                          $540
+                          %br/
+                          %small.text-muted +1.05(2.15%)
+                        .text-center.m-b-n.m-t-sm
+                          .sparkline{"data-fill-color" => "", "data-height" => "65", "data-highlight-line-color" => "#fff", "data-line-color" => "#dddddd", "data-line-width" => "2", "data-resize" => "true", "data-spot-color" => "#bbbbbb", "data-spot-radius" => "3", "data-type" => "line", "data-width" => "100%", values: "280,320,220,385,450,320,345,250,250,250,400,380"}
+                          .sparkline.inline{"data-bar-color" => "#65bd77", "data-bar-spacing" => "6", "data-bar-width" => "6", "data-height" => "45", "data-type" => "bar"} 10,9,11,10,11,10,12,10,9,10,11,9,8
+                      .panel-body
+                        %div
+                          %span.text-muted Total:
+                          %span.h3.block $2500.00
+                        .line.pull-in
+                        .row.m-t-sm
+                          .col-xs-4
+                            %small.text-muted.block Market
+                            %span $1500.00
+                          .col-xs-4
+                            %small.text-muted.block Referal
+                            %span $600.00
+                          .col-xs-4
+                            %small.text-muted.block Affiliate
+                            %span $400.00
+                .row
+                  .col-md-8
+                    %h4.m-t-none Todos
+                    %ul.list-group.gutter.list-group-lg.list-group-sp.sortable
+                      %li.list-group-item.box-shadow
+                        %a.pull-right{"data-dismiss" => "alert", href: "#"}
+                          %i.fa.fa-times.icon-muted
+                        %span.pull-left.media-xs
+                          %i.fa.fa-sort.icon-muted.fa.m-r-sm
+                          %a.active{"data-toggle" => "class:text-lt text-success", href: "#todo-1"}
+                            %i.fa.fa-square-o.fa-fw.text
+                            %i.fa.fa-check-square-o.fa-fw.text-active.text-success
+                        #todo-1.clear.text-success.text-lt
+                          Browser compatibility
+                      %li.list-group-item.box-shadow
+                        %a.pull-right{"data-dismiss" => "alert", href: "#"}
+                          %i.fa.fa-times.icon-muted
+                        %span.pull-left.media-xs
+                          %i.fa.fa-sort.icon-muted.fa.m-r-sm
+                          %a{"data-toggle" => "class:text-lt text-danger", href: "#todo-2"}
+                            %i.fa.fa-square-o.fa-fw.text
+                            %i.fa.fa-check-square-o.fa-fw.text-active.text-danger
+                        #todo-2.clear
+                          Looking for more example templates
+                      %li.list-group-item.box-shadow
+                        %a.pull-right{"data-dismiss" => "alert", href: "#"}
+                          %i.fa.fa-times.icon-muted
+                        %span.pull-left.media-xs
+                          %i.fa.fa-sort.icon-muted.fa.m-r-sm
+                          %a{"data-toggle" => "class:text-lt", href: "#todo-3"}
+                            %i.fa.fa-square-o.fa-fw.text
+                            %i.fa.fa-check-square-o.fa-fw.text-active.text-success
+                        #todo-3.clear
+                          Customizing components
+                      %li.list-group-item.box-shadow
+                        %a.pull-right{"data-dismiss" => "alert", href: "#"}
+                          %i.fa.fa-times.icon-muted
+                        %span.pull-left.media-xs
+                          %i.fa.fa-sort.icon-muted.fa.m-r-sm
+                          %a{"data-toggle" => "class:text-lt", href: "#todo-4"}
+                            %i.fa.fa-square-o.fa-fw.text
+                            %i.fa.fa-check-square-o.fa-fw.text-active.text-success
+                        #todo-4.clear
+                          The fastest way to get started
+                      %li.list-group-item.box-shadow
+                        %a.pull-right{"data-dismiss" => "alert", href: "#"}
+                          %i.fa.fa-times.icon-muted
+                        %span.pull-left.media-xs
+                          %i.fa.fa-sort.icon-muted.fa.m-r-sm
+                          %a{"data-toggle" => "class:text-lt", href: "#todo-5"}
+                            %i.fa.fa-square-o.fa-fw.text
+                            %i.fa.fa-check-square-o.fa-fw.text-active.text-success
+                        #todo-5.clear
+                          HTML5 doctype required
+                      %li.list-group-item.box-shadow
+                        %a.pull-right{"data-dismiss" => "alert", href: "#"}
+                          %i.fa.fa-times.icon-muted
+                        %span.pull-left.media-xs
+                          %i.fa.fa-sort.icon-muted.fa.m-r-sm
+                          %a{"data-toggle" => "class:text-lt", href: "#todo-6"}
+                            %i.fa.fa-square-o.fa-fw.text
+                            %i.fa.fa-check-square-o.fa-fw.text-active.text-success
+                        #todo-6.clear
+                          LessCSS compiling
+                  .col-md-4
+                    %section.panel.b-light
+                      %header.panel-heading.bg-primary.dker.no-border
+                        %strong Calendar
+                      #calendar.bg-primary.m-l-n-xxs.m-r-n-xxs
+                      .list-group
+                        %a.list-group-item.text-ellipsis{href: "#"}
+                          %span.badge.bg-danger 7:30
+                          Meet a friend
+                        %a.list-group-item.text-ellipsis{href: "#"}
+                          %span.badge.bg-success 9:30
+                          Have a kick off meeting with .inc company
+                        %a.list-group-item.text-ellipsis{href: "#"}
+                          %span.badge.bg-light 19:30
+                          Milestone release
+                %div
+                  .btn-group.m-b{"data-toggle" => "buttons"}
+                    %label.btn.btn-sm.btn-default.active
+                      %input#option1{name: "options", type: "radio"}/
+                      Timeline
+                    %label.btn.btn-sm.btn-default
+                      %input#option2{name: "options", type: "radio"}/
+                      Activity
+                  %section.comment-list.block
+                    %article#comment-id-1.comment-item
+                      %span.fa-stack.pull-left.m-l-xs
+                        %i.fa.fa-circle.text-info.fa-stack-2x
+                        %i.fa.fa-play-circle.text-white.fa-stack-1x
+                      %section.comment-body.m-b-lg
+                        %header
+                          %a{href: "#"}
+                            %strong John smith
+                          shared a
+                          %a.text-info{href: "#"} video
+                          to you
+                          %span.text-muted.text-xs
+                            24 minutes ago
+                        %div Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam.
+                    / .comment-reply
+                    %article#comment-id-2.comment-reply
+                      %article.comment-item
+                        %a.pull-left.thumb-sm
+                          %img.img-circle{src: "images/avatar_default.jpg"}/
+                        %section.comment-body.m-b-lg
+                          %header
+                            %a{href: "#"}
+                              %strong John smith
+                            %span.text-muted.text-xs
+                              26 minutes ago
+                          %div Morbi id neque quam. Aliquam.
+                      %article.comment-item
+                        %a.pull-left.thumb-sm
+                          %img.img-circle{src: "images/avatar.jpg"}/
+                        %section.comment-body.m-b-lg
+                          %header
+                            %a{href: "#"}
+                              %strong Mike
+                            %span.text-muted.text-xs
+                              26 minutes ago
+                          %div Good idea.
+                    / / .comment-reply
+                    %article#comment-id-2.comment-item
+                      %span.fa-stack.pull-left.m-l-xs
+                        %i.fa.fa-circle.text-danger.fa-stack-2x
+                        %i.fa.fa-file-o.text-white.fa-stack-1x
+                      %section.comment-body.m-b-lg
+                        %header
+                          %a{href: "#"}
+                            %strong John Doe
+                          %span.text-muted.text-xs
+                            1 hour ago
+                        %div Lorem ipsum dolor sit amet, consecteter adipiscing elit.
+                    %article#comment-id-2.comment-item
+                      %span.fa-stack.pull-left.m-l-xs
+                        %i.fa.fa-circle.text-success.fa-stack-2x
+                        %i.fa.fa-check.text-white.fa-stack-1x
+                      %section.comment-body.m-b-lg
+                        %header
+                          %a{href: "#"}
+                            %strong Jonathan
+                          completed a task
+                          %span.text-muted.text-xs
+                            1 hour ago
+                        %div Consecteter adipiscing elit.
+                  %a.btn.btn-default.btn-sm.m-b{href: "#"}
+                    %i.fa.fa-plus.icon-muted
+                    more
+            %a.hide.nav-off-screen-block{"data-target" => "#nav", "data-toggle" => "class:nav-off-screen", href: "#"}
+          %aside#notes.bg-light.lter.b-l.aside-md.hide
+            .wrapper Notification
+    %script{src: "js/jquery.min.js"}
+    / Bootstrap
+    %script{src: "js/bootstrap.js"}
+    / App
+    %script{src: "js/app.js"}
+    %script{src: "js/app.plugin.js"}
+    %script{src: "js/slimscroll/jquery.slimscroll.min.js"}
+    %script{cache: "false", src: "js/charts/easypiechart/jquery.easy-pie-chart.js"}
+    %script{cache: "false", src: "js/charts/sparkline/jquery.sparkline.min.js"}
+    %script{cache: "false", src: "js/charts/flot/jquery.flot.min.js"}
+    %script{cache: "false", src: "js/charts/flot/jquery.flot.tooltip.min.js"}
+    %script{cache: "false", src: "js/charts/flot/jquery.flot.resize.js"}
+    %script{cache: "false", src: "js/charts/flot/jquery.flot.grow.js"}
+    %script{cache: "false", src: "js/charts/flot/demo.js"}
+    %script{cache: "false", src: "js/calendar/bootstrap_calendar.js"}
+    %script{cache: "false", src: "js/calendar/demo.js"}
+    %script{cache: "false", src: "js/sortable/jquery.sortable.js"}

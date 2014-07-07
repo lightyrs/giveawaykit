@@ -1,0 +1,5 @@
+#step_one.modal-step{:'data-modal-step' => 1}
+  - if facebook_page.no_active_giveaways?
+    = render 'giveaways/form/publish_confirm', giveaway: giveaway
+  - else
+    = render 'giveaways/pending/active_conflict', giveaway: giveaway

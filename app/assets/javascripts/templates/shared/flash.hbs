@@ -1,0 +1,22 @@
+<li class='rails-flash js-flash messenger-message-slot animated fadeInUp'>
+  <div class='alert-{{msgType}} message message-{{msgType}} messenger-message'>
+    <div class='messenger-message-inner'>
+      <span class='message-icon'>
+        <i class='bg-{{msgType}} fa fa-bell-o time-icon'></i>
+      </span>
+      <div class='message-text'>
+        <h4>{{{msgTitle}}}</h4>
+        <div class='message-content'>{{{msg}}}</div>
+      </div>
+      <button class='messenger-close' data-dismiss='alert' type='button'>×</button>
+    </div>
+    <div class='messenger-spinner'>
+      <span class='messenger-spinner-side messenger-spinner-side-left'>
+        <span class='messenger-spinner-fill'></span>
+      </span>
+      <span class='messenger-spinner-side messenger-spinner-side-right'>
+        <span class='messenger-spinner-fill'></span>
+      </span>
+    </div>
+  </div>
+</li>

@@ -1,0 +1,22 @@
+- breadcrumb :root
+
+- if @page
+  - breadcrumb :facebook_page, @page
+
+- if @giveaway
+  - breadcrumb :giveaway, @giveaway
+
+- if current_action == 'giveaways/active'
+  - breadcrumb :active_giveaway, @page
+
+- if current_action == 'giveaways/pending'
+  - breadcrumb :pending_giveaways, @page
+
+- if current_action == 'giveaways/completed'
+  - breadcrumb :completed_giveaways, @page
+
+- if current_action == 'users/edit'
+  - breadcrumb :user, current_user
+
+- if current_action == 'subscription_plans/index'
+  - breadcrumb :subscription_plans, current_user

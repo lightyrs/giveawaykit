@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+    %p #{@user_first_name},
+    %p #{@giveaway.title} has ended and will no longer appear on the #{@giveaway.facebook_page.name} Facebook Page.
+    %p Here are some stats from your giveaway promotion:
+    %p Main Stats
+    %p #{@giveaway.page_likes_while_active} new users liked your page.
+    %p #{@giveaway.uniques} people saw the giveaway.
+    %p #{@giveaway.entry_count} visitors entered, resulting in an entry rate of #{@giveaway.entry_conversion_rate}.
+    %p Viral Stats
+    %p #{@giveaway.total_wall_posts} wall posts and #{@giveaway.total_requests} requests were generated.
+    %p This viral sharing resulted in #{@giveaway.viral_views} impressions, #{@giveaway.viral_like_count} likes, and #{@giveaway.viral_entry_count} entries.
+    %p Great stuff! Now it's time to start planning your next giveaway.
+    %p Brian D. and the Simple Giveaways team

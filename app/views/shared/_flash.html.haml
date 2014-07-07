@@ -1,0 +1,5 @@
+#flash_tray
+  %ul.messenger.messenger-fixed.messenger-on-bottom.messenger-on-right.messenger-theme-block
+    - if flash.any?
+      - flash.each do |level, message|
+        = render 'shared/flash_message', level: level, message: message

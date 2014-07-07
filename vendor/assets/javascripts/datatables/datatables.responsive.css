@@ -1,0 +1,68 @@
+table.has-columns-hidden > tbody > tr > td > span.responsiveExpander {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+table.has-columns-hidden > tbody > tr > td > span.responsiveExpander:before {
+  content: "\f055";
+}
+
+table.has-columns-hidden > tbody > tr.detail-show td:first-child {
+  font-weight: bold;
+}
+
+table.has-columns-hidden > tbody > tr.detail-show > td span.responsiveExpander {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-right: 5px;
+}
+
+table.has-columns-hidden > tbody > tr.detail-show > td span.responsiveExpander:before {
+  content: "\f056";
+}
+
+table.has-columns-hidden > tbody > tr.row-detail > td {
+    background: #eee;
+}
+
+table.has-columns-hidden > tbody > tr.row-detail > td > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+table.has-columns-hidden > tbody > tr.row-detail > td > ul li {
+  text-align: left;
+  -ms-word-break: break-all;
+       word-break: break-all;
+       word-break: break-word;
+  -webkit-hyphens: auto;
+     -moz-hyphens: auto;
+          hyphens: auto;
+}
+
+table.has-columns-hidden > tbody > tr.row-detail > td > ul li div {
+  text-align: left !important;
+  display: inline-block !important;
+}
+
+table.has-columns-hidden > tbody > tr.row-detail > td > ul > li > span.columnTitle {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+table.has-columns-hidden > tbody > tr.row-detail > td > ul > li > span.columnValue {
+    font-size: 14px;
+}

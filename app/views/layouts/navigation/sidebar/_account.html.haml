@@ -1,0 +1,27 @@
+- if body_class.match(/users-edit|subscription_plans-index/)
+  %li.active
+    %a.active{href: "#"}
+      %i.fa.fa-user.icon
+        %b.bg-primary
+      %span.pull-right
+        %i.fa.fa-angle-down.text
+        %i.fa.fa-angle-up.text-active
+      %span Account
+    %ul.nav.lt
+      = active_link_to edit_user_path(current_user, anchor: 'basic_info'), wrap_tag: :li do
+        %i.fa.fa-angle-right
+        %span Basic Info
+      = active_link_to edit_user_path(current_user, anchor: 'billing_info'), wrap_tag: :li do
+        %i.fa.fa-angle-right
+        %span Billing Info
+      = active_link_to user_subscription_plans_path(current_user), wrap_tag: :li do
+        %i.fa.fa-angle-right
+        %span Subscription
+- else
+  = active_link_to edit_user_path(current_user), wrap_tag: :li do
+    %i.fa.fa-user.icon
+      %b.bg-primary
+    %span.pull-right
+      %i.fa.fa-angle-down.text
+      %i.fa.fa-angle-up.text-active
+    %span Account

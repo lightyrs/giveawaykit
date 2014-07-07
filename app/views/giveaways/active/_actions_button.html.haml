@@ -1,0 +1,12 @@
+.actions-button.m-b
+  %button.btn.btn-default.btn-block.dropdown-toggle{"data-toggle" => "dropdown"}
+    %i.fa.fa-cog.text-default.m-r-xs
+    Actions
+    %span.caret
+  %ul.dropdown-menu.pull-right
+    %li= link_to '<i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit Giveaway'.html_safe, edit_facebook_page_giveaway_path(giveaway.facebook_page, giveaway), id: 'edit_giveaway'
+    - if giveaway.canhaz_giveaway_shortlink?
+      %li= link_to '<i class="fa fa-copy"></i>&nbsp;&nbsp;Copy Shortlink'.html_safe, '#', class: 'zclip-trigger', 'data-clipboard-text' => giveaway.shortlink
+    %li= link_to "<i class='fa fa-facebook-square'></i>&nbsp;&nbsp;View on Facebook".html_safe, giveaway.giveaway_url, target: "_blank"
+    %li.divider
+    %li.text-danger= link_to '<i class="fa fa-legal"></i>&nbsp;&nbsp;End Now'.html_safe, end_facebook_page_giveaway_path(giveaway.facebook_page, giveaway), class: 'end-giveaway-button text-danger'

@@ -1,0 +1,49 @@
+#enter_giveaway
+  %a.btn.btn-primary.btn-xlarge{href: "#"} Enter Giveaway
+#giveaway_image
+  = image_tag @giveaway.image.tab.url.gsub("http://", "//") rescue ""
+#giveaway_terms
+  - unless @page.canhaz_white_label?
+    %p.powered-by Powered by <a href='http://simplegiveaways.com' target='_blank'>Simple Giveaways</a>.
+  %p This promotion is in no way sponsored, endorsed or administered by, or associated with, Facebook. You understand that you are providing your information to "#{@page.name}" and not to Facebook. Your information will only be used to administer this promotion. Entry in this promotion is subject to the #{@giveaway.terms_link}.
+  .terms-text.hidden{style: "display:none"}= @giveaway.terms_text
+
+#giveaway_modal{style: "display:none"}
+  .modal-header
+    %h3= @giveaway.title
+  .modal-body
+    .step.one
+      %span To be eligible for the giveaway, please like this page first.
+      %fb:like-box{border_color: "", header: "false", href: @page.url, show_faces: "true", stream: "false", width: "402"}
+    .step.two{style: "display:none"}
+      %a{href: "#"} Click Here to Enter the Giveaway
+    .step.three{style: "display:none"}
+      .entry-status
+        %span Congratulations!
+        %span You have successfully entered the giveaway.
+      .share-page
+        - if @giveaway.bonus_value == "0" || !@page.canhaz_referral_tracking?
+          %span Share this giveaway with your friends.
+        - elsif @giveaway.bonus_value == "1"
+          %span Share this giveaway to receive <strong class="badge badge-warning">1</strong> bonus entry for each friend who enters.
+        - else
+          %span Share this giveaway to receive <strong class="badge badge-warning">#{@giveaway.bonus_value}</strong> bonus entries <br />for each friend who enters.
+        .share-buttons
+          .btn-group
+            %a.wall-post.btn.btn-primary{href: "#"} Post
+            %a.app-request.btn.btn-primary{href: "#"} Invite
+          %a.raw-shortlink.btn.btn-info{href: "#"}
+            Copy Link
+          %a.raw-shortlink.btn.btn-success.hide{href: "#"}
+            Copied
+            %i.icon-white.icon-ok
+    .form{style: "display:none"}
+      %span Please provide your email so we can notify you in case you win!
+      = text_field_tag "email", nil, placeholder: "user@domain.com"
+      = link_to "Enter Giveaway", "#", class: "btn btn-primary submit"
+    .auth{style: "display:none"}
+      %span Please authenticate the app so we can notify you in case you win!
+      = link_to "Authenticate", "#", class: "btn btn-primary auth"
+    .loader{style: "display:none"}
+      = image_tag "tab_loader.gif", alt: "Loading..."
+

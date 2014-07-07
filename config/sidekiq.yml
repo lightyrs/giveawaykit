@@ -1,0 +1,6 @@
+:verbose: false
+:concurrency: 2
+:queues:
+  - [often, 7]
+  - [default, 5]
+  - [seldom, 3]

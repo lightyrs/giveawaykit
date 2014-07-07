@@ -1,0 +1,72 @@
+%div
+  .btn-group.m-b{"data-toggle" => "buttons"}
+    %label.btn.btn-sm.btn-default.active
+      %input#option1{name: "options", type: "radio"}/
+      Timeline
+    %label.btn.btn-sm.btn-default
+      %input#option2{name: "options", type: "radio"}/
+      Activity
+  %section.comment-list.block
+    %article#comment-id-1.comment-item
+      %span.fa-stack.pull-left.m-l-xs
+        %i.fa.fa-circle.text-info.fa-stack-2x
+        %i.fa.fa-play-circle.text-white.fa-stack-1x
+      %section.comment-body.m-b-lg
+        %header
+          %a{href: "#"}
+            %strong John smith
+          shared a
+          %a.text-info{href: "#"} video
+          to you
+          %span.text-muted.text-xs
+            24 minutes ago
+        %div Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam.
+    / .comment-reply
+    %article#comment-id-2.comment-reply
+      %article.comment-item
+        %a.pull-left.thumb-sm
+          %img.img-circle{src: "/assets/avatar_default.jpg"}/
+        %section.comment-body.m-b-lg
+          %header
+            %a{href: "#"}
+              %strong John smith
+            %span.text-muted.text-xs
+              26 minutes ago
+          %div Morbi id neque quam. Aliquam.
+      %article.comment-item
+        %a.pull-left.thumb-sm
+          %img.img-circle{src: "/assets/avatar_default.jpg"}/
+        %section.comment-body.m-b-lg
+          %header
+            %a{href: "#"}
+              %strong Mike
+            %span.text-muted.text-xs
+              26 minutes ago
+          %div Good idea.
+    / / .comment-reply
+    %article#comment-id-2.comment-item
+      %span.fa-stack.pull-left.m-l-xs
+        %i.fa.fa-circle.text-danger.fa-stack-2x
+        %i.fa.fa-file-o.text-white.fa-stack-1x
+      %section.comment-body.m-b-lg
+        %header
+          %a{href: "#"}
+            %strong John Doe
+          %span.text-muted.text-xs
+            1 hour ago
+        %div Lorem ipsum dolor sit amet, consecteter adipiscing elit.
+    %article#comment-id-2.comment-item
+      %span.fa-stack.pull-left.m-l-xs
+        %i.fa.fa-circle.text-success.fa-stack-2x
+        %i.fa.fa-check.text-white.fa-stack-1x
+      %section.comment-body.m-b-lg
+        %header
+          %a{href: "#"}
+            %strong Jonathan
+          completed a task
+          %span.text-muted.text-xs
+            1 hour ago
+        %div Consecteter adipiscing elit.
+  %a.btn.btn-default.btn-sm.m-b{href: "#"}
+    %i.fa.fa-plus.icon-muted
+    more

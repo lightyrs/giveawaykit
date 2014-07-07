@@ -1,0 +1,6 @@
+%header.panel-heading.lt.no-border{class: giveaway_header_class(giveaway)}
+  .clearfix
+    - avatar image_url: giveaway.image.preview.url
+    .clear
+      .h3.m-t-xs.m-b-xs.text-white.col-md-12
+        = render 'facebook_pages/header', content: giveaway.title

@@ -1,0 +1,81 @@
+.row.virality-pies
+  .col-sm-6.col-md-4
+    %section.panel.panel-default.chart-panel{class: "#{(giveaway.direct_uniques > 0 || giveaway.viral_uniques > 0) ? '' : 'no-data'}"}
+      %header.panel-heading
+        %strong Visitors
+        %span.pull-right Virality
+      .panel-body.text-center
+        - if giveaway.direct_uniques > 0 || giveaway.viral_uniques > 0
+          .sparkline.inline{"data-height" => "150", "data-slice-colors" => "['#fb6b5b','#eee']", "data-highlight-lighten" => 1.1, "data-tooltip-chart-title" => "Visitors (Virality)", "data-tooltip-format" => "<div><span style='color: {{color}}'>&#9679;</span> {{value}} {{offset:names}}</div><div><span style='color: {{color}}'>&#9679;</span> {{percent.1}}% {{offset:names}}</div>", "data-tooltip-value-lookups" => '{"names":{"0":"Viral","1":"Direct"}}', "data-type" => "pie", values: "#{giveaway.viral_uniques},#{giveaway.direct_uniques}"}
+          .line
+          .text-xs
+            .col-xs-6
+              %span
+                %i.fa.fa-circle.text-danger
+                = giveaway.viral_uniques
+                %br
+                Viral
+            .col-xs-6
+              %span
+                %i.fa.fa-circle.text-muted
+                = giveaway.direct_uniques
+                %br
+                Direct
+        - else
+          .inline.empty-pie
+            .h3
+              N/A
+            .m-t-xs We don't have enough data yet.
+  .col-sm-6.col-md-4
+    %section.panel.panel-default.chart-panel{class: "#{(giveaway.viral_like_count > 0 || giveaway.visitor_like_count > 0) ? '' : 'no-data'}"}
+      %header.panel-heading
+        %strong Likes
+        %span.pull-right Virality
+      .panel-body.text-center
+        - if giveaway.viral_like_count > 0 || giveaway.visitor_like_count > 0
+          .sparkline.inline{"data-height" => "150", "data-slice-colors" => "['#4cc0c1','#eee']", "data-highlight-lighten" => 1.1, "data-tooltip-chart-title" => "Likes (Virality)", "data-tooltip-format" => "<div><span style='color: {{color}}'>&#9679;</span> {{value}} {{offset:names}}</div><div><span style='color: {{color}}'>&#9679;</span> {{percent.1}}% {{offset:names}}</div>", "data-tooltip-value-lookups" => '{"names":{"0":"Viral","1":"Direct"}}', "data-type" => "pie", values: "#{giveaway.viral_like_count},#{giveaway.visitor_like_count}"}
+          .line
+          .text-xs
+            .col-xs-6
+              %span
+                %i.fa.fa-circle.text-info
+                = giveaway.viral_like_count
+                %br
+                Viral
+            .col-xs-6
+              %span
+                %i.fa.fa-circle.text-muted
+                = giveaway.visitor_like_count
+                %br
+                Direct
+        - else
+          .inline.empty-pie
+            .h3 N/A
+            .m-t-xs We don't have enough data yet.
+  .clearfix.visible-sm
+  .col-sm-12.col-md-4
+    %section.panel.panel-default.chart-panel{class: "#{(giveaway.viral_entry_count > 0 || giveaway.entry_count > 0) ? '' : 'no-data'}"}
+      %header.panel-heading
+        %strong Entries
+        %span.pull-right Virality
+      .panel-body.text-center
+        - if giveaway.viral_entry_count > 0 || giveaway.entry_count > 0
+          .sparkline.inline{"data-height" => "150", "data-slice-colors" => "['#65bd77','#eee']", "data-highlight-lighten" => 1.1, "data-tooltip-chart-title" => "Entries (Virality)", "data-tooltip-format" => "<div><span style='color: {{color}}'>&#9679;</span> {{value}} {{offset:names}}</div><div><span style='color: {{color}}'>&#9679;</span> {{percent.1}}% {{offset:names}}</div>", "data-tooltip-value-lookups" => '{"names":{"0":"Viral","1":"Direct"}}', "data-type" => "pie", values: "#{giveaway.viral_entry_count},#{giveaway.entry_count}"}
+          .line
+          .text-xs
+            .col-xs-6
+              %span
+                %i.fa.fa-circle.text-primary
+                = giveaway.viral_entry_count
+                %br
+                Viral
+            .col-xs-6
+              %span
+                %i.fa.fa-circle.text-muted
+                = giveaway.entry_count
+                %br
+                Direct
+        - else
+          .inline.empty-pie
+            .h3 N/A
+            .m-t-xs We don't have enough data yet.

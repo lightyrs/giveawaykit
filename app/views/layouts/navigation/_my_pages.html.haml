@@ -1,0 +1,19 @@
+%ul#my_pages_dropdown.nav.navbar-nav.hidden-xs
+  %li.dropdown
+    %a.dropdown-toggle.dker{"data-toggle" => "dropdown", href: "#"}
+      %i.fa.fa-facebook-square
+      %span.font-bold My Pages
+    %section#facebook_pages_list.panel.panel-default.dropdown-menu.aside-xl.on.animated.fadeInLeft.no-borders
+      %header.panel-heading
+        %input.search.form-control{placeholder: "Search", type: "text"}
+      %ul.list-group.bg-white.no-radius.alt
+        - current_user.facebook_pages.each do |page|
+          %li
+            = active_link_to facebook_page_path(page), class: 'list-group-item media' do
+              %span.pull-left.thumb-sm
+                %img.img-circle{alt: page.name, src: page.avatar_square}
+              .pull-right.text-success.m-t-sm
+                %i.fa.fa-circle
+              .media-body
+                %div.name= page.name
+                %small= like_count_label(page)

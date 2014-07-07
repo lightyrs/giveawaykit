@@ -1,0 +1,6 @@
+.ui.secondary.fluid.vertical.pointing.menu
+  .item{ class: "#{active_link_to_class(new_facebook_page_giveaway_path(facebook_page))}" }
+    = link_to '<i class="add sign icon"></i>New Giveaway'.html_safe, new_facebook_page_giveaway_path(facebook_page), class: 'ui tiny fluid teal button'
+  = active_link_to '<i class="bolt icon"></i>Active Giveaway'.html_safe, active_facebook_page_giveaways_path(facebook_page), class: 'item'
+  = active_link_to '<i class="time icon"></i>Pending Giveaways'.html_safe, pending_facebook_page_giveaways_path(facebook_page), class: 'item'
+  = active_link_to '<i class="archive icon"></i>Completed Giveaways'.html_safe, completed_facebook_page_giveaways_path(facebook_page), class: 'item'

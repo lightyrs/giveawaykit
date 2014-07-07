@@ -1,0 +1,31 @@
+%section.schedule.panel.panel-default
+  .panel-heading
+    %h3.panel-title Schedule
+  %ul.list-group
+
+    %li#giveaway_start_date.date-container.list-group-item.editable-parent{ 'data-date' => giveaway.start_date && giveaway.start_date.in_time_zone, 'data-date-type' => 'start' }
+      .m-b-xs.editable-trigger
+        %span.editable-label
+          Start Date
+          %span.editable-error
+        - unless giveaway.active?
+          %a.pull-right{href: "#"}
+            %i.fa.fa-pencil
+      = editable giveaway, :start_date, url: facebook_page_giveaway_path(giveaway.facebook_page, giveaway), value: giveaway.start_date && giveaway.start_date.in_time_zone, disabled: giveaway.active?, class: "#{giveaway.active? ? '' : 'editable-datetime'}", 'date-type' => 'start'
+      %input.date-trigger.hide{type: "text", value: "#{giveaway.start_date && giveaway.start_date.to_formatted_s(:date)}"}/
+      %input.time-trigger.hide{type: "text", value: "#{giveaway.start_date && giveaway.start_date.to_formatted_s(:time)}"}/
+      .pickadate-outlet
+      - callout type: 'warning', title: "This start date conflicts with the following giveaway schedules.", class: 'conflicts-container m-t' do
+        %p You may choose to keep this date, however, it will not be honored unless the scheduling conflict is resolved.
+
+    %li#giveaway_end_date.date-container.list-group-item.editable-parent{ 'data-date' => giveaway.end_date && giveaway.end_date.in_time_zone, 'data-date-type' => 'end' }
+      .m-b-xs.editable-trigger
+        %span.editable-label
+          End Date
+          %span.editable-error
+        %a.pull-right{href: "#"}
+          %i.fa.fa-pencil
+      = editable giveaway, :end_date, url: facebook_page_giveaway_path(giveaway.facebook_page, giveaway), value: giveaway.end_date && giveaway.end_date.in_time_zone, class: 'editable-datetime', 'date-type' => 'end'
+      %input.date-trigger.hide{type: "text", value: "#{giveaway.end_date && giveaway.end_date.to_formatted_s(:date)}"}/
+      %input.time-trigger.hide{type: "text", value: "#{giveaway.end_date && giveaway.end_date.to_formatted_s(:time)}"}/
+      .pickadate-outlet

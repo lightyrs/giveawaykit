@@ -1,0 +1,9 @@
+.ui.right.floated.small.borderless.teal.menu
+  = link_to '<i class="list icon"></i> Edit Details'.html_safe, edit_facebook_page_giveaway_path(giveaway.facebook_page, giveaway), class: 'btn btn-s-md btn-default'
+
+  = link_to '<i class="facebook icon"></i> View on Facebook'.html_safe, giveaway.giveaway_url, class: 'btn btn-s-md btn-default', target: '_blank'
+
+  - if giveaway.canhaz_giveaway_shortlink?
+    = link_to '<i class="copy icon"></i> Copy Shortlink'.html_safe, '#', class: 'btn btn-s-md btn-default zclip-trigger', 'data-clipboard-text' => giveaway.shortlink
+
+  = link_to '<i class="legal icon"></i> End Now'.html_safe, end_facebook_page_giveaway_path(giveaway.facebook_page, giveaway), :'data-confirm' => 'Are you sure you want to end the giveaway right now? If you decide to proceed, it will be removed from your Facebook Page immediately.', class: 'btn btn-s-md btn-default'

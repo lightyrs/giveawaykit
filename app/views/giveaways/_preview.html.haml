@@ -1,0 +1,23 @@
+%li.list-group-item.giveaway.preview.animated.fadeInUp
+  .row.no-gutter
+    .col-xs-12.col-sm-7
+      .media
+        - avatar link: facebook_page_giveaway_path(giveaway.facebook_page, giveaway), image_url: giveaway.image.preview.url
+        .media-body.m-t-sm.m-b-xs
+          .h4.media-heading= link_to giveaway.title, facebook_page_giveaway_path(giveaway.facebook_page, giveaway)
+          .meta
+            - if giveaway.pending?
+              %p
+                %i.fa.fa-clock-o.m-r-xs
+                = start_date_label(giveaway, relative: true)
+            - elsif giveaway.completed?
+              %p
+                %i.fa.fa-clock-o.m-r-xs
+                = end_date_label(giveaway, relative: true)
+    .col-xs-12.col-sm-5
+      .row.m-t-sm-sm.m-b-xs
+        - if giveaway.completed?
+          = render 'giveaways/preview/stats', giveaway: giveaway
+        - if giveaway.pending?
+          .avatar-push.text-right-sm.m-r-md-sm.m-l-md-xs
+            = render 'giveaways/navigation/primary', giveaway: giveaway, size_class: 'btn-sm'

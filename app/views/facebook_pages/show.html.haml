@@ -1,0 +1,5 @@
+- content_for :content do
+
+  - if current_user.facebook_pages.any?
+
+    = render 'facebook_pages/giveaways'

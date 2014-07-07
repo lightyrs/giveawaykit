@@ -1,0 +1,5 @@
+.btn-group
+  = link_to '<i class="fa fa-edit"></i> Edit'.html_safe, edit_facebook_page_giveaway_path(giveaway.facebook_page, giveaway), class: 'btn btn-default'
+  %span#start_giveaway.btn.btn-primary= '<i class="fa fa-bolt"></i> Start'.html_safe
+
+= render 'giveaways/pending/start', giveaway: giveaway

@@ -1,0 +1,29 @@
+- content_for :page_heading do
+  = render 'facebook_pages/header'
+
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title Completed Giveaways
+
+  - if @giveaways.any?
+
+    = render 'facebook_pages/giveaways', giveaways: @giveaways
+
+    .panel-footer.paging-footer.text-center
+      = will_paginate @giveaways, renderer: BootstrapPagination::Rails
+      .text-center.paging-info
+        = pagination_info @giveaways, model: "#{'giveaway'.pluralize(@giveaways.size)}"
+
+  - else
+
+    .panel-body.panel-body-callout.text-center-xs
+
+      - callout type: 'info', title: "There are no completed giveaways yet." do
+        - if @page.giveaways.pending.any?
+          %p Create a new giveaway to publish later or publish one of your pending giveaways.
+        - else
+          %p Create a new giveaway to publish later.
+
+        = link_to '<i class="fa fa-plus m-r-xs"></i>New Giveaway'.html_safe, new_facebook_page_giveaway_path(@page), class: 'btn btn-primary m-t-sm-xs'
+        - if @page.giveaways.pending.any?
+          = link_to '<i class="fa fa-clock-o m-r-xs"></i>Pending Giveaways'.html_safe, pending_facebook_page_giveaways_path(@page), class: 'btn btn-default m-t-sm-xs'

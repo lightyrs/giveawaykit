@@ -1,0 +1,9 @@
+#step_two.modal-step{'data-modal-step' => 2, style: 'display: none'}
+  - if facebook_page.has_active_subscription?
+    = render 'giveaways/pending/active_subscription', facebook_page: facebook_page
+  - elsif facebook_page.has_inactive_subscription?
+    = render 'giveaways/pending/inactive_subscription', facebook_page: facebook_page
+  - elsif facebook_page.has_free_trial_remaining?
+    = render 'giveaways/pending/free_trial_remaining', facebook_page: facebook_page
+  - else
+    = render 'giveaways/pending/no_subscription', facebook_page: facebook_page

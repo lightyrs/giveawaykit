@@ -1,0 +1,48 @@
+#giveaway_stats.basic-stats
+  #stats_popover_container.popover-container
+  %section.panel.panel-default
+    .row.m-l-none.m-r-none.bg-light.lter
+      .col-sm-6.col-md-3.padder-v.b-r.b-light.kpi
+        .stat.views.clearfix
+          %span.fa-stack.fa-2x.pull-left.m-r-sm
+            %i.fa.fa-circle.fa-stack-2x.text-danger
+            %i.fa.fa-eye.fa-stack-1x.text-white
+          %span.stat-container.clear
+            %span.h3.block.m-t-xs
+              %strong= giveaway.views
+            %span.stat-title{ data: { toggle: "popover", container: "#stats_popover_container", placement: "auto top", html: "true", trigger: "click", title: "Views", content: "The total number of impressions the giveaway has recieved." } }
+              %small.text-muted.text-uc Views
+              %i.fa.fa-question-circle.text-muted
+      .col-sm-6.col-md-3.padder-v.b-r.b-light.lt.kpi
+        .stat.likes.clearfix
+          %span.fa-stack.fa-2x.pull-left.m-r-sm
+            %i.fa.fa-circle.fa-stack-2x.text-info
+            %i.fa.fa-thumbs-o-up.fa-stack-1x.text-white
+          %span.stat-container.clear
+            %span.h3.block.m-t-xs
+              %strong= giveaway.visitor_like_count
+            %span.stat-title{ data: { toggle: "popover", container: "#stats_popover_container", placement: "auto top", html: "true", trigger: "click", title: "Likes from Visitors", content: "The total number of likes added to your page by giveaway visitors." } }
+              %small.text-muted.text-uc Likes from Visitors
+              %i.fa.fa-question-circle.text-muted
+      .col-sm-6.col-md-3.padder-v.b-r.b-light.kpi
+        .stat.entries.clearfix
+          %span.fa-stack.fa-2x.pull-left.m-r-sm
+            %i.fa.fa-circle.fa-stack-2x.text-primary
+            %i.fa.fa-ticket.fa-stack-1x.text-white
+          %span.stat-container.clear
+            %span.h3.block.m-t-xs
+              %strong= giveaway.entry_count
+            %span.stat-title{ data: { toggle: "popover", container: "#stats_popover_container", placement: "auto top", html: "true", trigger: "click", title: "Entries", content: "The total number of people who have successfully entered the giveaway." } }
+              %small.text-muted.text-uc Entries
+              %i.fa.fa-question-circle.text-muted
+      .col-sm-6.col-md-3.padder-v.b-r.b-light.lt.kpi
+        .stat.shares.clearfix
+          %span.fa-stack.fa-2x.pull-left.m-r-sm
+            %i.fa.fa-circle.fa-stack-2x.text-warning
+            %i.fa.fa-share.fa-stack-1x.text-white
+          %span.stat-container.clear
+            %span.h3.block.m-t-xs
+              %strong= giveaway.total_shares
+            %span.stat-title{ data: { toggle: "popover", container: "#stats_popover_container", placement: "auto top", html: "true", trigger: "click", title: "Shares", content: "The total number of share actions (Wall Posts, Requests, and External Shares) taken by visitors and entrants." } }
+              %small.text-muted.text-uc Shares
+              %i.fa.fa-question-circle.text-muted

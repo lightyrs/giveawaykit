@@ -1,56 +1,62 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  
+  require 'sidekiq/web'
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  constraint = lambda { |request| request.env["warden"].authenticate? and request.env['warden'].user }
+  constraints constraint do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  match '/terms', to: 'welcome#terms', via: [:get]
+  match '/privacy', to: 'welcome#privacy', via: [:get]
+  match '/support', to: 'welcome#support', via: [:get]
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  match '/canvas', to: 'canvas#index', via: [:get, :post]
+  match '/canvas/edit', to: 'canvas#edit', via: [:get, :post]
+  match '/giveaways/tab', to: 'giveaways#tab', via: [:get, :post]
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+  resources :likes, only: [:create]
 
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
+  resources :facebook_pages, only: [:index, :show] do
 
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
+    resources :giveaways do
+      resources :entries, only: [:index, :create, :update]
 
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
+      get :export_entries, on: :member
+      get :active, on: :collection
+      get :pending, on: :collection
+      get :completed, on: :collection
+      get :check_schedule, on: :collection
+      get :clone, on: :member
+      match :start, on: :member, via: [:get, :post]
+      get :start_modal, on: :member
+      get :end, on: :member
+    end
+  end
 
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  match '/facebook_pages/:facebook_page_id/subscribe', to: 'subscriptions#create', as: 'facebook_page_subscribe', via: [:get, :post]
+
+  match '/facebook_pages/:facebook_page_id/subscription_plans', to: 'subscription_plans#index', as: 'facebook_page_subscription_plans', via: [:get, :post]
+
+  match '/users/:user_id/subscribe', to: 'subscriptions#create', as: 'user_subscribe', via: [:get, :post]
+
+  match '/users/:user_id/unsubscribe', to: 'subscriptions#destroy', as: 'user_unsubscribe', via: [:get, :post]
+
+  match '/users/:user_id/subscription_plans', to: 'subscription_plans#index', as: 'user_subscription_plans', via: [:get, :post]
+
+  resources :users
+
+  match '/deauth/:provider', to: 'users#deauth', via: [:get, :post]
+
+  get '/dashboard', to: 'users#show', as: 'dashboard'
+
+  match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match '/logout', to: 'sessions#destroy', via: [:get, :post]
+
+  match '/:giveaway_id', to: 'giveaways#enter', as: 'enter', via: [:get, :post]
+
+  root to: 'welcome#index'
 end

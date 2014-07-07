@@ -1,0 +1,24 @@
+%p.fieldset-help
+  %i.icon-info-sign
+  Modify the ending time for this giveaway.
+= f.input :end_date, as: :ui_date_time_picker, input_html: { class: "input-mini" },
+                                       label: "End Date/Time",
+                                       start_year: Date.today.year - 1,
+                                       end_year: Date.today.year + 5,
+                                       order: [:month, :day, :year],
+                                       use_short_month: true,
+                                       include_blank: true,
+                                       ampm: true,
+                                       hint: "All times are in <strong> #{Time.now.zone}</strong> where it is currently <strong>#{Time.zone.now.to_formatted_s(:time)}</strong>."
+
+:javascript
+  $(function() {
+    $('input.ui-datetime-picker').datetimepicker({
+      ampm: true,
+      dateFormat: 'D, dd M yy',
+      timeFormat: 'hh:mm TT',
+      stepMinute: 10,
+      minuteGrid: 10,
+      minDate: '+0d'
+    });
+  });

@@ -1,0 +1,17 @@
+.bs-callout.bs-callout-info
+  %h4 Scheduled Giveaways
+  %p If you choose a start date and/or end date, we will automatically publish and/or unpublish your giveaway at the chosen date and time (as long as there is not a scheduling conflict with another giveaway).  In the case of a conflict, the earliest scheduled start date will be honored.  Active giveaway end dates will always be honored.
+
+#giveaway_start_date.date-container{ 'data-date' => f.object.start_date && f.object.start_date.in_time_zone }
+  = f.input :start_date, as: :string, input_html: { value: f.object.start_date && f.object.start_date.in_time_zone, class: 'datetime-picker-input', disabled: f.object.active?, 'data-date-type' => 'start', autocomplete: 'off' }, wrapper_html: { class: 'field date' }, label: 'Start Date/Time'
+  %input.date-trigger.hide{type: "text", value: "#{f.object.start_date && f.object.start_date.to_formatted_s(:date)}"}/
+  %input.time-trigger.hide{type: "text", value: "#{f.object.start_date && f.object.start_date.to_formatted_s(:time)}"}/
+  .pickadate-outlet
+  - callout type: 'warning', title: "This start date conflicts with the following giveaway schedules.", class: 'conflicts-container m-t' do
+    %p You may choose to keep this date, however, it will not be honored unless the scheduling conflict is resolved.
+
+#giveaway_end_date.date-container{ 'data-date' => f.object.end_date && f.object.end_date.in_time_zone }
+  = f.input :end_date, as: :string, input_html: { value: f.object.end_date && f.object.end_date.in_time_zone, class: 'datetime-picker-input', 'data-date-type' => 'end', autocomplete: 'off' }, wrapper_html: { class: 'field date' }, label: 'End Date/Time'
+  %input.date-trigger.hide{type: "text", value: "#{f.object.end_date && f.object.end_date.to_formatted_s(:date)}"}/
+  %input.time-trigger.hide{type: "text", value: "#{f.object.end_date && f.object.end_date.to_formatted_s(:time)}"}/
+  .pickadate-outlet

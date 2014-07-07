@@ -1,0 +1,22 @@
+- if entries
+
+  .panel.panel-default.entries-panel
+    %table#entries_table.table.table-striped.table-hover.m-b-none{"data-ride" => "datatables"}
+      %thead
+        %tr
+          %th.header.first-child.th-sortable{'data-class' => 'expand'} Name
+          %th.header.th-sortable{'data-hide' => 'xxs,xs,sm,md'} Email
+          - if giveaway.canhaz_referral_tracking?
+            %th.header.th-sortable.text-center{'data-hide' => 'xxs'} Viral?
+          %th.header.th-sortable.text-center{'data-hide' => 'xxs'} New Fan?
+          %th.header.th-sortable.text-center{'data-hide' => 'xxs,xs'} Shares
+          - if giveaway.canhaz_advanced_analytics?
+            %th.header.th-sortable.text-center{'data-hide' => 'xxs,xs,sm,md,lg,xlg'} Wall Posts
+            %th.header.th-sortable.text-center{'data-hide' => 'xxs,xs,sm,md,lg,xlg'} Requests
+          - if giveaway.canhaz_referral_tracking?
+            %th.header.th-sortable.text-center{'data-hide' => 'xxs,xs,sm'} Conversions
+          %th.header.th-sortable.text-center{'data-hide' => 'xxs,xs,sm,md,lg,xlg'} Bonus Entries
+          %th.header.last-child.th-sortable.default-sort{'data-default-sort-order' => 'desc', 'data-hide' => 'xxs,xs,sm,md,lg'} Entry Time
+      %tbody
+    .panel-footer.text-center
+      = link_to '<i class="fa fa-save m-r-sm"></i>Export Entries'.html_safe, export_entries_facebook_page_giveaway_path(page, giveaway), class: 'btn btn-default', target: '_blank'

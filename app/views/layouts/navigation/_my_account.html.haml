@@ -1,0 +1,47 @@
+%ul.nav.navbar-nav.navbar-right.hidden-xs.nav-user
+  %li.hidden-xs
+    %a.dropdown-toggle.dker{"data-toggle" => "dropdown", href: "#"}
+      %i.fa.fa-bell
+      %span.badge.badge-sm.up.bg-danger.m-l-n-sm.count 2
+    %section.dropdown-menu.aside-xl
+      %section.panel.bg-white
+        %header.panel-heading.b-light.bg-light
+          %strong
+            You have
+            %span.count 2
+            notifications
+        .list-group.list-group-alt.animated.fadeInRight
+          %a.media.list-group-item{href: "#"}
+            %span.pull-left.thumb-sm
+              %img.img-circle{alt: "John said", src: "/assets/avatar_default.jpg"}/
+            %span.media-body.block.m-b-none
+              Use awesome animate.css
+              %br/
+              %small.text-muted 10 minutes ago
+          %a.media.list-group-item{href: "#"}
+            %span.media-body.block.m-b-none
+              1.0 initial released
+              %br/
+              %small.text-muted 1 hour ago
+        %footer.panel-footer.text-sm
+          %a.pull-right{href: "#"}
+            %i.fa.fa-cog
+          %a{"data-toggle" => "class:show animated fadeInRight", href: "#notes"} See all the notifications
+  %li.dropdown
+    %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+      %span.thumb-sm.avatar.pull-left
+        = image_tag current_user.avatar, alt: current_user.name
+      = current_user.name
+      %b.caret
+    %ul.dropdown-menu.animated.fadeInRight
+      %span.arrow.top
+      %li= link_to 'Account', edit_user_path(current_user)
+      %li
+        %a{href: "#"}
+          %span.badge.bg-danger.pull-right 3
+          Notifications
+      %li
+        %a{href: "docs.html"} Help
+      %li.divider
+      %li
+        = link_to 'Logout', logout_path

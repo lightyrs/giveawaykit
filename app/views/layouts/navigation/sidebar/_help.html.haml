@@ -1,0 +1,18 @@
+%li
+  %a{href: "#help"}
+    %i.fa.fa-question-circle.icon
+      %b.bg-warning
+    %span.pull-right
+      %i.fa.fa-angle-down.text
+      %i.fa.fa-angle-up.text-active
+    %span Help
+  %ul.nav.lt
+    = active_link_to "#faq", wrap_tag: :li do
+      %i.fa.fa-angle-right
+      %span FAQ
+    = active_link_to "#examples", wrap_tag: :li do
+      %i.fa.fa-angle-right
+      %span Examples
+    = active_link_to "#contact", wrap_tag: :li do
+      %i.fa.fa-angle-right
+      %span Contact

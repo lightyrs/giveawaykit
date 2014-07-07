@@ -1,0 +1,338 @@
+Simple Giveaways:
+
+ ✔ SG.UI flash messages site-wide but especially subscriptions page. @done (13-11-26 02:48)
+
+ ✔ Fix page_likes_while_active metric. @done (13-11-26 04:27)
+
+ ✔ DateTime Picker @done (13-11-27 02:14)
+
+ ✔ Graph Fixes @done (13-11-27 04:02)
+
+       ✔ Fix graph tooltip dates. @done (13-11-27 02:45)
+
+       ✔ Make graph data appear sooner. @done (13-11-27 04:02)
+
+       ✔ Normalize Graph Data. @done (13-11-27 03:33)
+
+ ✔ ZeroClipboard links. @done (13-11-28 01:04)
+
+ ✔ Open start giveaway modal when a user is referred back after successful subscription. @done (13-11-28 02:34)
+
+ ✔ Require subscription upon scheduling a giveaway. @done (13-12-01 19:09)
+
+ ✔ Handle scheduling conflicts. @done (13-12-04 00:45)
+
+ ✔ Only initialize JS classes when needed.  Do some kind of check. @done (13-12-04 02:17)
+
+ ✔ Look to Rafflecopter for pricing inspiration. @done (13-12-05 22:05)
+
+ ✔ Consider getting rid of the ability to have multiple single page subscriptions.  If you want more than one page, you'll need a multi. @done (13-12-05 22:05)
+
+ ✔ AJAX-load user pages during onboarding process. @done (13-12-05 23:39)
+
+ ✔ User-centric subscriptions page. @done (13-12-08 22:34)
+
+      ✔ Subscribe @done (13-12-05 03:49)
+
+      ✔ Update subscription @done (13-12-06 05:35)
+
+      ✔ Cancel subscription @done (13-12-07 21:22)
+
+      ✔ Smarter post-subscribe redirect @done (13-12-08 22:33)
+
+ ✔ Pass logic params in session instead of url. @done (13-12-08 23:20)
+
+ ✔ Ensure subscription update/cancel invoicing is accurate. @done (13-12-09 05:15)
+
+      ✔ If you update to a higher plan, your plan will be prorated.  If you update to a lower plan, you will not be refunded. @done (13-12-06 06:02)
+
+      ✔ If you update to a lower plan, the new plan will start at the end of the cycle. @done (13-12-07 22:26)
+
+            Mark the user as still having the old subscription until the end of the cycle.
+            Schedule a job to downgrade the user's subscription in our db at the end of the cycle (will already be updated in Stripe).
+
+      ✔ If you update to a higher plan, we will create a new invoice for the prorated charges and bill you immediately. @done (13-12-09 02:55)
+
+      ✔ If you cancel, you will not receive a refund. @done (13-12-07 22:26)
+
+      ✔ If you cancel, your plan will not be renewed at the end of the cycle. @done (13-12-07 22:26)
+
+      ✔ If you cancel, we will try to associate your page with another active subscription from another user (if possible). @done (13-12-09 03:39)
+
+      ✔ If a user's plan is scheduled to change or be cancelled, make sure messaging reflects this. @done (13-12-09 03:32)
+
+            Example: "You are currently subscribed to SUBSCRIPTION_PLAN.name.  Your plan will be changed to NEW_SUBSCRIPTION_PLAN.name after ACTIVATE_NEXT_AFTER. or Your plan will be cancelled after ACTIVATE_NEXT_AFTER. or Your plan will be renewed on CURRENT_PERIOD_END."
+
+ ✔ On successful subscription redirect, confirm that the page subscribed is the one the user is trying to start the giveaway for. @done (13-12-10 02:33)
+
+ ✔ Store start giveaway inputs in session during subscription redirect in case user subscribes and is redirected back to start giveaway modal. @done (13-12-10 02:34)
+
+ ✔ Allow deletion of start/end dates on pending giveaways. @done (13-12-10 02:43)
+
+ ✔ Allow editing certain attrs of active giveaways (everything except start_date). @done (13-12-10 02:57)
+
+      ✔ Make nav item to the edit action. @done (13-12-10 02:57)
+
+      ✔ Update tab after update. @done (13-12-10 02:57)
+
+ ✔ Create messaging and UX for case where a page is already subscribed by another admin. @done (13-12-10 04:14)
+
+      ✔ Let users know about auto-upgrading to better plans. @done (13-12-10 04:14)
+
+      ✔ Let users know about pages that already have better plans. @done (13-12-10 04:14)
+
+      ✔ Let users know about pages that are already on the user's own current subscription. @done (13-12-10 04:14)
+
+ ✔ Let users know that downgrades which will change the subscribed page will subscribe the new page immediately at the remaining time left on the old plan.  Once the new plan is activated, the new page will already be subscribed. @done (13-12-10 04:46)
+
+ ✔ Don't mark completed, giveaways which have not been started b/c of scheduling conflict or lack of subscription. @done (13-12-09 05:30)
+
+ ✔ Just warn unsubscribed user that his giveaway won't be automatically started.  Don't force a subscription. @done (13-12-11 01:55)
+
+ ✔ Don't let users start giveaway if there is an active one already. Let them know that they need to end the active first. @done (13-12-11 04:50)
+
+ ✔ Ensure that users are MANAGER or CONTENT_CREATOR of pages and not some other kind of page user. @done (13-12-11 06:48)
+
+ ✔ Confirm subscriptions with Stripe callbacks. @done (13-12-13 23:52)
+
+      ✔ Deactivate subscriptions when failed charge limit exceeded. @done (13-12-13 23:52)
+
+ ✔ Update plan features text. @done (13-12-14 00:23)
+
+ ✔ Implement limits on the Single Page basic plan. @done (13-12-15 19:19)
+
+       ✔ Analytics @done (13-12-15 18:35)
+
+       ✔ Shortlink @done (13-12-15 18:35)
+
+       ✔ Scheduling @done (13-12-15 18:35)
+
+       ✔ White-label @done (13-12-15 18:35)
+
+       ✔ Viral Referral Tracking @done (13-12-15 19:19)
+
+ ✔ Fix start/end date validations for active giveaway edits. @done (13-12-15 19:29)
+
+ ✔ Implement clone giveaway feature. @done (13-12-15 20:00)
+
+ ✔ Allow deletion of pending and completed giveaways. @done (13-12-15 20:16)
+
+ ✔ Friendly URLs. @done (13-12-16 23:11)
+
+ ✔ Ensure all sharing is working properly. @done (13-12-18 23:00)
+
+      ✔ Remove send button functionality. @done (13-12-18 23:00)
+
+      ✔ Fix zClip. @done (13-12-17 01:09)
+
+ ✔ Make sure users know that changing page on single page subscription will make other page subs inactive immediately. @done (13-12-19 01:18)
+
+      ✔ Confirmation message. @done (13-12-19 01:18)
+
+ ✔ Don't make users enter CC info if just updating the page on the current or next plan. @done (13-12-19 02:06)
+
+ ✔ If a user has a multi-page plan, when a new page is added to the user's account, add the page to the subscription. @done (13-12-19 03:01)
+
+ ✔ If a page is removed from a user's account, either remove the page's subscription or reassociate with another user. @done (13-12-19 03:02)
+
+ ✔ Handle case of deactivated subscription while there is an active giveaway. @done (13-12-19 03:15)
+
+ ✔ Confirm liking works. @done (13-12-19 03:30)
+
+ ✔ Confirm viral markers are being applied correctly. @done (13-12-19 03:31)
+
+      ✔ Entries @done (13-12-19 03:30)
+
+      ✔ Likes @done (13-12-19 03:30)
+
+      ✔ Impressions @done (13-12-19 03:30)
+
+ ✔ Look into weird unique visitors issue on just-published giveaways (especially clones). @done (13-12-19 03:46)
+
+ ✔ Subscribe to stripe subscription cancelled webhook to cancel delinquent subscriptions. @done (13-12-20 20:01)
+
+ ✔ Provide shortlink analytics. @done (14-01-29 03:13)
+
+      ✔ Differentiate between Facebook referrals and outside referrals (for shortlinks). @done (13-12-21 04:38)
+
+      ✔ Total shortlink impressions. @done (13-12-21 04:36)
+
+      ✔ Total viral shortlink impressions. @done (13-12-21 04:32)
+
+      ✔ Top shortlink referral domains (with click/impression counts). @done (13-12-23 23:24)
+
+      ✔ Top shortlink sharing domains (with click/impression counts). @done (13-12-23 23:24)
+
+ ✔ More robust free_trial_remaining method. @done (13-12-21 01:53)
+
+ ✔ Don't actually delete giveaways — hide them. @done (13-12-21 01:53)
+
+ ✔ Test non-auth giveaways. @done (14-01-12 18:48)
+
+ ☐ UI
+
+      ✔ Breadcrumbs @done (13-12-27 02:45)
+
+      ✔ Giveaway Form Wizard @done (13-12-31 17:52)
+
+      ✔ Giveaway Description WYSIWYG @done (13-12-31 18:43)
+
+      ✔ Giveaway Details Edit-In-Place @done (14-01-06 14:39)
+
+      ✔ Sanitize WYSIHTML5 Markup (css, etc.) @done (14-01-19 22:14)
+
+      ✔ Convert <br /> to /n for textarea content @done (14-01-19 22:38)
+
+      ✔ Render editable errors via ajax @done (14-01-19 23:28)
+
+      ✔ Render errors for giveaway images @done (14-01-20 02:22)
+
+      ✔ Handle errors in form wizard @done (14-01-20 02:22)
+
+      ✔ Kill scheduling conflict callout when user cancels editable edit @done (14-01-20 03:39)
+
+      ✔ Remove ckeditor horizontal scrollbar @done (14-01-20 03:52)
+
+      ✔ Fix content flashing on page loads (prob js related — app.plugin.js?) @done (14-01-20 04:23)
+
+      ✔ Fix sidebar nav fixed position issue (at smaller breakpoints) @done (14-01-21 01:15)
+
+      ✔ Entries Table Responsive View @done (14-01-20 23:50)
+
+      ✔ Fix pickadate picker in modals @done (14-01-21 03:44)
+
+      ✔ Fix pickadate picker in case where start date is disabled (active giveaway) @done (14-01-21 03:45)
+
+      ✔ Fix SG.Giveaways.Start.trigger @done (14-01-21 03:45)
+
+      ✔ Pagination @done (14-01-23 02:47)
+
+      ✔ Flash Message styles. @done (14-01-24 02:49)
+
+      ✔ Start Dashboard View @done (14-01-25 19:01)
+
+      ✔ Load in menu partials via ajax during onboarding. @done (14-01-25 19:01)
+
+      ✔ Fix issue where flash messages container is preventing clicks from passing through. @done (14-01-25 23:04)
+
+     ✔ Restore End Giveaway Button @done (14-01-27 03:32)
+
+     ✔ Create Active Giveaway Actions Menu @done (14-01-27 04:36)
+
+     ✔ Make stat popovers show on click of some kind of generic help or "what's this?" icon. @done (14-01-29 02:09)
+
+     ✔ Loading indicators site-wide. @done (14-02-17 01:25)
+
+            AJAX
+
+            ✔ Onboarding @done (14-01-27 02:00)
+
+            NON-AJAX
+
+            ✔ Subscribe @done (14-01-27 02:00)
+
+            ✔ Update Subscription @done (14-01-27 02:00)
+
+            ✔ Cancel Subscription @done (14-01-27 02:44)
+
+            ✔ Start Giveaway @done (14-01-27 03:42)
+
+            ✔ End Giveaway @done (14-01-27 03:30)
+
+ ✔ Don't save cloned giveaways until edited. @done (14-01-29 03:12)
+
+ ✔ Switch to CarrierWave for attachments. @done (14-01-30 04:53)
+
+ ✔ Make sidebar nav easier to read. @done (14-01-31 03:24)
+
+ ✔ Mark all form wizard steps with errors in red on submit. @done (14-01-31 04:37)
+
+ ✔ Make datetime editables focus on select. @done (14-02-03 00:57)
+
+ ✔ Update scheduling conflicts logic to favor earliest start date (instead of listing both as conflicts). @done (14-02-03 04:27)
+
+      ✔ Better scheduling conflict presentation logic? @done (14-02-03 04:27)
+
+      ✔ Can say something like "This start date conflicts... Only the earliest scheduled giveaway will be automatically started." @done (14-02-03 04:27)
+
+ ☐ Ensure user will never be surprised by an action taken by the app.
+
+      ✔ Global Flash Message Review @done (14-02-17 01:25)
+
+            ✔  i18n for all flash messages. @done (14-02-04 03:14)
+
+            ✔ Title/Content for all flash messages. @done (14-02-04 03:14)
+
+      ✔ Language review. @done (14-02-17 01:25)
+
+          ✔ Don't return 'Unknown Error' messages when we actually know the error (forms). @done (14-02-16 20:46)
+
+          ✔ On giveaway start, if there are errors, return the actual error messages instead of 'Unknown Error' @done (14-02-16 20:00)
+
+      ✔ Fix wizard issue moving forward after errors (skipping steps) @done (14-02-04 04:31)
+
+      ☐ Better info about user or page's current subscription status on subscription page.
+
+ ☐ Misc Issues
+
+      ✔ Finish giveaway typeahead filter dropdown in top nav bar. @done (14-02-17 01:26)
+
+      ✔ Pending giveaway scope returning active and pending giveaways. @done (14-02-16 20:00)
+
+      ☐ Look into weird charge issue that happens when you downgrade and then upgrade, Stripe credits you on the downgraded sub that hasn't taken effect yet, so you get less refunded than you might expect.
+
+ ☐ Subscription Emails.
+
+ ☐ Help Section
+
+      ☐ Create FAQ
+
+      ☐ Add info callouts for giveaway images and preferences
+
+      ☐ Change Email Required? text to "Auth Required?" and explain why user's should choose this option
+
+ ☐ Acquire assets from Brian Dillon
+
+      ☐ Amazon S3
+
+      ☐ Mandrill
+
+      ☐ Mailchimp
+
+      ☐ Gmail
+
+      ☐ Github
+
+      ☐ Stripe
+
+      ☐ Facebook
+
+      ☐ Bitly
+
+ ☐ Look into DigitalOcean as a VPS provider.
+
+ ☐ Security Audit
+
+ VERSION 1.0
+
+ ☐ Provide default URLs for ImageUploader and FeedImageUploader.
+
+ ☐ Finish Dashboard View (add FacebookGraph sparklines)
+
+ ☐ Design-heavy prefab giveaway templates.
+
+ ☐ Shortlink analytics UI
+
+ ☐ Entries Table Fixed Header Solution
+
+ ☐ Move analytics to redis or similar key/value store to ease strain on db.
+
+ ☐ Write basic acceptance tests with Capybara.
+
+ ☐ Market research for subscription and feature modifications/additions.
+
+ ☐ A/B testing on UI, UX, and features.
+
+ ☐ Giveaway Preview
+
+ ☐ Standalone Giveaway

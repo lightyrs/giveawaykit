@@ -1,0 +1,13 @@
+- content_for :content do
+
+  = render 'giveaways/header', giveaway: @giveaway, page: @page
+
+  .ui.segment
+    = status_label(@giveaway)
+
+    .entries-table.ui.grid
+      .clearfix
+
+      .sixteen.wide.column
+        %h3.ui.header Entries
+        = render 'giveaways/active/entries', giveaway: @giveaway, page: @page, entries: @entries

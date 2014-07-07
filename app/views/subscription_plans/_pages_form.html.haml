@@ -1,0 +1,39 @@
+%form.form.pages.text-left.list-group-item
+
+  %header.text-center
+    %h4.m-t-sm.m-b-md Choose a Page
+
+  - current_sub_page_name = sub_object && sub_object.subscription_plan && sub_object.subscription_plan.is_single_page? ? "#{sub_object.subscription.facebook_pages.first.name}" : ""
+
+  .page-options{class: "#{current_user.facebook_pages.count > 7 ? 'scroll' : ''}"}
+    - current_user.facebook_pages.sort_by { |p| p.name.size }.each do |page|
+
+      - is_exact_current_plan = is_current_plan && sub_object.subscription.facebook_pages.include?(page)
+
+      - is_current_page = sub_object == page || (is_current_plan && sub_object.subscription.facebook_pages.include?(page)) || (is_next_plan && sub_object.subscription.next_page == page) || false
+
+      - auto_select = is_current_page && !is_exact_current_plan
+
+      - has_better_plan = page.has_better_plan_with_other_user?(subscription_plan_id: subscription_plan.id, user_id: current_user.id)
+
+      - has_worse_plan = page.has_worse_plan_with_other_user?(subscription_plan_id: subscription_plan.id, user_id: current_user.id)
+
+      - already_subscribed = has_better_plan || has_worse_plan || is_exact_current_plan
+
+      - page_change_warning = sub_object && sub_object.subscription_plan && sub_object.subscription_plan.is_single_page? && !sub_object.subscription.facebook_pages.include?(page)
+
+      .field{'data-toggle' => "#{already_subscribed ? 'popover' : ''}", 'data-title' => "#{page.name}", 'data-content' => "#{if has_better_plan; 'This page is already subscribed to a better plan belonging to another user.'; elsif has_worse_plan; 'This page is currently subscribed to a lower plan belonging to another user. If you continue, we will upgrade the plan and move the subscription to your account.'; elsif is_exact_current_plan; 'This is your current subscription.'; end}", 'data-container' => "#hover_popover_container", 'data-placement' => "auto top", 'data-html' => "true", 'data-trigger' => "hover"}
+
+        %label.icheck-container.m-b-sm{class: radio_container_class(auto_select, is_exact_current_plan)}
+          = radio_button_tag "#{subscription_plan.name.parameterize}[pages]", page.id, auto_select, disabled: has_better_plan || is_exact_current_plan, class: "#{page_change_warning ? 'page-change-warning' : ''}", 'data-page-change-warning' => "Are you sure you want to change the subscribed page to #{page.name}? #{current_sub_page_name} will be immediately unsubscribed and replaced by #{page.name}. If you would like to subscribe both pages, please upgrade to a multi page plan."
+          - if already_subscribed
+            = label_tag "#{subscription_plan.name.parameterize}[pages][#{page.id}]", "#{page.name} <i class='small teal certificate icon'></i>".html_safe
+          - else
+            = label_tag "#{subscription_plan.name.parameterize}[pages][#{page.id}]", page.name
+
+  .form-actions.m-t
+    .btn-group.btn-group-relaxed.m-b
+      %span.btn.btn-default.btn-left.remove
+        %i.fa.fa-times.remove
+      %span.btn.btn-info.btn-right.check
+        %i.fa.fa-check.check

@@ -1,0 +1,8 @@
+%ul.breadcrumb.no-border.no-radius.b-b.b-light.pull-in
+  - breadcrumbs(display_single_fragment: true) do |links|
+    - links.each do |link|
+      %li
+        - if link.current?
+          = link.text
+        - else
+          = link_to link.text, link.url

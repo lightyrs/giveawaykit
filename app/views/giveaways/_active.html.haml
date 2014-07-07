@@ -1,0 +1,25 @@
+%section#active_giveaway_tabs
+  %header.panel-heading.text-right.bg-light.clearfix
+    %ul.nav.nav-tabs.pull-left
+      %li.active
+        %a#overview_tab_trigger{"data-toggle" => "tab", href: "#overview_tab"}
+          <i class='fa fa-dashboard text-default m-r-xs'></i>Overview
+      %li
+        = link_to "<i class='fa fa-users text-default m-r-xs'></i>Entries".html_safe, facebook_page_giveaway_entries_path(page, giveaway), remote: true, 'data-toggle' => 'tab', 'data-target' => '#entries_tab', id: 'entries_tab_trigger'
+      %li
+        = link_to "<i class='fa fa-file-text-o text-default m-r-xs'></i>Details".html_safe, facebook_page_giveaway_path(page, giveaway), remote: true, 'data-toggle' => 'tab', 'data-target' => '#details_tab', id: 'details_tab_trigger'
+      = render 'giveaways/active/actions_dropdown', giveaway: giveaway
+  .panel-body
+    .tab-content
+      = render 'giveaways/active/actions_button', giveaway: giveaway
+      #overview_tab.tab-pane.fade.active.in
+        = render 'giveaways/active/stats', giveaway: giveaway
+        = render 'giveaways/active/graphs', giveaway: giveaway, page: page, flot: flot if giveaway.canhaz_advanced_analytics?
+      #entries_tab.tab-pane.fade
+        .text-center.progress-wrapper
+          .sg-progress-block
+            .bar
+      #details_tab.tab-pane.fade
+        .text-center.progress-wrapper
+          .sg-progress-block
+            .bar
