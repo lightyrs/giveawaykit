@@ -1,4 +1,4 @@
-Simple Giveaways:
+Giveaway Kit:
 
  ✔ SG.UI flash messages site-wide but especially subscriptions page. @done (13-11-26 02:48)
 
@@ -169,7 +169,7 @@ Simple Giveaways:
 
  ✔ Test non-auth giveaways. @done (14-01-12 18:48)
 
- ☐ UI
+ ✔ UI @done (14-07-08 00:04)
 
       ✔ Breadcrumbs @done (13-12-27 02:45)
 
@@ -291,25 +291,25 @@ Simple Giveaways:
 
       ☐ Change Email Required? text to "Auth Required?" and explain why user's should choose this option
 
- ☐ Acquire assets from Brian Dillon
+ ✔ Setup web service accounts @done (14-07-08 00:04)
 
-      ☐ Amazon S3
+      ✔ Amazon S3 @done (14-07-08 00:04)
 
-      ☐ Mandrill
+      ✔ Mandrill @done (14-07-08 00:04)
 
-      ☐ Mailchimp
+      ✔ Mailchimp @done (14-07-08 00:04)
 
-      ☐ Gmail
+      ✔ Gmail @done (14-07-08 00:04)
 
-      ☐ Github
+      ✔ Github @done (14-07-08 00:04)
 
-      ☐ Stripe
+      ✔ Stripe @done (14-07-08 00:04)
 
-      ☐ Facebook
+      ✔ Facebook @done (14-07-08 00:04)
 
-      ☐ Bitly
+      ✔ Bitly @done (14-07-08 00:04)
 
- ☐ Look into DigitalOcean as a VPS provider.
+ ✔ Look into DigitalOcean as a VPS provider. @done (14-07-08 00:04)
 
  ☐ Security Audit
 
