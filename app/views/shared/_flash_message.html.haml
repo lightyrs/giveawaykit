@@ -1,6 +1,6 @@
 - if message.is_a?(Hash)
-  - title = message[:title].try(:titleize)
-  - message = message[:content]
+  - title = message['title'].titleize
+  - message = message['content']
 - else
   - title = "#{level}".titleize
 
@@ -11,7 +11,7 @@
         %i.fa.fa-bell-o.time-icon{class: "bg-#{level}"}
       .message-text
         %h4= "#{title}".html_safe
-        %p= message
+        %p= message.html_safe
       %button.messenger-close{type: "button"} ×
     .messenger-spinner
       %span.messenger-spinner-side.messenger-spinner-side-left

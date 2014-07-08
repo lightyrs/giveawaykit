@@ -11,16 +11,18 @@
     = google_analytics_tracking_javascript
 
     /[if lt IE 9]
-      = javascript_include_tag "//html5shim.googlecode.com/svn/trunk/html5.js"
+      = javascript_include_tag "//html5shim.googlecode.com/svn/trunk/html5.js", 'data-turbolinks-track' => true
 
-    = javascript_include_tag :jquery
+    = javascript_include_tag :jquery, 'data-turbolinks-track' => true
     = javascript_include_tag :sg, 'data-turbolinks-track' => true
+    = javascript_include_tag :application, 'data-turbolinks-track' => true
 
     = stylesheet_link_tag :application, media: 'all', 'data-turbolinks-track' => true
 
     = csrf_meta_tags
 
   %body
+    = render 'shared/init_globals'
     = render 'shared/flash', flash: flash
     = render 'shared/init_breadcrumbs'
     %section.vbox
@@ -39,8 +41,5 @@
     .hide.preload-images
       = image_tag '/assets/check.png'
       = image_tag '/assets/cross.png'
-
-    = javascript_include_tag :application
-    = render 'shared/init_globals'
 
     %noscript= utm_tag
