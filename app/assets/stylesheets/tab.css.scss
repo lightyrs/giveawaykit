@@ -1,7 +1,7 @@
 /*
 *= require ../../../vendor/assets/stylesheets/bootstrap
 *= require ../../../vendor/assets/stylesheets/animate
-*= require ../../../vendor/assets/stylesheets/font-awesome.min
+*= require font-awesome
 *= require ../../../vendor/assets/stylesheets/font
 *= require_self
 */
@@ -24,8 +24,8 @@
 
 @font-face {
   font-family: 'FontAwesome';
-  src: url('/assets/fontawesome-webfont.eot?v=4.0.3');
-  src: url('/assets/fontawesome-webfont.eot#iefix') format('embedded-opentype'), url('/assets/fontawesome-webfont.woff?v=4.0.3') format('woff'), url('/assets/fontawesome-webfont.ttf?v=4.0.3') format('truetype'), url('/assets/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
+  src: asset-url('fontawesome-webfont.eot?v=4.0.3', font);
+  src: asset-url('fontawesome-webfont.eot#iefix', font) format('embedded-opentype'), asset-url('fontawesome-webfont.woff?v=4.0.3', font) format('woff'), asset-url('fontawesome-webfont.ttf?v=4.0.3', font) format('truetype'), asset-url('fontawesome-webfont.svg?v=4.0.3#fontawesomeregular', font) format('svg');
   font-weight: normal;
   font-style: normal
 }
