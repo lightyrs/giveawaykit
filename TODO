@@ -311,6 +311,14 @@ Giveaway Kit:
 
  ✔ Look into DigitalOcean as a VPS provider. @done (14-07-08 00:04)
 
+ ☐ Upgrade to Rails 4
+
+      ☐ Turbolinks Compatibility
+      
+      ☐ Fix navigation sliding issue
+
+ ☐ Deploy to DigitalOcean
+
  ☐ Security Audit
 
  VERSION 1.0

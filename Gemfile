@@ -49,6 +49,7 @@ gem 'will_paginate-bootstrap'
 gem 'x-editable-rails'
 
 # Assets
+gem 'jquery-turbolinks'
 gem 'font-awesome-sass'
 gem 'handlebars_assets'
 gem 'rails-assets-bourbon', '~> 3.2.0'

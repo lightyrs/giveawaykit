@@ -1,5 +1,7 @@
+//= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
+//= require sg
 //= require lodash/lodash.underscore
 //= require handlebars.runtime
 //= require moment
@@ -56,3 +58,4 @@
 //= require ../../../vendor/assets/javascripts/app.plugin
 //= require_tree ./plugins
 //= require_tree ./templates
+//= require turbolinks
