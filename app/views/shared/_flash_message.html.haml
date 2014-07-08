@@ -1,5 +1,5 @@
 - if message.is_a?(Hash)
-  - title = message[:title].titleize
+  - title = message[:title].try(:titleize)
   - message = message[:content]
 - else
   - title = "#{level}".titleize

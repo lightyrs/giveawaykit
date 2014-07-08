@@ -4,7 +4,7 @@ require 'csv'
 class Giveaway < ActiveRecord::Base
 
   extend FriendlyId
-  friendly_id :title, use: :slugged
+  friendly_id :title, use: [:slugged, :finders]
 
   include ActionView::Helpers::UrlHelper
 

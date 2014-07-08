@@ -2,7 +2,7 @@
 class User < ActiveRecord::Base
 
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :name, use: [:slugged, :finders]
 
   attr_accessible :name, :roles, :roles_mask, :finished_onboarding
 
