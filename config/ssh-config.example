@@ -1,0 +1,5 @@
+Host giveawaykit.com
+  User gk
+  Port 4171
+  HostName giveawaykit.com
+  IdentityFile /Users/harris/.ssh/giveawaykit_rsa
