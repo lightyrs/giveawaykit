@@ -6,7 +6,8 @@ set :branch, 'master'
 set :deploy_to, '/home/gk/giveawaykit'
 
 set :ssh_options, {
-  keepalive: true
+  keepalive: true,
+  verbose: :debug
 }
 
 set :scm, :git
