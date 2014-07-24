@@ -2,26 +2,6 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-PORT = ENV['PORT']
-RACK_ENV = ENV['RACK_ENV']
-
-FB_NAMESPACE = ENV['FB_NAMESPACE']
-FB_APP_ID = ENV['FB_APP_ID']
-FB_OAUTH_KEY = ENV['FB_OAUTH_KEY']
-FB_APP_SECRET = ENV['FB_APP_SECRET']
-
-MANDRILL_KEY = ENV['MANDRILL_KEY']
-MANDRILL_USERNAME = ENV['MANDRILL_USERNAME']
-
-STRIPE_SECRET_KEY = ENV['STRIPE_SECRET_KEY']
-STRIPE_PUBLISHABLE_KEY = ENV['STRIPE_PUBLISHABLE_KEY']
-
-S3_ACCESS_KEY = ENV['S3_ACCESS_KEY']
-S3_SECRET = ENV['S3_SECRET']
-
-BITLY_USERNAME = ENV['BITLY_USERNAME']
-BITLY_KEY = ENV['BITLY_KEY']
-
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
