@@ -1,8 +1,8 @@
 - if message.is_a?(Hash)
-  - title = message['title'].titleize
+  - title = message['title'].try(:titleize)
   - message = message['content']
 - else
-  - title = "#{level}".titleize
+  - title = "#{level}".try(:titleize)
 
 %li.rails-flash.messenger-message-slot.animated.fadeInUp
   .messenger-message.message{class: "message-#{level} alert-#{level}"}
@@ -10,8 +10,10 @@
       %span.message-icon
         %i.fa.fa-bell-o.time-icon{class: "bg-#{level}"}
       .message-text
-        %h4= "#{title}".html_safe
-        %p= message.html_safe
+        - unless "#{title}".blank?
+          %h4= "#{title}".html_safe
+        - unless "#{message}".blank?
+          %p= message.html_safe
       %button.messenger-close{type: "button"} ×
     .messenger-spinner
       %span.messenger-spinner-side.messenger-spinner-side-left
