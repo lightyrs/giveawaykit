@@ -42,7 +42,7 @@ body.welcome {
   margin: 0;
   padding: 0;
   height: 100%;
-  background: #dfe3e8 image_url('/assets/bg-glow.png') repeat-x;
+  background: #dfe3e8 image-url('bg-glow.png') repeat-x;
   text-align: center;
 
   h1 {
@@ -119,7 +119,7 @@ body.welcome {
       position: relative;
     }
     .sc-widget-logo{
-      background-image:image-url('/assets/sc-sprite.png');background-repeat:no-repeat;position:absolute;z-index:1;
+      background-image: image-url('sc-sprite.png');background-repeat:no-repeat;position:absolute;z-index:1;
     }
     .sc-widget-bottom {
       border-radius:0 0px 4px 4px;-webkit-border-radius:0 0px 4px 4px;-moz-border-radius:0 0px 4px 4px;
