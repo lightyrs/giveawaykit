@@ -9,6 +9,7 @@ set :ssh_options, {
   keepalive: true
 }
 
+set :pty, true
 set :scm, :git
 set :format, :pretty
 set :log_level, :debug
