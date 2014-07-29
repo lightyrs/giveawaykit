@@ -25,8 +25,7 @@ namespace :deploy do
 
   desc 'Restart application'
   task :restart do
-    invoke 'unicorn:restart'
-    invoke 'sidekiq:restart'
+    invoke 'monit:restart'
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
       # execute :touch, release_path.join('tmp/restart.txt')
