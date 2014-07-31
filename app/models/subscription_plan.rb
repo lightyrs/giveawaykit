@@ -104,7 +104,7 @@ class SubscriptionPlan < ActiveRecord::Base
 
     def single_page_pro
       self.find_or_create_by(name: "Single Page Pro") do |sp|
-        sp.description = "Run unlimited giveaways on one of your pages. Track viral sharing and referrals, gain insights from advanced analytics, and remove Simple Giveaways branding from your giveaways."
+        sp.description = "Run unlimited giveaways on one of your pages. Track viral sharing and referrals, gain insights from advanced analytics, and remove Giveaway Kit branding from your giveaways."
         sp.price_in_cents_per_cycle = 1500
         sp.is_single_page = true
         sp.is_multi_page = false
@@ -116,7 +116,7 @@ class SubscriptionPlan < ActiveRecord::Base
 
     def multi_page_pro
       self.find_or_create_by(name: "Multi Page Pro") do |sp|
-        sp.description = "Run unlimited giveaways on any of your pages. Track viral sharing and referrals, gain insights from advanced analytics, and remove Simple Giveaways branding from your giveaways."
+        sp.description = "Run unlimited giveaways on any of your pages. Track viral sharing and referrals, gain insights from advanced analytics, and remove Giveaway Kit branding from your giveaways."
         sp.price_in_cents_per_cycle = 4500
         sp.is_single_page = false
         sp.is_multi_page = true

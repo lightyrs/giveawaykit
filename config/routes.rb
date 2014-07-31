@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
+  match '/widgets', to: 'widgets#index', via: [:get]
+
   match '/terms', to: 'welcome#terms', via: [:get]
   match '/privacy', to: 'welcome#privacy', via: [:get]
   match '/support', to: 'welcome#support', via: [:get]

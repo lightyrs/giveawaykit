@@ -94,7 +94,7 @@ SG.Subscriptions =
     amount = $(@planEl).data('checkout_amount')
     unless amount is 0
       @handler.open
-        name: 'Simple Giveaways'
+        name: 'Giveaway Kit'
         description: $(@planEl).data('description')
         amount: amount
         email: @_sg.CurrentUser.email

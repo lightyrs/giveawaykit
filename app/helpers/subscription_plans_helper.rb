@@ -1,7 +1,7 @@
 module SubscriptionPlansHelper
 
   def stripe_button(plan)
-    haml_tag :script, class: 'stripe-button', "data-amount" => "#{plan.price_in_cents_per_cycle}", "data-name" => "Simple Giveaways", "data-description" => "#{plan.name}", "data-label" => price_label(plan), "data-key" => Rails.configuration.stripe.publishable_key, :src => "https://checkout.stripe.com/v2/checkout.js"
+    haml_tag :script, class: 'stripe-button', "data-amount" => "#{plan.price_in_cents_per_cycle}", "data-name" => "Giveaway Kit", "data-description" => "#{plan.name}", "data-label" => price_label(plan), "data-key" => Rails.configuration.stripe.publishable_key, :src => "https://checkout.stripe.com/v2/checkout.js"
   end
 
   def panel_wrapper_class(plan)
@@ -136,33 +136,33 @@ module SubscriptionPlansHelper
 
   def active_subscription_message(sub_object)
     if sub_object.is_a? FacebookPage
-      "<strong>#{sub_object.name}</strong> is subscribed to the <strong>#{sub_object.subscription_plan_name}</strong> plan. Go ahead and start the giveaway when you're ready. Good luck and please don't hesitate to contact us for any help or advice. Thank you for using <strong>Simple Giveaways</strong>.<br /><br />When you click <strong>Next</strong>, your giveaway will be published to your page.".html_safe
+      "<strong>#{sub_object.name}</strong> is subscribed to the <strong>#{sub_object.subscription_plan_name}</strong> plan. Go ahead and start the giveaway when you're ready. Good luck and please don't hesitate to contact us for any help or advice. Thank you for using <strong>Giveaway Kit</strong>.<br /><br />When you click <strong>Next</strong>, your giveaway will be published to your page.".html_safe
     elsif sub_object.is_a? User
-      "#{plan_string(sub_object)}<br /><br /><i class='info icon'></i>You may update your plan.<br /><ul><li><strong>Upgrades</strong> will take effect immediately. You will receive credit for unused time on your old plan.</li><li><strong>Downgrades</strong> will take effect at the end of the billing cycle.</li><li><strong>Cancellations</strong> will take effect at the end of the billing cycle. Your subscription will not be renewed.</li><li><strong>Single Page Plans</strong> will update the subscribed page immediately, regardless of when the next plan is set to take effect.</li></ul> Thank you for using <strong>Simple Giveaways</strong>.".html_safe
+      "#{plan_string(sub_object)}<br /><br /><i class='info icon'></i>You may update your plan.<br /><ul><li><strong>Upgrades</strong> will take effect immediately. You will receive credit for unused time on your old plan.</li><li><strong>Downgrades</strong> will take effect at the end of the billing cycle.</li><li><strong>Cancellations</strong> will take effect at the end of the billing cycle. Your subscription will not be renewed.</li><li><strong>Single Page Plans</strong> will update the subscribed page immediately, regardless of when the next plan is set to take effect.</li></ul> Thank you for using <strong>Giveaway Kit</strong>.".html_safe
     end
   end
 
   def inactive_subscription_message(sub_object)
     if sub_object.is_a? FacebookPage
-      "<strong>#{sub_object.name}</strong> is subscribed to the #{sub_object.subscription_plan_name} plan, however, the plan has been deactivated due to outdated billing information. Please correct your billing information and then start the giveaway when you're ready. Good luck and please don't hesitate to contact us for any help or advice. Thank you for using <strong>Simple Giveaways</strong>.".html_safe
+      "<strong>#{sub_object.name}</strong> is subscribed to the #{sub_object.subscription_plan_name} plan, however, the plan has been deactivated due to outdated billing information. Please correct your billing information and then start the giveaway when you're ready. Good luck and please don't hesitate to contact us for any help or advice. Thank you for using <strong>Giveaway Kit</strong>.".html_safe
     elsif sub_object.is_a? User
-      "<strong>#{sub_object.name}</strong> is subscribed to the #{sub_object.subscription_plan_name} plan, however, the plan has been deactivated due to outdated billing information. Please correct your billing information and don't hesitate to contact us for any help or advice. Thank you for using <strong>Simple Giveaways</strong>.".html_safe
+      "<strong>#{sub_object.name}</strong> is subscribed to the #{sub_object.subscription_plan_name} plan, however, the plan has been deactivated due to outdated billing information. Please correct your billing information and don't hesitate to contact us for any help or advice. Thank you for using <strong>Giveaway Kit</strong>.".html_safe
     end
   end
 
   def free_trial_message(sub_object)
-    "Since this is the first giveaway for <strong>#{sub_object.name}</strong>, it's on the house &mdash; free with no strings attached. Go ahead and start the giveaway when you're ready. Good luck and please don't hesitate to contact us for any help or advice. Thank you for using <strong>Simple Giveaways</strong>.".html_safe
+    "Since this is the first giveaway for <strong>#{sub_object.name}</strong>, it's on the house &mdash; free with no strings attached. Go ahead and start the giveaway when you're ready. Good luck and please don't hesitate to contact us for any help or advice. Thank you for using <strong>Giveaway Kit</strong>.".html_safe
   end
 
   def no_subscription_message(sub_object)
     if sub_object.is_a? FacebookPage
-      "<strong>#{sub_object.name}</strong> is not currently subscribed to any plan. Please choose the plan that is right for you and then start the giveaway when you're ready. Good luck and please don't hesitate to contact us for any help or advice. Thank you for using <strong>Simple Giveaways</strong>.".html_safe
+      "<strong>#{sub_object.name}</strong> is not currently subscribed to any plan. Please choose the plan that is right for you and then start the giveaway when you're ready. Good luck and please don't hesitate to contact us for any help or advice. Thank you for using <strong>Giveaway Kit</strong>.".html_safe
     elsif sub_object.is_a? User
-      "<strong>#{sub_object.name}</strong> is not currently subscribed to any plan. Please choose the plan that is right for you and don't hesitate to contact us for any help or advice. Thank you for using <strong>Simple Giveaways</strong>.".html_safe
+      "<strong>#{sub_object.name}</strong> is not currently subscribed to any plan. Please choose the plan that is right for you and don't hesitate to contact us for any help or advice. Thank you for using <strong>Giveaway Kit</strong>.".html_safe
     end
   end
 
   def no_subscription_schedule_message(sub_object)
-    "<strong>#{sub_object.name}</strong> is not currently subscribed to any plan. In order to schedule a giveaway to start or end automatically, a Pro subscription is required. Please choose the plan that is right for you and then we will automatically publish the giveaway at the chosen date and time. If you decide not to choose a plan right now, we will save your giveaway but ignore the scheduling information so that you can come back to it in the future. Good luck and please don't hesitate to contact us for any help or advice. Thank you for using <strong>Simple Giveaways</strong>.".html_safe
+    "<strong>#{sub_object.name}</strong> is not currently subscribed to any plan. In order to schedule a giveaway to start or end automatically, a Pro subscription is required. Please choose the plan that is right for you and then we will automatically publish the giveaway at the chosen date and time. If you decide not to choose a plan right now, we will save your giveaway but ignore the scheduling information so that you can come back to it in the future. Good luck and please don't hesitate to contact us for any help or advice. Thank you for using <strong>Giveaway Kit</strong>.".html_safe
   end
 end

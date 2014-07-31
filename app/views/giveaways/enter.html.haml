@@ -4,7 +4,7 @@
   = image_tag @giveaway.image.tab.url.gsub("http://", "//") rescue ""
 #giveaway_terms
   - unless @page.canhaz_white_label?
-    %p.powered-by Powered by <a href='http://simplegiveaways.com' target='_blank'>Simple Giveaways</a>.
+    %p.powered-by Powered by <a href='http://simplegiveaways.com' target='_blank'>Giveaway Kit</a>.
   %p This promotion is in no way sponsored, endorsed or administered by, or associated with, Facebook. You understand that you are providing your information to "#{@page.name}" and not to Facebook. Your information will only be used to administer this promotion. Entry in this promotion is subject to the #{@giveaway.terms_link}.
   .terms-text.hidden{style: "display:none"}= @giveaway.terms_text
 

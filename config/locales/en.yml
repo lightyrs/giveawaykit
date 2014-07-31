@@ -1,6 +1,6 @@
 en:
   brand:
-    name: "Simple Giveaways"
+    name: "Giveaway Kit"
   flash:
     defaults:
       alert:
@@ -70,10 +70,10 @@ en:
     subscriptions:
       subscribed:
         title: "You were successfully subscribed."
-        content: "You are now subscribed to the %{plan} plan. Thank you for using <strong>Simple Giveaways</strong>."
+        content: "You are now subscribed to the %{plan} plan. Thank you for using <strong>Giveaway Kit</strong>."
       unsubscribed:
         title: "You were successfully unsubscribed."
-        content: "You will still be able to enjoy the benefits of your subscription until the end of the current billing cycle. Thank you for using <strong>Simple Giveaways</strong>."
+        content: "You will still be able to enjoy the benefits of your subscription until the end of the current billing cycle. Thank you for using <strong>Giveaway Kit</strong>."
       unknown_error:
         subscribe:
           title: "An unknown error occurred."
@@ -83,7 +83,7 @@ en:
           content: "We were unable to unsubscribe you from your plan. Please try again or contact support for assistance. We apologize for the inconvenience."
     users:
       onboarding:
-        title: "Welcome to <strong>Simple Giveaways.</strong>"
+        title: "Welcome to <strong>Giveaway Kit.</strong>"
         content: "Please hold on a moment while we fetch your Facebook Pages."
     sessions:
       logout:
@@ -92,14 +92,14 @@ en:
           content: "You have been logged out due to a change in your facebook session."
         default:
           title: "Logged Out"
-          content: "You have been successfully logged out. Thank you for using <strong>Simple Giveaways</strong>."
+          content: "You have been successfully logged out. Thank you for using <strong>Giveaway Kit</strong>."
     facebook_pages:
       onboarding:
         title: "Successfully fetched your Facebook Pages."
-        content: "You can now start building your first giveaway. Thank you for using <strong>Simple Giveaways</strong>"
+        content: "You can now start building your first giveaway. Thank you for using <strong>Giveaway Kit</strong>"
       subscribed:
         title: "%{page} has been successfully subscribed."
-        content: "%{page} has been successfully subscribed to the #{plan} plan. Thank you for using <strong>Simple Giveaways</strong>."
+        content: "%{page} has been successfully subscribed to the #{plan} plan. Thank you for using <strong>Giveaway Kit</strong>."
   will_paginate:
     previous_label: '<i class="fa fa-chevron-left"></i>'
     next_label: '<i class="fa fa-chevron-right"></i>'
