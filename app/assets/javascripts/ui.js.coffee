@@ -9,6 +9,8 @@ SG.UI =
     SG.UI.ZClip.initialize()
     SG.UI.DatetimePickers.initialize()
     SG.UI.Editables.initialize()
+    SG.UI.Charts.initialize()
+    # @initSlimScrolls()
 
   initPagesFilter: ->
     new List('facebook_pages_list', valueNames: ['name'], listClass: 'list-group')
@@ -40,6 +42,16 @@ SG.UI =
       buttonText: 'Upload'
       input: false
       classIcon: 'fa fa-cloud-upload text'
+
+  initSlimScrolls: ->
+    $('.no-touch .slim-scroll').each ->
+      $self = $(this)
+      $data = $self.data()
+      $slimResize = undefined
+      $self.slimScroll $data
+      $(window).resize (e) ->
+        clearTimeout $slimResize
+        $slimResize = setTimeout(-> $self.slimScroll $data, 500)
 
   readmoreEls: -> $('.readmore')
 

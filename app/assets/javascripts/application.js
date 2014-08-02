@@ -25,7 +25,6 @@
 //= require ../../../vendor/assets/javascripts/bootstrap
 //= require ../../../vendor/assets/javascripts/file-input/bootstrap-filestyle.min
 //= require ../../../vendor/assets/javascripts/parsley/parsley.min
-//= require ../../../vendor/assets/javascripts/slimscroll/jquery.slimscroll.min
 //= require ../../../vendor/assets/javascripts/charts/easypiechart/jquery.easy-pie-chart
 //= require ../../../vendor/assets/javascripts/charts/sparkline/jquery.sparkline.min
 //= require ../../../vendor/assets/javascripts/charts/flot/demo
@@ -41,6 +40,7 @@
 //= require dashboard
 //= require subscriptions
 //= require ui
+//= require ui/charts
 //= require ui/editables
 //= require ui/datatables
 //= require ui/datetime_pickers
@@ -55,7 +55,6 @@
 //= require giveaways/form/wysiwyg
 //= require giveaways/details
 //= require ../../../vendor/assets/javascripts/app
-//= require ../../../vendor/assets/javascripts/app.plugin
 //= require_tree ./plugins
 //= require_tree ./templates
 //= require turbolinks
