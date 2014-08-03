@@ -32,7 +32,8 @@
 //= require ../../../vendor/assets/javascripts/responsive-paginate
 //= require ../../../vendor/assets/javascripts/spin.min
 //= require ../../../vendor/assets/javascripts/iosOverlay
-//= require ckeditor/init
+//= require ckeditor/basepath
+//= require ckeditor/config
 //= require ../../../vendor/assets/javascripts/wysiwyg/ckeditor-jquery
 //= require editable/bootstrap-editable
 //= require editable/rails
