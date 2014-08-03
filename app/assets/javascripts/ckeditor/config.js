@@ -12,7 +12,6 @@ CKEDITOR.editorConfig = function(config) {
   config.fillEmptyBlocks = false;
   config.fullPage = false;
   config.forcePasteAsPlainText = true;
-  config.contentsCss = "ckeditor/custom-contents.css";
 }
 
 CKEDITOR.on('instanceReady', function(ev) {
