@@ -1,7 +1,5 @@
 SG.Dashboard =
 
-  _sg: _SG
-
   initialize: ->
     @initPagesPoller() if @pagesPollerEl().length
 
@@ -11,7 +9,7 @@ SG.Dashboard =
 
   pollPages: ->
     $.ajax
-      url: @_sg.Paths.userPages
+      url: _SG.paths.userPages
       dataType: 'json'
       data: "pids=#{@getPids()}&bust=#{new Date().getTime()}"
       error: (response) =>

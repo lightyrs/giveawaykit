@@ -1,8 +1,6 @@
 jQuery ->
 
-  _sg = _SG
-
-  currentUser = _sg.CurrentUser
+  currentUser = _SG.currentUser
 
   loggedIn = currentUser.name?
 
@@ -25,4 +23,4 @@ jQuery ->
   $(document).on 'fb:initialized', ->
     FB.getLoginStatus(fbAuthStatusChange)
 
-  $(document).fb _sg.Config.FB_APP_ID
+  $(document).fb _SG.global.FB_APP_ID

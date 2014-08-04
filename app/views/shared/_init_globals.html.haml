@@ -1,13 +1,5 @@
-%script{:'data-turbolinks-eval' => 'false'}
-  :plain
-    (function() {
-      _SG.Config.SG_DOMAIN = '#{SG_DOMAIN}';
-      _SG.Config.FB_APP_ID = '#{FB_APP_ID}';
-      _SG.Config.STRIPE_KEY = '#{Rails.configuration.stripe.publishable_key}';
-    }());
-
 - if @page
-  %script{:'data-turbolinks-eval' => 'false'}
+  %script{type: 'text/javascript'}
     :plain
       (function() {
         _SG.CurrentPage.ID = '#{@page.id}';
@@ -19,14 +11,14 @@
       }());
 
   - if @page.has_active_subscription?
-    %script{:'data-turbolinks-eval' => 'false'}
+    %script{type: 'text/javascript'}
       :plain
         (function() {
           _SG.CurrentPage.isSubscribed = true;
         }());
 
 - if @giveaway
-  %script{:'data-turbolinks-eval' => 'false'}
+  %script{type: 'text/javascript'}
     :plain
       (function() {
         _SG.CurrentGiveaway.ID = '#{@giveaway.id}';
@@ -34,14 +26,14 @@
       }());
 
   - if @giveaway.persisted?
-    %script{:'data-turbolinks-eval' => 'false'}
+    %script{type: 'text/javascript'}
       :plain
         (function() {
           _SG.Paths.giveawayEntries = '#{facebook_page_giveaway_entries_path(@giveaway.facebook_page, @giveaway)}';
         }());
 
 - if current_user && current_user.fb_uid
-  %script{:'data-turbolinks-eval' => 'false'}
+  %script{type: 'text/javascript'}
     :plain
       (function() {
         _SG.CurrentUser.name = '#{current_user.name}';
@@ -53,20 +45,20 @@
       }());
 
 - if session[:proposed_end_date]
-  %script{:'data-turbolinks-eval' => 'false'}
+  %script{type: 'text/javascript'}
     :plain
       (function() {
         _SG.CurrentGiveaway.proposedEndDate = '#{session[:proposed_end_date]}';
       }());
 
 - if session[:proposed_tab_name]
-  %script{:'data-turbolinks-eval' => 'false'}
+  %script{type: 'text/javascript'}
     :plain
       (function() {
         _SG.CurrentGiveaway.proposedTabName = '#{session[:proposed_tab_name]}';
       }());
 
-%script{:'data-turbolinks-eval' => 'false'}
+%script{type: 'text/javascript'}
   :plain
     (function() {
       deepFreeze(_SG);

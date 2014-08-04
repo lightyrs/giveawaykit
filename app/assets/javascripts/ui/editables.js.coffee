@@ -1,9 +1,9 @@
 SG.UI.Editables =
 
-  _sg: _SG
-
   initialize: ->
     if @editableEls().length && @isNotCompleted()
+      console.log 'SG.UI.Editables.initialize'
+      console.log _SG.currentGiveaway.status
       @initEditables()
       @checkSchedule(el) for el in @editableDatetimeEls()
 
@@ -92,4 +92,4 @@ SG.UI.Editables =
 
   editableEls: -> $('.editable')
 
-  isNotCompleted: -> @_sg.CurrentGiveaway.status != 'Completed'
+  isNotCompleted: -> _SG.currentGiveaway.status != 'Completed'

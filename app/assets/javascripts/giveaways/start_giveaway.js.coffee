@@ -1,7 +1,5 @@
 SG.Giveaways.Start =
 
-  _sg: _SG
-
   initialize: ->
     if @modalEl().length
       @attachButtonEvents()
@@ -28,13 +26,13 @@ SG.Giveaways.Start =
     $(document).on 'ajaxSuccess', =>
       @modalEl().find(".modal-step[data-modal-step='1']").hide()
       @modalEl().find(".modal-step[data-modal-step='2']").show()
-      $('#start_giveaway_end_date').val @_sg.CurrentGiveaway.proposedEndDate
-      $('#start_giveaway_tab_name').val @_sg.CurrentGiveaway.proposedTabName
+      $('#start_giveaway_end_date').val _SG.currentGiveaway.proposedEndDate
+      $('#start_giveaway_tab_name').val _SG.currentGiveaway.proposedTabName
       @attachModalEvents()
     $('#start_giveaway').trigger 'click'
 
   justSubscribed: ->
-    @_sg.CurrentUser.justSubscribed.length && @_sg.CurrentPage.isSubscribed?
+    _SG.currentUser.justSubscribed?.length && _SG.currentPage.isSubscribed?
 
   moveForward: ->
     current = @currentStepEl()
@@ -51,14 +49,14 @@ SG.Giveaways.Start =
 
   redirectToSubPlans: ->
     $.ajax
-      url: @_sg.Paths.subscriptionPlans
+      url: _SG.paths.subscriptionPlans
       type: 'POST'
       data:
         starting: true
         end_date: $('#start_giveaway_end_date').val()
         custom_tab_name: $('#start_giveaway_tab_name').val()
       success: =>
-        top.location.href = @_sg.Paths.subscriptionPlans
+        top.location.href = _SG.paths.subscriptionPlans
 
   startGiveaway: ->
     $('#step_one form').submit()

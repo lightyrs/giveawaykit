@@ -6,6 +6,16 @@ GIT
       kaminari
 
 GIT
+  remote: git://github.com/gazay/gon.git
+  revision: c1e5ffc19b161b86bb5d7311fb6aa842b85c2b54
+  specs:
+    gon (5.1.2)
+      actionpack (>= 2.3.0)
+      json
+      multi_json
+      request_store (>= 1.0.5)
+
+GIT
   remote: git://github.com/gregbell/active_admin.git
   revision: 27360996837146ebbbf3b3597049b1586542fbeb
   specs:
@@ -21,6 +31,12 @@ GIT
       rails (>= 3.2, < 4.2)
       ransack (~> 1.0)
       sass-rails
+
+GIT
+  remote: git://github.com/lightyrs/before_render.git
+  revision: dc19e3919a658fc6ec10a7f4dbb00bf4818c4bb9
+  specs:
+    before_render (0.1.0)
 
 GIT
   remote: git://github.com/lightyrs/bitly.git
@@ -420,6 +436,7 @@ GEM
     redis-namespace (1.5.0)
       redis (~> 3.0, >= 3.0.4)
     ref (1.0.5)
+    request_store (1.0.8)
     require_all (1.3.2)
     responders (1.0.0)
       railties (>= 3.2, < 5)
@@ -568,6 +585,7 @@ DEPENDENCIES
   autoprefixer-rails
   awesome_print
   aws-sdk
+  before_render!
   better_errors
   binding_of_caller
   bitly!
@@ -598,6 +616,7 @@ DEPENDENCIES
   friendly_id
   gabba
   garails
+  gon!
   gretel
   haml-rails
   handlebars_assets

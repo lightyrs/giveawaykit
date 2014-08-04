@@ -7,7 +7,7 @@
   <!--<![endif]-->
   %head
     %meta{charset: "utf-8"}
-    %meta{content: "224405887571151", property: "fb:app_id"}
+    %meta{content: "#{FB_APP_ID}", property: "fb:app_id"}
     %title Giveaway Kit
 
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
@@ -26,6 +26,7 @@
     = csrf_meta_tags
 
   %body.welcome
+    = include_gon(init: true, namespace: '_SG', need_type: true)
 
     #fb-root.logged-out
 
@@ -35,6 +36,5 @@
       = yield
 
     = javascript_include_tag :welcome
-    = render 'shared/init_globals'
 
     %noscript= utm_tag

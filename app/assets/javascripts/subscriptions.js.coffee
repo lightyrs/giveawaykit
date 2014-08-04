@@ -1,7 +1,5 @@
 SG.Subscriptions =
 
-  _sg: _SG
-
   initialize: ->
     if @stripeEl().length
       @configureHandler()
@@ -10,7 +8,7 @@ SG.Subscriptions =
 
   configureHandler: ->
     @handler = StripeCheckout.configure
-      key: "#{@_sg.Config.STRIPE_KEY}"
+      key: "#{_SG.global.STRIPE_KEY}"
       token: (data, args) =>
         @createSubscription(data.id)
 
@@ -97,7 +95,7 @@ SG.Subscriptions =
         name: 'Giveaway Kit'
         description: $(@planEl).data('description')
         amount: amount
-        email: @_sg.CurrentUser.email
+        email: _SG.currentUser.email
 
   createSubscription: (token) ->
     SG.UI.Loader.createOverlay(true)
@@ -122,6 +120,6 @@ SG.Subscriptions =
     @plansContainerEl().data('is-user-centric')
 
   formPath: ->
-    @isUserCentric() && @_sg.Paths.userSubscribe || @_sg.Paths.pageSubscribe
+    @isUserCentric() && _SG.paths.userSubscribe || _SG.paths.pageSubscribe
 
   stripeEl: -> $('script#stripe_js')

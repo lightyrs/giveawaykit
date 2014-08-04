@@ -1,7 +1,5 @@
 SG.UI.DataTables =
 
-  _sg: _SG
-
   initialize: (table) ->
     @initEntriesTable() if table is 'entries'
 
@@ -20,7 +18,7 @@ SG.UI.DataTables =
       bSort: true
       bProcessing: true
       bServerSide: true
-      sAjaxSource: "#{@_sg.Paths.giveawayEntries}"
+      sAjaxSource: "#{_SG.paths.giveawayEntries}"
       aaSorting: [[@defaultSortIndex(), @defaultSortOrder()]]
       sDom: "<'row'<'col-sm-6'l><'col-sm-6'f>r>t<'row'<'col-sm-12'<'text-center'p><'text-center'i>>>"
       sPaginationType: "full_numbers"

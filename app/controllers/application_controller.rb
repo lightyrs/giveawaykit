@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   helper_method :xeditable?
 
   before_filter :user_pages, :if => :signed_in?
+  before_filter :init_js_vars
+
+  before_render :assign_js_vars
+
   after_filter :flash_to_headers
 
   protect_from_forgery with: :exception
@@ -41,6 +45,58 @@ class ApplicationController < ActionController::Base
 
   def flash_title
     flash_msg.is_a?(Hash) ? flash_msg[:title] : nil
+  end
+
+  def init_js_vars
+    gon.paths ||= {}
+    gon.currentUser ||= {}
+    gon.currentPage ||= {}
+    gon.currentGiveaway ||= {}
+  end
+
+  def assign_js_vars
+    assign_gon_page_vars if @page
+    assign_gon_giveaway_vars if @giveaway
+    assign_gon_user_vars if current_user && current_user.fb_uid
+  end
+
+  def assign_gon_page_vars
+    gon.currentPage[:id] = "#{@page.id}"
+    gon.currentPage[:isSubscribed] = @page.has_active_subscription?
+    gon.paths[:facebookPage] = facebook_page_path(@page)
+    gon.paths[:giveaways] = facebook_page_giveaways_path(@page)
+    gon.paths[:checkSchedule] = check_schedule_facebook_page_giveaways_path(@page)
+    gon.paths[:subscriptionPlans] = facebook_page_subscription_plans_path(@page)
+    gon.paths[:pageSubscribe] = facebook_page_subscribe_path(@page)
+  end
+
+  def assign_gon_giveaway_vars
+    gon.currentGiveaway[:id] = "#{@giveaway.id}"
+    gon.currentGiveaway[:status] = "#{@giveaway.status}"
+
+    if @giveaway.persisted?
+      gon.paths[:giveawayEntries] = facebook_page_giveaway_entries_path(@giveaway.facebook_page, @giveaway)
+    end
+
+    if session[:proposed_end_date]
+      gon.currentGiveaway[:proposedEndDate] = "#{session[:proposed_end_date]}"
+    end
+
+    if session[:proposed_tab_name]
+      gon.currentGiveaway[:proposedTabName] = "#{session[:proposed_tab_name]}"
+    end
+  end
+
+  def assign_gon_user_vars
+    gon.currentUser[:name] = "#{current_user.name}"
+    gon.currentUser[:fbUID] = "#{current_user.fb_uid}"
+    gon.currentUser[:email] = "#{current_user.email}"
+    gon.paths[:userPages] = "#{facebook_pages_path}"
+    gon.paths[:userSubscribe] = "#{user_subscribe_path(current_user)}"
+
+    if session[:just_subscribed]
+      gon.currentUser[:justSubscribed] = "#{session.delete(:just_subscribed)}"
+    end
   end
 
   def user_pages

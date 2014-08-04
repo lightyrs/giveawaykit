@@ -8,10 +8,9 @@ class GiveawaysController < FacebookController
   load_and_authorize_resource :facebook_page, except: [:tab, :enter]
   load_and_authorize_resource :giveaway, through: :facebook_page, except: [:tab, :enter]
 
-  before_filter :assign_page, only: [:active, :pending, :completed, :new, :create, :clone, :destroy, :start_modal]
-  before_filter :assign_giveaway, only: [:edit, :update, :destroy, :start, :end, :export_entries, :clone, :destroy, :start_modal]
+  before_filter :assign_page, only: [:show, :active, :pending, :completed, :new, :create, :clone, :destroy, :start_modal]
+  before_filter :assign_giveaway, only: [:show, :edit, :update, :destroy, :start, :end, :export_entries, :clone, :destroy, :start_modal]
   before_filter :sanitize_params, only: [:create, :update]
-
   before_filter :parse_signed_request, only: [:tab], if: -> { params[:signed_request] }
 
   after_filter :after_tab_actions, only: [:tab]
@@ -35,9 +34,6 @@ class GiveawaysController < FacebookController
   end
 
   def show
-    @giveaway = Giveaway.find(params[:id])
-    @page = @giveaway.facebook_page
-
     if request.xhr?
       render partial: 'giveaways/details', locals: { giveaway: @giveaway, page: @page }, status: :ok
     else
@@ -228,7 +224,9 @@ class GiveawaysController < FacebookController
   private
 
   def assign_page
-    @page = if params[:facebook_page_id]
+    @page = if @giveaway
+      @giveaway.facebook_page
+    elsif params[:facebook_page_id]
       FacebookPage.find(params[:facebook_page_id])
     elsif params[:giveaway_id]
       @giveaway ||= Giveaway.find(params[:giveaway_id])

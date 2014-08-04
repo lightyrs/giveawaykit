@@ -1,27 +1,27 @@
 module SubscriptionStatus
 
   def has_active_subscription?
-    subscription && subscription.active?
+    !!subscription && subscription.active?
   end
 
   def has_inactive_subscription?
-    subscription && subscription.inactive?
+    !!subscription && subscription.inactive?
   end
 
   def has_monthly_subscription?
-    subscription && subscription_plan.is_monthly?
+    !!subscription && subscription_plan.is_monthly?
   end
 
   def has_yearly_subscription?
-    subscription && subscription_plan.is_yearly?
+    !!subscription && subscription_plan.is_yearly?
   end
 
   def has_single_page_subscription?
-    subscription && subscription_plan.is_single_page?
+    !!subscription && subscription_plan.is_single_page?
   end
 
   def has_multi_page_subscription?
-    subscription && subscription_plan.is_multi_page?
+    !!subscription && subscription_plan.is_multi_page?
   end
 
   def needs_subscription?

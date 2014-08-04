@@ -6,7 +6,7 @@ class SubscriptionPlan < ActiveRecord::Base
 
   validates :name, uniqueness: true
 
-  scope :visible, where("price_in_cents_per_cycle > ?", 0)
+  scope :visible, -> { where("price_in_cents_per_cycle > ?", 0) }
 
   PLAN_HIERARCHY = [
     { name: "Single Page",
@@ -80,6 +80,7 @@ class SubscriptionPlan < ActiveRecord::Base
 
     def free_trial
       self.find_or_create_by(name: "Free Trial") do |sp|
+        sp.name = "Free Trial"
         sp.description = "Run a free giveaway on your page."
         sp.price_in_cents_per_cycle = 0
         sp.is_single_page = true
@@ -92,6 +93,7 @@ class SubscriptionPlan < ActiveRecord::Base
 
     def single_page
       self.find_or_create_by(name: "Single Page") do |sp|
+        sp.name = "Single Page"
         sp.description = "Run unlimited giveaways on one of your pages."
         sp.price_in_cents_per_cycle = 700
         sp.is_single_page = true
@@ -104,6 +106,7 @@ class SubscriptionPlan < ActiveRecord::Base
 
     def single_page_pro
       self.find_or_create_by(name: "Single Page Pro") do |sp|
+        sp.name = "Single Page Pro"
         sp.description = "Run unlimited giveaways on one of your pages. Track viral sharing and referrals, gain insights from advanced analytics, and remove Giveaway Kit branding from your giveaways."
         sp.price_in_cents_per_cycle = 1500
         sp.is_single_page = true
@@ -116,6 +119,7 @@ class SubscriptionPlan < ActiveRecord::Base
 
     def multi_page_pro
       self.find_or_create_by(name: "Multi Page Pro") do |sp|
+        sp.name = "Multi Page Pro"
         sp.description = "Run unlimited giveaways on any of your pages. Track viral sharing and referrals, gain insights from advanced analytics, and remove Giveaway Kit branding from your giveaways."
         sp.price_in_cents_per_cycle = 4500
         sp.is_single_page = false

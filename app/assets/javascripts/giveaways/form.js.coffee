@@ -1,7 +1,5 @@
 SG.Giveaways.Form =
 
-  _sg: _SG
-
   initialize: ->
     if @wizardEl().length
       @initWizard()

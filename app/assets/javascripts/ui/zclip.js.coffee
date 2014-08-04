@@ -1,7 +1,5 @@
 SG.UI.ZClip =
 
-  _sg: _SG
-
   initialize: ->
     @initZClip(el) for el in @zClipEls()
 
@@ -18,7 +16,7 @@ SG.UI.ZClip =
 
   clip: ($el) ->
     new ZeroClipboard $el,
-      moviePath: "//#{@_sg.Config.SG_DOMAIN}/assets/ZeroClipboard.swf"
+      moviePath: "//#{_SG.global.SG_DOMAIN}/assets/ZeroClipboard.swf"
       trustedOrigins: [window.location.protocol + "//" + window.location.host]
       allowScriptAccess: 'always'
 

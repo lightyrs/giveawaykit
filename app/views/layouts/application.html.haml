@@ -2,7 +2,7 @@
 %html{lang: "en", class: "app"}
   %head
     %meta{charset: "utf-8"}
-    %meta{content: "224405887571151", property: "fb:app_id"}
+    %meta{content: "#{FB_APP_ID}", property: "fb:app_id"}
     %title Giveaway Kit
 
     %meta{content: "Easily create, deploy, and manage giveaways on your Facebook pages.", name: "description"}
@@ -20,7 +20,7 @@
     = csrf_meta_tags
 
   %body
-    = render 'shared/init_globals'
+    = include_gon(init: true, namespace: '_SG', need_type: true)
     = render 'shared/flash', flash: flash
     = render 'shared/init_breadcrumbs'
     %section.vbox

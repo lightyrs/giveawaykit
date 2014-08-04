@@ -18,14 +18,6 @@ SG = {
   Giveaways: {}
 };
 
-_SG = {
-  Config: {},
-  CurrentUser: {},
-  CurrentGiveaway: {},
-  CurrentPage: {},
-  Paths: {}
-}
-
 $(function() {
 
   $.ajaxSetup({ cache: false });

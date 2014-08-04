@@ -1,10 +1,8 @@
 jQuery ->
 
-  _sg = _SG
-
-  giveaway_hash = _sg.CurrentGiveaway.table
+  giveaway_hash = _SG.currentGiveaway.table
   giveaway_object = giveaway_hash.giveaway.table
-  paths = _sg.Paths
+  paths = _SG.paths
 
   $like_id = null
   $authed = null
@@ -37,9 +35,9 @@ jQuery ->
     status: true
     cookie: true
     xfbml: true
-    channelUrl: "//#{_sg.Config.SG_SSL_DOMAIN}/channel.html"
+    channelUrl: "//#{_SG.global.SG_SSL_DOMAIN}/channel.html"
 
-  $(document).fb _sg.Config.FB_APP_ID, fb_init_options
+  $(document).fb _SG.global.FB_APP_ID, fb_init_options
 
   $(document).on 'fb:initialized', ->
 
@@ -261,7 +259,7 @@ jQuery ->
       $el = $("a.zclip-trigger")
 
       clip = new ZeroClipboard $el,
-        moviePath: "//#{_sg.Config.SG_SSL_DOMAIN}/assets/ZeroClipboard.swf"
+        moviePath: "//#{_SG.global.SG_SSL_DOMAIN}/assets/ZeroClipboard.swf"
         trustedOrigins: [window.location.protocol + "//" + window.location.host]
         allowScriptAccess: 'always'
 

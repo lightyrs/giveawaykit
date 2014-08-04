@@ -1,7 +1,5 @@
 SG.UI.DatetimePickers =
 
-  _sg: _SG
-
   initialize: (el) ->
     if el?
       @attachDatetimePicker(el)
@@ -100,11 +98,11 @@ SG.UI.DatetimePickers =
 
   checkSchedule: (datetime, $el) ->
     $.ajax
-      url: @_sg.Paths.checkSchedule
+      url: _SG.paths.checkSchedule
       dataType: 'json',
       data:
-        giveaway_id: @_sg.CurrentGiveaway.ID
-        facebook_page_id: @_sg.CurrentPage.ID
+        giveaway_id: _SG.currentGiveaway.id
+        facebook_page_id: _SG.currentPage.id
         date: datetime
         date_type: @dateType($el)
       success: (conflicts, status) =>
@@ -126,6 +124,6 @@ SG.UI.DatetimePickers =
     $el.parents('.date-container').children('.conflicts-container')
 
   conflictLink: (conflict) ->
-    "<a href='#{@_sg.Paths.giveaways}/#{conflict.slug}'>#{conflict.title}</a>"
+    "<a href='#{_SG.paths.giveaways}/#{conflict.slug}'>#{conflict.title}</a>"
 
   dateTimePickerEls: -> $('.datetime-picker-input')
