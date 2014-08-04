@@ -19,7 +19,7 @@
     %button.btn.btn-default.btn-xs.btn-prev{"data-target" => "#form-wizard", "data-wizard" => "previous", disabled: "disabled", type: "button"} Prev
     %button.btn.btn-default.btn-xs.btn-next{"data-last" => "Finish", "data-target" => "#form-wizard", "data-wizard" => "next", type: "button"} Next
 .step-content
-  = simple_form_for [page, giveaway], html: { class: 'giveaway-form fluid', multipart: true } do |f|
+  = simple_form_for [page, giveaway], html: { class: 'giveaway-form fluid', multipart: true, novalidate: true } do |f|
     = render 'shared/error_messages', object: f.object
     #step1.step-pane.active.basic-info
       = render "giveaways/form/basic_info", f: f
@@ -34,8 +34,6 @@
   .actions.m-t.btn-group.btn-group-relaxed
     %button.btn.btn-default.btn-lg.btn-left.btn-prev{"data-target" => "#form-wizard", "data-wizard" => "previous", disabled: "disabled", type: "button"} Previous
     %button.btn.btn-primary.btn-lg.btn-right.btn-next{"data-last" => "Finish", "data-target" => "#form-wizard", "data-wizard" => "next", type: "button"} Next
-
-    -# = f.button :submit, class: 'ui teal submit button'
 
     -# - unless giveaway.active? || giveaway.new_record?
     -#   .ui.right.floated.tiny.red.buttons

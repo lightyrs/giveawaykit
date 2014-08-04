@@ -33,6 +33,7 @@
 //= require ../../../vendor/assets/javascripts/spin.min
 //= require ../../../vendor/assets/javascripts/iosOverlay
 //= require ckeditor/init
+//= require ../../../vendor/assets/javascripts/wysiwyg/ckeditor-jquery
 //= require editable/bootstrap-editable
 //= require editable/rails
 //= require facebook

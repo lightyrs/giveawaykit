@@ -32,7 +32,8 @@ SG.Giveaways.Form =
       false
 
   onWizardChanged: (e, data) ->
-    $(CKEDITOR.instances.editor).trigger 'resize'
+    if CKEDITOR.instances.editor.length
+      $(CKEDITOR.instances.editor).trigger 'resize'
 
   onWizardFinished: (e, data) ->
     @validateSteps()
