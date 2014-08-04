@@ -6,6 +6,7 @@ SG.UI =
     @initReadmores()
     @initAutosize()
     @initPagination()
+    @initFilestyles()
     SG.UI.ZClip.initialize()
     SG.UI.DatetimePickers.initialize()
     SG.UI.Editables.initialize()
@@ -34,8 +35,11 @@ SG.UI =
   initReadmore: (el) ->
     $(el).jTruncate()
 
-  initFilestyle: ->
-    @fileInputEls().filestyle
+  initFilestyles: ->
+    @initFilestyle(el) for el in @fileInputEls()
+
+  initFilestyle: (el) ->
+    $(el).filestyle
       classButton: 'btn btn-default btn-lg'
       classInput: 'form-control inline input-s'
       icon: true

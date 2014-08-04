@@ -20,7 +20,7 @@
       - if giveaway.completed?
         = giveaway.description.html_safe
       - else
-        = editable giveaway, :description, url: facebook_page_giveaway_path(giveaway.facebook_page, giveaway), value: h(giveaway.description), type: 'textarea', class: 'editable-wysiwyg', name: 'editable_wysiwyg', escape: false
+        = editable giveaway, :description, url: facebook_page_giveaway_path(giveaway.facebook_page, giveaway), value: h(giveaway.description), type: 'textarea', class: 'editable-wysiwyg', name: 'editable_wysiwyg', escape: false, savenochange: true
     %li.list-group-item.editable-parent
       .m-b-xs.editable-trigger
         %span.editable-label

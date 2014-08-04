@@ -23,6 +23,6 @@ CKEDITOR.on('instanceReady', function(ev) {
     breakAfterClose : false
   });
   if ($('#form-wizard').length) {
-    SG.Giveaways.Form.initWYSIWYG(ev.editor);
+    SG.Giveaways.Form.initWYSIWYG();
   }
 });
