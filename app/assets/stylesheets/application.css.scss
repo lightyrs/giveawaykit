@@ -133,27 +133,11 @@
 }
 
 .avatar-wrapper {
-  width: 64px;
-  height: 64px;
-  border: 3px solid rgba(255, 255, 255, 0.35);
-  border-radius: 500px;
-  overflow: hidden;
+  @include avatar-wrapper(64px, 64px, 3px);
+}
 
-  .thumb {
-
-    &.masked.avatar {
-      width: 64px;
-      height: 64px;
-      display: inline-block;
-      overflow: hidden;
-      background-position: center center !important;
-      -webkit-background-size: cover !important;
-      background-size: cover !important;
-      position: relative;
-      left: -3px;
-      top: -3px;
-    }
-  }
+.avatar-wrapper-32 {
+  @include avatar-wrapper(32px, 32px, 1px);
 }
 
 .giveaway-start-date-warning,

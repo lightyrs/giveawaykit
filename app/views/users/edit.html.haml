@@ -4,8 +4,7 @@
       %section.scrollable
         .wrapper
           .clearfix.m-b
-            %a.pull-left.thumb.m-r{href: "#"}
-              = image_tag current_user.avatar, alt: current_user.name, class: 'img-circle'
+            - unlinked_avatar(class: 'pull-left m-r', image_url: current_user.avatar)
             .clear
               .h3.m-t-xs.m-b-xs.wrap= current_user.name
               %small.text-muted

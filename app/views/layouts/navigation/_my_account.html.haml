@@ -29,8 +29,7 @@
           %a{"data-toggle" => "class:show animated fadeInRight", href: "#notes"} See all the notifications
   %li.dropdown
     %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-      %span.thumb-sm.avatar.pull-left
-        = image_tag current_user.avatar, alt: current_user.name
+      - unlinked_avatar(class: 'pull-left', size: 32, image_url: current_user.avatar)
       = current_user.name
       %b.caret
     %ul.dropdown-menu.animated.fadeInRight

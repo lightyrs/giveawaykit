@@ -33,3 +33,27 @@
   background-color: #fb6b5b;
   color: #ffffff;
 }
+
+@mixin avatar-wrapper($width, $height, $border) {
+  width: $width;
+  height: $height;
+  border: $border solid rgba(255, 255, 255, 0.35);
+  border-radius: 500px;
+  overflow: hidden;
+
+  .thumb {
+
+    &.masked.avatar {
+      width: $width;
+      height: $height;
+      display: inline-block;
+      overflow: hidden;
+      background-position: center center !important;
+      -webkit-background-size: cover !important;
+      background-size: cover !important;
+      position: relative;
+      left: -$border;
+      top: -$border;
+    }
+  }
+}
