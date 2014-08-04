@@ -48,7 +48,7 @@ gem 'stripe_tester'
 gem 'validates_timeliness', '~> 3.0'
 gem 'whenever', require: false
 gem 'will_paginate-bootstrap'
-gem 'x-editable-rails'
+gem 'x-editable-rails', github: 'lightyrs/x-editable-rails'
 
 # Assets
 gem 'jquery-turbolinks'

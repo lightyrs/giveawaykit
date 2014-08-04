@@ -49,6 +49,13 @@ GIT
       oauth2 (>= 0.5.0, < 0.9)
 
 GIT
+  remote: git://github.com/lightyrs/x-editable-rails.git
+  revision: 65e50fd90ce8a63b056bef6b9108504ef61354fa
+  specs:
+    x-editable-rails (1.5.3)
+      railties
+
+GIT
   remote: git://github.com/mkdynamic/omniauth-facebook.git
   revision: 4dbd5f0f40df0366ac6f9b477cfb8e22b4154341
   specs:
@@ -568,8 +575,6 @@ GEM
     will_paginate (3.0.7)
     will_paginate-bootstrap (1.0.1)
       will_paginate (>= 3.0.3)
-    x-editable-rails (1.5.3)
-      railties
     xpath (2.0.0)
       nokogiri (~> 1.3)
     zeroclipboard-rails (0.1.0)
@@ -681,5 +686,5 @@ DEPENDENCIES
   validates_timeliness (~> 3.0)
   whenever
   will_paginate-bootstrap
-  x-editable-rails
+  x-editable-rails!
   zeroclipboard-rails

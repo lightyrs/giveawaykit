@@ -1,7 +1,7 @@
 module SubscriptionPlansHelper
 
   def stripe_button(plan)
-    haml_tag :script, class: 'stripe-button', "data-amount" => "#{plan.price_in_cents_per_cycle}", "data-name" => "Giveaway Kit", "data-description" => "#{plan.name}", "data-label" => price_label(plan), "data-key" => Rails.configuration.stripe.publishable_key, :src => "https://checkout.stripe.com/v2/checkout.js"
+    haml_tag :script, class: 'stripe-button', "data-amount" => "#{plan.price_in_cents_per_cycle}", "data-name" => "Giveaway Kit", "data-description" => "#{plan.name}", "data-label" => price_label(plan), "data-key" => Rails.configuration.stripe.publishable_key, :src => "https://checkout.stripe.com/checkout.js"
   end
 
   def panel_wrapper_class(plan)

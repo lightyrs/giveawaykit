@@ -33,10 +33,10 @@ SG.Subscriptions =
     @closePageSelector()
     if $(event.target).hasClass('cancel-subscription')
       @handleCancelPlan event
-    else if $(@planEl).data('is_single_page')
+    else if $(@planEl).data('is-single-page')
       @openPageSelector()
     else
-      if $(@planEl).data('is_current_plan') || $(@planEl).data('is_next_plan')
+      if $(@planEl).data('is-current-plan') || $(@planEl).data('is-next-plan')
         @openPageSelector()
       else
         @openStripeCheckout()
@@ -51,7 +51,7 @@ SG.Subscriptions =
         $(@planEl).find('legend').css('font-weight', 'bold')
 
   handleFormSubmit: ->
-    if $(@planEl).data('is_current_plan') || $(@planEl).data('is_next_plan')
+    if $(@planEl).data('is-current-plan') || $(@planEl).data('is-next-plan')
       @handleCurrentOrNextPlan()
     else
       @handleNewPlan()
@@ -89,7 +89,7 @@ SG.Subscriptions =
     $(event.target).hasClass('page-selector')
 
   openStripeCheckout: ->
-    amount = $(@planEl).data('checkout_amount')
+    amount = $(@planEl).data('checkout-amount')
     unless amount is 0
       @handler.open
         name: 'Giveaway Kit'
@@ -101,7 +101,7 @@ SG.Subscriptions =
     SG.UI.Loader.createOverlay(true)
     $.form @formPath(),
       stripe_token: token
-      subscription_plan_id: $(@planEl).data('subscription_plan_id')
+      subscription_plan_id: $(@planEl).data('subscription-plan-id')
       facebook_page_ids: @mapPageIds()
     .submit()
 
@@ -122,4 +122,4 @@ SG.Subscriptions =
   formPath: ->
     @isUserCentric() && _SG.paths.userSubscribe || _SG.paths.pageSubscribe
 
-  stripeEl: -> $('script#stripe_js')
+  stripeEl: -> $('#stripe_page')
