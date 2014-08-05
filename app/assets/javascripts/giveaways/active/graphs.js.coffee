@@ -2,6 +2,7 @@ SG.Giveaways.Active.Graphs =
 
   initialize: ->
     if @graphPlaceholderEl().length
+      @graphData = []
       @initGraphData()
       @plotWithOptions()
 
@@ -87,7 +88,5 @@ SG.Giveaways.Active.Graphs =
   flot_entries: -> SG.Graphs.entries
 
   flot_views: -> SG.Graphs.views
-
-  graphData: []
 
   graphPlaceholderEl: -> $('#graph_placeholder')
