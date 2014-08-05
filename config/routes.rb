@@ -16,9 +16,9 @@ Rails.application.routes.draw do
   match '/privacy', to: 'welcome#privacy', via: [:get]
   match '/support', to: 'welcome#support', via: [:get]
 
-  match '/canvas', to: 'canvas#index', via: [:get, :post]
-  match '/canvas/edit', to: 'canvas#edit', via: [:get, :post]
-  match '/giveaways/tab', to: 'giveaways#tab', via: [:get, :post]
+  match '/canvas', to: 'canvas#index', via: [:get, :patch, :post]
+  match '/canvas/edit', to: 'canvas#edit', via: [:get, :patch, :post]
+  match '/giveaways/tab', to: 'giveaways#tab', via: [:get, :patch, :post]
 
   resources :likes, only: [:create]
 
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
       get :completed, on: :collection
       get :check_schedule, on: :collection
       get :clone, on: :member
-      match :start, on: :member, via: [:get, :post]
+      match :start, on: :member, via: [:get, :patch, :post]
       get :start_modal, on: :member
       get :end, on: :member
     end
@@ -51,14 +51,14 @@ Rails.application.routes.draw do
 
   resources :users
 
-  match '/deauth/:provider', to: 'users#deauth', via: [:get, :post]
+  match '/deauth/:provider', to: 'users#deauth', via: [:get, :patch, :post]
 
   get '/dashboard', to: 'users#show', as: 'dashboard'
 
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match '/logout', to: 'sessions#destroy', via: [:get, :post]
 
-  match '/:giveaway_id', to: 'giveaways#enter', as: 'enter', via: [:get, :post]
+  match '/:giveaway_id', to: 'giveaways#enter', as: 'enter', via: [:get, :patch, :post]
 
   root to: 'welcome#index'
 end
