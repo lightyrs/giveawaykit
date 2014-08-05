@@ -20,6 +20,7 @@ jQuery ->
   doRedirect = ->
     window.location.href = "/logout?fb=true"
 
+  $(document).off 'fb:initialized' 
   $(document).on 'fb:initialized', ->
     FB.getLoginStatus(fbAuthStatusChange)
 

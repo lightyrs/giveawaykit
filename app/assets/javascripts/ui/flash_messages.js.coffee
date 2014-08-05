@@ -7,12 +7,15 @@ SG.UI.FlashMessages =
     @attachFlashClose()
 
   initFlashEvents: ->
+    $(document).off 'webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', '.rails-flash' 
     $(document).on 'webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', '.rails-flash', (e) ->
       $(e.target).remove() if $(e.target).hasClass('fadeOutDown')
+    $(document).off 'append', '#flash_tray ul'
     $(document).on 'append', '#flash_tray ul', (e) =>
       @initFlashHide @jsFlashEls().first()
 
   initAjaxFlash: ->
+    $(document).off 'ajaxComplete'
     $(document).on 'ajaxComplete', (e, request) =>
       msg = request.getResponseHeader("X-Message")
       msgType = request.getResponseHeader("X-Message-Type")
@@ -22,7 +25,7 @@ SG.UI.FlashMessages =
   initFlashHide: (el) ->
     $el = el && $(el) || @flashEls().first()
     unless $el.find('.alert-error').length
-      setTimeout (=> @hideFlash($el)), 10000
+      setTimeout (=> @hideFlash($el)), 4000
 
   hideFlash: ($el) ->
     $el.addClass('fadeOutDown')

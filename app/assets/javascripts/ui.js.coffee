@@ -15,11 +15,16 @@ SG.UI =
 
   initPagesFilter: ->
     new List('facebook_pages_list', valueNames: ['name'], listClass: 'list-group')
+    
+    $(document).off 'webkitAnimationStart mozAnimationStart oAnimationStart animationStart', '#facebook_pages_list'
     $(document).on 'webkitAnimationStart mozAnimationStart oAnimationStart animationStart', '#facebook_pages_list', (e) ->
       $(e.target).find('input').trigger 'focus'
+    
+    $(document).off 'keypress', '#facebook_pages_list input'
     $(document).on 'keypress', '#facebook_pages_list input', (e) ->
       if e.which == 13
         window.location.href = $('#facebook_pages_list').find('li:visible a').attr('href')
+    
     $('#my_pages_dropdown').on 'click', '.dropdown.open header', (e) ->
       return false
 

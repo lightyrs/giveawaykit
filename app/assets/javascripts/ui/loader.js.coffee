@@ -3,14 +3,17 @@ SG.UI.Loader =
   getOverlay: -> @overlay
 
   attachAjaxSuccess: ->
+    $(document).off 'ajaxSuccess'
     $(document).on 'ajaxSuccess', (e) =>
       @onSuccess() unless @override
 
   attachAjaxError: ->
+    $(document).off 'ajaxError'
     $(document).on 'ajaxError', (e) =>
       @onError() unless @override
 
   attachAjaxStop: ->
+    $(document).off 'ajaxStop'
     $(document).on 'ajaxStop', (e) =>
       @onStop() unless @override
 

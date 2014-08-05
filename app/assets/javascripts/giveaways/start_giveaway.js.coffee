@@ -9,8 +9,11 @@ SG.Giveaways.Start =
         @initStartModal()
 
   initStartModal: ->
+    $(document).off 'hidden.bs.modal', '#start_giveaway_modal'
     $(document).on 'hidden.bs.modal', '#start_giveaway_modal', ->
       $('#start_giveaway_modal').removeData('bs.modal')
+      
+    $(document).off 'ajaxSuccess'
     $(document).on 'ajaxSuccess', (response) =>
       @attachModalEvents()
 
@@ -19,10 +22,12 @@ SG.Giveaways.Start =
       SG.UI.DatetimePickers.initialize @modalEl().find('.datetime-picker-input')
 
   attachButtonEvents: ->
+    $(document).off 'click', '#start_giveaway_modal .approve.btn'
     $(document).on 'click', '#start_giveaway_modal .approve.btn', (e) =>
       @moveForward()
 
   triggerStartModal: ->
+    $(document).off 'ajaxSuccess'
     $(document).on 'ajaxSuccess', =>
       @modalEl().find(".modal-step[data-modal-step='1']").hide()
       @modalEl().find(".modal-step[data-modal-step='2']").show()

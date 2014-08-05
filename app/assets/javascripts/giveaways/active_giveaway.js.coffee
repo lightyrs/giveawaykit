@@ -7,15 +7,19 @@ SG.Giveaways.Active =
     @initPopoverClose()
 
   initTabListeners: ->
+    $(document).off 'ajax:beforeSend', '#details_tab_trigger'
     $(document).on 'ajax:beforeSend', '#details_tab_trigger', (xhr, data, s) =>
       return false if @detailsTabTriggerEl().hasClass('loaded')
 
+    $(document).off 'ajax:success', '#details_tab_trigger'
     $(document).on 'ajax:success', '#details_tab_trigger', (xhr, data, s) =>
       @initDetailsTab(data)
 
+    $(document).off 'ajax:beforeSend', '#entries_tab_trigger'
     $(document).on 'ajax:beforeSend', '#entries_tab_trigger', (xhr, data, s) =>
       return false if @entriesTabTriggerEl().hasClass('loaded')
 
+    $(document).off 'ajax:success', '#entries_tab_trigger'
     $(document).on 'ajax:success', '#entries_tab_trigger', (xhr, data, s) =>
       @initEntriesTab(data)
 
@@ -26,6 +30,7 @@ SG.Giveaways.Active =
         @entriesTabEl().find('.sg-progress-block .bar').addClass('loading')
 
   initEndGiveawayListener: ->
+    $(document).off 'click', '.end-giveaway-button'
     $(document).on 'click', '.end-giveaway-button', (e) =>
       if confirm @endGiveawayConfirmation
         SG.UI.Loader.createOverlay(true)
@@ -45,13 +50,20 @@ SG.Giveaways.Active =
   endGiveawayConfirmation: "Are you sure you want to end the giveaway right now? If you decide to continue, it will be removed from your Facebook Page immediately."
 
   initPopoverClose: ->
+    $(document).off 'show.bs.popover'
     $(document).on 'show.bs.popover', (event) ->
       $('.popover-active').popover('toggle')
       $(event.target).addClass('popover-active')
+
+    $(document).off 'hide.bs.popover'
     $(document).on 'hide.bs.popover', (event) ->
       $(event.target).removeClass('popover-active')
+    
+    $(document).off 'mouseup', '.popover-container, .popover-active'
     $(document).on 'mouseup', '.popover-container, .popover-active', ->
       return false
+    
+    $(document).off 'mouseup'
     $(document).on 'mouseup', ->
       $('.popover-active').popover('toggle') if $('.popover-active').length
 
