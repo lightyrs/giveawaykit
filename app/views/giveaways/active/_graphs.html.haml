@@ -1,8 +1,6 @@
 - if page.audits.any? && flot[:page_likes]
 
   .graphs
-    = stylesheet_link_tag :graph
-
     = render 'giveaways/active/graphs/performance_lines', giveaway: giveaway
     = render 'giveaways/active/graphs/conversion_pies', giveaway: giveaway
     = render 'giveaways/active/graphs/virality_pies', giveaway: giveaway
