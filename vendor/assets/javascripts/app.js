@@ -61,15 +61,6 @@ Date.now = Date.now || function() { return +new Date; };
 
 +function ($) {
 
-	// placeholder
-	$('input[placeholder], textarea[placeholder]').placeholder();
-
-  // popover
-  $("[data-toggle=popover]").popover();
-
-	// tooltip
-  $("[data-toggle=tooltip]").tooltip();
-
   // class
 	$(document).on('click', '[data-toggle^="class"]', function(e){
 		e && e.preventDefault();

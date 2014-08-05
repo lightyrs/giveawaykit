@@ -2,6 +2,9 @@ SG.UI =
 
   initialize: ->
     SG.UI.FlashMessages.initialize()
+    @initPlaceholders()
+    @initPopovers()
+    @initTooltips()
     @initPagesFilter()
     @initReadmores()
     @initAutosize()
@@ -12,6 +15,15 @@ SG.UI =
     SG.UI.Editables.initialize()
     SG.UI.Charts.initialize()
     # @initSlimScrolls()
+
+  initPlaceholders: ->
+    $('input[placeholder], textarea[placeholder]').placeholder()
+
+  initPopovers: ->
+    $('[data-toggle=popover]').popover()
+
+  initTooltips: ->
+    $('[data-toggle=tooltip]').tooltip()
 
   initPagesFilter: ->
     new List('facebook_pages_list', valueNames: ['name'], listClass: 'list-group')
