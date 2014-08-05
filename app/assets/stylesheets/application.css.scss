@@ -506,6 +506,11 @@ input[type="file"] {
 
   label {
 
+    span.optional-input {
+      font-weight: normal;
+      font-style: italic;
+    }
+
     &.switch {
       cursor: pointer;
 
