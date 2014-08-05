@@ -45,8 +45,7 @@ SG.UI =
 
   initFilestyle: (el) ->
     $(el).filestyle
-      classButton: 'btn btn-default btn-lg'
-      classInput: 'form-control inline input-s'
+      buttonName: 'btn btn-default btn-lg'
       icon: true
       buttonText: 'Upload'
       input: false
