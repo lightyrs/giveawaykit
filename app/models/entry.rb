@@ -128,7 +128,7 @@ class Entry < ActiveRecord::Base
 
   def bitly_client
     Bitly.use_api_version_3
-    Bitly.new(BITLY_KEY)
+    Bitly.new(BITLY_USERNAME, BITLY_KEY)
   end
 
   def self.conversion_worker(has_liked, ref_ids, giveaway_cookie)

@@ -209,7 +209,7 @@ class Giveaway < ActiveRecord::Base
 
   def bitly_client
     Bitly.use_api_version_3
-    Bitly.new(BITLY_KEY)
+    Bitly.new(BITLY_USERNAME, BITLY_KEY)
   end
 
   def unpublish
