@@ -151,7 +151,7 @@ module SubscriptionPlansHelper
   end
 
   def free_trial_message(sub_object)
-    "Since this is the first giveaway for <strong>#{sub_object.name}</strong>, it's on the house &mdash; free with no strings attached. Go ahead and start the giveaway when you're ready. Good luck and please don't hesitate to contact us for any help or advice. Thank you for using <strong>Giveaway Kit</strong>.".html_safe
+    "Since this is the first giveaway for <strong>#{sub_object.name}</strong>, it's on the house &mdash; free with no strings attached. Go ahead and start the giveaway when you're ready. Good luck and please don't hesitate to contact us for any help or advice. Thank you for using <strong>Giveaway Kit</strong>.<br /><br />When you click <strong>Next</strong>, your giveaway will be published to your page.".html_safe
   end
 
   def no_subscription_message(sub_object)

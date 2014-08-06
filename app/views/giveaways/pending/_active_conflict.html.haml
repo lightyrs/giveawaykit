@@ -1,3 +1,8 @@
+- default_msg = "is already active on your Facebook Page. If you would like to start this giveaway now, you'll need to first end the active giveaway."
+
+- end_date_msg = "is already active on your Facebook Page. It is scheduled to end on <strong>#{giveaway.facebook_page.active_giveaway.end_date}</strong>. If you would like to start this giveaway now, you'll need to first end the active giveaway."
+
 %p
   %strong= link_to giveaway.facebook_page.active_giveaway_title, active_facebook_page_giveaways_path(giveaway.facebook_page)
-  is already active on your Facebook Page. It is scheduled to end on <strong>#{giveaway.facebook_page.active_giveaway.end_date}</strong>. If you would like to start this giveaway now, you'll need to first end the active giveaway.
+  - giveaway.facebook_page.active_giveaway.end_date.nil? ? default_msg : end_date_msg
+
