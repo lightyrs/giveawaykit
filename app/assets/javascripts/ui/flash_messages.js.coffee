@@ -7,7 +7,7 @@ SG.UI.FlashMessages =
     @attachFlashClose()
 
   initFlashEvents: ->
-    $(document).off 'webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', '.rails-flash' 
+    $(document).off 'webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', '.rails-flash'
     $(document).on 'webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', '.rails-flash', (e) ->
       $(e.target).remove() if $(e.target).hasClass('fadeOutDown')
     $(document).off 'append', '#flash_tray ul'

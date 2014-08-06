@@ -90,6 +90,7 @@ group :development, :test do
   gem 'awesome_print'
   gem 'better_errors'
   gem 'binding_of_caller', platforms: [:mri_21]
+  gem 'chrome_logger' , :require => 'chrome_logger/railtie'
   gem 'meta_request'
   gem 'erb2haml'
   gem 'factory_girl_rails'

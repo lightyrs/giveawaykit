@@ -1,6 +1,6 @@
 - if message.is_a?(Hash)
-  - title = message['title'].try(:titleize)
-  - message = message['content']
+  - title = message.with_indifferent_access['title'].try(:titleize)
+  - message = message.with_indifferent_access['content']
 - else
   - title = "#{level}".try(:titleize)
 
