@@ -5,8 +5,8 @@ class EntriesDatatable < AjaxDatatablesRails
   def initialize(view, options = {})
     @model_name = Entry
     @giveaway = Giveaway.find(view.params[:giveaway_id])
-    @columns = %w(entries.name entries.email entries.is_viral entries.wall_post_count entries.request_count entries.convert_count entries.bonus_entries entries.created_at)
-    @searchable_columns = %w(entries.name entries.email)
+    @columns = %w(name email is_viral wall_post_count request_count convert_count bonus_entries created_at)
+    @searchable_columns = %w(name email)
     @db_columns = db_columns
     @display_columns = display_columns
     @sort_order = set_sort_order(view.params[:sSortDir_0])
