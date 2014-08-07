@@ -14,16 +14,17 @@
     %meta{property: "og:description", content: "#{@giveaway_hash.giveaway.description}"}
     %meta{property: "og:url", content: "#{@giveaway_hash.giveaway.giveaway_url}"}
     %link{rel: 'canonical', href: "#{@giveaway_hash.giveaway.giveaway_url}"}
-    = stylesheet_link_tag "//#{SG_SSL_DOMAIN}/assets/tab.css"
+
     /[if lt IE 9]
       = javascript_include_tag "//html5shim.googlecode.com/svn/trunk/html5.js"
 
-    = javascript_include_tag :jquery
-    = javascript_include_tag "//#{SG_SSL_DOMAIN}/assets/tab.js"
+    = stylesheet_link_tag "//#{SG_SSL_DOMAIN}/assets/tab.css"
 
     = csrf_meta_tags
+
   %body
-    = render "giveaways/init_tab_globals", giveaway_hash: @giveaway_hash
+    = include_gon(init: true, namespace: '_SG', need_type: true)
+    = javascript_include_tag "//#{SG_SSL_DOMAIN}/assets/tab.js"
     #tab_container
       = yield
 

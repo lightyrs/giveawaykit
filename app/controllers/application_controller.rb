@@ -48,16 +48,25 @@ class ApplicationController < ActionController::Base
   end
 
   def init_js_vars
-    gon.paths ||= {}
-    gon.currentUser ||= {}
-    gon.currentPage ||= {}
-    gon.currentGiveaway ||= {}
+    if action_string == 'giveaways#tab'
+      gon.paths = {}
+      gon.currentGiveaway = {}
+    else
+      gon.paths ||= {}
+      gon.currentUser ||= {}
+      gon.currentPage ||= {}
+      gon.currentGiveaway ||= {}
+    end
   end
 
   def assign_js_vars
-    assign_gon_page_vars if @page
-    assign_gon_giveaway_vars if @giveaway
-    assign_gon_user_vars if current_user && current_user.fb_uid
+    if action_string == 'giveaways#tab'
+      assign_gon_tab_vars
+    else
+      assign_gon_page_vars if @page
+      assign_gon_giveaway_vars if @giveaway
+      assign_gon_user_vars if current_user && current_user.fb_uid
+    end
   end
 
   def assign_gon_page_vars
@@ -68,6 +77,12 @@ class ApplicationController < ActionController::Base
     gon.paths[:checkSchedule] = check_schedule_facebook_page_giveaways_path(@page)
     gon.paths[:subscriptionPlans] = facebook_page_subscription_plans_path(@page)
     gon.paths[:pageSubscribe] = facebook_page_subscribe_path(@page)
+  end
+
+  def assign_gon_tab_vars
+    gon.currentGiveaway = @giveaway_hash.as_json
+    gon.paths[:likes] = likes_path
+    gon.paths[:giveawayEntries] = facebook_page_giveaway_entries_path(@giveaway_hash.current_page, @giveaway_hash.giveaway.id)
   end
 
   def assign_gon_giveaway_vars
@@ -119,5 +134,9 @@ class ApplicationController < ActionController::Base
   def current_user=(user)
     @current_user = user
     session[:user_id] = user.nil? ? user : user.id
+  end
+
+  def action_string
+    "#{controller_name}##{action_name}"
   end
 end

@@ -105,27 +105,27 @@ class FacebookPage < ActiveRecord::Base
   end
 
   def canhaz_basic_analytics?
-    subscription && subscription.canhaz_basic_analytics?
+    !!subscription && subscription.canhaz_basic_analytics?
   end
 
   def canhaz_advanced_analytics?
-    subscription && subscription.canhaz_advanced_analytics? || has_free_trial_remaining?
+    !!subscription && subscription.canhaz_advanced_analytics? || has_free_trial_remaining?
   end
 
   def canhaz_scheduled_giveaways?
-    subscription && subscription.canhaz_scheduled_giveaways? || has_free_trial_remaining?
+    !!subscription && subscription.canhaz_scheduled_giveaways? || has_free_trial_remaining?
   end
 
   def canhaz_referral_tracking?
-    subscription && subscription.canhaz_referral_tracking? || has_free_trial_remaining?
+    !!subscription && subscription.canhaz_referral_tracking? || has_free_trial_remaining?
   end
 
   def canhaz_giveaway_shortlink?
-    subscription && subscription.canhaz_giveaway_shortlink? || has_free_trial_remaining?
+    !!subscription && subscription.canhaz_giveaway_shortlink? || has_free_trial_remaining?
   end
 
   def canhaz_white_label?
-    subscription && subscription.canhaz_white_label?
+    !!subscription && subscription.canhaz_white_label?
   end
 
   def find_or_remove_subscription

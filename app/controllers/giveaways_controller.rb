@@ -13,6 +13,8 @@ class GiveawaysController < FacebookController
   before_filter :sanitize_params, only: [:create, :update]
   before_filter :parse_signed_request, only: [:tab], if: -> { params[:signed_request] }
 
+  skip_before_filter :verify_authenticity_token, only: [:tab]
+
   after_filter :after_tab_actions, only: [:tab]
 
   def index

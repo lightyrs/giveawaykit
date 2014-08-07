@@ -5,16 +5,17 @@ SG.UI.ZClip =
 
   initZClip: (el) ->
     $el = $(el)
-    clip = @clip($el)
-    @attachZClipEvents($el, clip)
+    client = @client($el)
+    @attachZClipEvents($el, client)
 
-  attachZClipEvents: ($el, clip) ->
-    clip.on 'dataRequested', (client, args) ->
-      client.setText $el.data('clipboard-text')
-    clip.on 'complete', ->
-      $('body').trigger('click')
+  attachZClipEvents: ($el, client) ->
+    client.on 'ready', (event) =>
+      client.on 'copy', (event) ->
+        event.clipboardData.setData 'text/plain', $el.data('clipboard-text')
+      client.on 'aftercopy', (event) ->
+        $('body').trigger('click')
 
-  clip: ($el) ->
+  client: ($el) ->
     new ZeroClipboard $el,
       moviePath: "//#{_SG.global.SG_DOMAIN}/assets/ZeroClipboard.swf"
       trustedOrigins: [window.location.protocol + "//" + window.location.host]

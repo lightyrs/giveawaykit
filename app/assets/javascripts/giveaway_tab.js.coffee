@@ -143,7 +143,7 @@ jQuery ->
           access_token = eval("(" + access_token + ")")
         $.ajax
           type: "POST"
-          url: "#{paths.giveawayEntry}"
+          url: "#{paths.giveawayEntries}"
           dataType: "json"
           data: "access_token=" + access_token + "&has_liked=" + Giveaway.eligible() + "&ref_id=" + $referrer_id + "&email=" + $email + "&like_id=" + $like_id
           statusCode:
@@ -215,7 +215,7 @@ jQuery ->
       callback: (json) ->
         $.ajax
           type: "PUT"
-          url: "#{paths.giveawayEntry}/#{$entry_id}"
+          url: "#{paths.giveawayEntries}/#{$entry_id}"
           dataType: "text"
           data: json
           statusCode:
@@ -250,23 +250,25 @@ jQuery ->
         Giveaway.share.dialog
           title: "Share this giveaway to receive a bonus entry."
           method: "apprequests"
-          message: "#{giveaway_object.description.slice(0, 250) + '...'}"
+          message: "#{giveaway_object.description_text.slice(0, 250)}..."
           data:
             referrer_id: "#{$entry_id}"
             giveaway_id: "#{giveaway_object.id}"
 
     initZClip: ->
-      $el = $("a.zclip-trigger")
+      $el = $('a.zclip-trigger')
 
-      clip = new ZeroClipboard $el,
+      client = new ZeroClipboard $el,
         moviePath: "//#{_SG.global.SG_SSL_DOMAIN}/assets/ZeroClipboard.swf"
         trustedOrigins: [window.location.protocol + "//" + window.location.host]
         allowScriptAccess: 'always'
 
-      clip.on 'dataRequested', (client, args) ->
-        client.setText($shortlink)
+      client.on 'ready', (event) =>
 
-      clip.on 'complete', ->
-        $el.addClass('hide')
-        $('a.raw-shortlink.btn-success').removeClass('hide')
-        $('body').trigger('click')
+        client.on 'copy', (event) ->
+          event.clipboardData.setData 'text/plain', $shortlink
+
+        client.on 'aftercopy', (event) ->
+          $el.addClass('hide')
+          $('a.raw-shortlink.btn-success').removeClass('hide')
+          $('body').trigger('click')

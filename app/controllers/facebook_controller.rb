@@ -1,6 +1,12 @@
 # -*- encoding : utf-8 -*-
 class FacebookController < ApplicationController
 
+  before_filter :allow_iframe_requests
+
+  def allow_iframe_requests
+    response.headers.delete('X-Frame-Options')
+  end
+
   def after_tab_actions
     register_impression
     set_giveaway_cookie

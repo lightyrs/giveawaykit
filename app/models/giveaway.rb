@@ -524,7 +524,7 @@ class Giveaway < ActiveRecord::Base
     def tab(signed_request)
       app_data = signed_request["app_data"]
       referrer_id = app_data.split("ref_")[1] rescue []
-      current_page = FacebookPage.select("id, url, name, slug").find_by_pid(signed_request["page"]["id"])
+      current_page = FacebookPage.select("id, url, name, slug, subscription_id").find_by(pid: signed_request["page"]["id"])
       giveaway = current_page.active_giveaway
 
       OpenStruct.new({
@@ -537,6 +537,8 @@ class Giveaway < ActiveRecord::Base
         canhaz_white_label: giveaway.facebook_page.canhaz_white_label?,
         canhaz_referral_tracking: giveaway.canhaz_referral_tracking?
       })
+    rescue StandardError => e
+      puts "#{e.class}: #{e.message}".red
     end
 
     def app_request_worker(request_id, signed_request)
@@ -576,6 +578,7 @@ class Giveaway < ActiveRecord::Base
       id: id,
       title: title,
       description: description,
+      description_text: ActionView::Base.full_sanitizer.sanitize(description),
       giveaway_url: giveaway_url,
       enter_url: Rails.application.routes.url_helpers.enter_url(self, host: SG_DOMAIN),
       image_url: self.image.tab.url.gsub("http://", "https://"),
