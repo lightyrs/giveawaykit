@@ -17,9 +17,14 @@ set :keep_releases, 5
 set :linked_files, %w{config/database.yml config/.env.production}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
+# set :whenever_command_environment_variables, -> {
+#   {
+
+#   }
+# }
+#
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
-
 
 namespace :deploy do
 
