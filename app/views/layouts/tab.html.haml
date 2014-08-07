@@ -18,13 +18,13 @@
     /[if lt IE 9]
       = javascript_include_tag "//html5shim.googlecode.com/svn/trunk/html5.js"
 
-    = stylesheet_link_tag "//#{SG_SSL_DOMAIN}/assets/tab.css"
+    = stylesheet_link_tag :tab, media: 'all'
 
     = csrf_meta_tags
 
   %body
     = include_gon(init: true, namespace: '_SG', need_type: true)
-    = javascript_include_tag "//#{SG_SSL_DOMAIN}/assets/tab.js"
+    = javascript_include_tag :tab
     #tab_container
       = yield
 
