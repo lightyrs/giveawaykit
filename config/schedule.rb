@@ -1,7 +1,5 @@
 env :PATH, ENV['PATH']
 
-set :job_template, "bash --noprofile -l -c ':job'"
-
 every 1.weeks do
   case @environment
     when 'production'
