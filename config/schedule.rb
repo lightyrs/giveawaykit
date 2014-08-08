@@ -29,7 +29,7 @@ every 30.minutes do
   end
 end
 
-every 5.minutes do
+every 1.minutes do
   case @environment
     when 'production'
       command "source /usr/local/rvm/scripts/rvm; if [ -f /etc/default/giveawaykit ]; then . /etc/default/giveawaykit; fi; cd /home/gk/giveawaykit/current; bundle exec rails runner 'GiveawayScheduleWorker.perform_async(\"unpublish\")'; bundle exec rails runner 'GiveawayScheduleWorker.perform_async(\"publish\")';"
