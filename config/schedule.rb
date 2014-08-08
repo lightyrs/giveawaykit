@@ -1,3 +1,5 @@
+env :PATH, ENV['PATH']
+
 every 1.weeks do
   runner 'GiveawayOrphansWorker.perform_async'
 end
