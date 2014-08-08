@@ -9,7 +9,7 @@ class WelcomeNewUserMailer < ActionMailer::Base
     @user_first_name = user_name.split(" ")[0] rescue user_name
     mail subject: 'Welcome to Giveaway Kit',
          to: formatted_email(recipient_identity.email, @user_first_name),
-         from: formatted_email("support@simplegiveaways.com", "Giveaway Kit"),
+         from: formatted_email("support@giveawaykit.com", "Giveaway Kit"),
          template_path: 'mailers/welcome_new_user_mailer',
          template_name: 'welcome'
   end

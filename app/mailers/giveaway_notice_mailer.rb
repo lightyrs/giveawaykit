@@ -9,7 +9,7 @@ class GiveawayNoticeMailer < ActionMailer::Base
     @user_first_name = user.name.split(" ")[0] rescue user.name
     mail subject: 'Your Giveaway Has Begun',
          to: formatted_email(user.identities.pop.email, @user_first_name),
-         from: formatted_email("support@simplegiveaways.com", "Giveaway Kit"),
+         from: formatted_email("support@giveawaykit.com", "Giveaway Kit"),
          template_path: 'mailers/giveaway_notice_mailer',
          template_name: 'start'
   end
@@ -19,7 +19,7 @@ class GiveawayNoticeMailer < ActionMailer::Base
     @user_first_name = user.name.split(" ")[0] rescue user.name
     mail subject: 'Your Giveaway Has Ended',
          to: formatted_email(user.identities.pop.email, @user_first_name),
-         from: formatted_email("support@simplegiveaways.com", "Giveaway Kit"),
+         from: formatted_email("support@giveawaykit.com", "Giveaway Kit"),
          template_path: 'mailers/giveaway_notice_mailer',
          template_name: 'end'
   end
