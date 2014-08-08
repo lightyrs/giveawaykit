@@ -33,7 +33,7 @@ module GiveawaysHelper
 
     accumulate_options = only_options.first.to_sym rescue :days
 
-    distance_of_time_in_words(Time.now, time, false, only: only_options, accumulate_on: accumulate_options)
+    distance_of_time_in_words(Time.now, time, false, { only: only_options, accumulate_on: accumulate_options})
   end
 
   def giveaway_header_class(giveaway)
