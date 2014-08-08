@@ -39,8 +39,6 @@ class FacebookController < ApplicationController
     message = @signed_request['user_id'] ? "fb_uid: #{@signed_request['user_id']}" : ""
     message += ", ref_id: #{@giveaway_hash.referrer_id}" if @giveaway_hash.referrer_id.is_a?(String)
 
-    puts @giveaway.inspect.red
-    puts message.inspect.yellow
     impressionist @giveaway, message: message, unique: [:session_hash]
   end
 
