@@ -86,7 +86,7 @@ class EntriesController < ApplicationController
   end
 
   def assign_giveaway_cookie
-    @giveaway_cookie = GiveawayCookie.new( cookies.encrypted[Giveaway.cookie_key(@giveaway.id)] )
+    @giveaway_cookie = GiveawayCookie.new( cookies.signed[Giveaway.cookie_key(@giveaway.id)] )
   end
 
   def register_like_from_entry
@@ -108,6 +108,6 @@ class EntriesController < ApplicationController
   end
 
   def set_giveaway_cookie
-    cookies.encrypted[Giveaway.cookie_key(@giveaway.id)] = @giveaway_cookie.to_json
+    cookies.signed[Giveaway.cookie_key(@giveaway.id)] = @giveaway_cookie.to_json
   end
 end

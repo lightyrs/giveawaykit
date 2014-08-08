@@ -43,13 +43,13 @@ class FacebookController < ApplicationController
   end
 
   def last_giveaway_cookie
-    cookies.encrypted[Giveaway.cookie_key(@giveaway.id)] rescue nil
+    cookies.signed[Giveaway.cookie_key(@giveaway.id)] rescue nil
   end
 
   def set_giveaway_cookie
     if @giveaway_hash && @giveaway_hash.giveaway
       key = Giveaway.cookie_key(@giveaway_hash.giveaway.id)
-      cookies.encrypted[key] = @giveaway_cookie.to_json
+      cookies.signed[key] = @giveaway_cookie.to_json
     end
   end
 end

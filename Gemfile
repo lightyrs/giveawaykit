@@ -45,7 +45,7 @@ gem 'sinatra', require: nil
 gem 'slim'
 gem 'stripe-rails'
 gem 'stripe_tester'
-gem 'validates_timeliness', '~> 3.0'
+gem 'jc-validates_timeliness'
 gem 'whenever', require: false
 gem 'will_paginate-bootstrap'
 gem 'x-editable-rails', github: 'lightyrs/x-editable-rails'

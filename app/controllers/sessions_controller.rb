@@ -41,7 +41,7 @@ class SessionsController < ApplicationController
       end
 
       session['uid'] = @identity.uid
-      cookies.encrypted[:_sg_uid] = { value: @identity.uid, expires: Time.zone.now + 7200 }
+      cookies.signed[:_sg_uid] = { value: @identity.uid, expires: Time.zone.now + 7200 }
     end
   end
 end

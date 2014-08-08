@@ -1,5 +1,5 @@
 %ul.breadcrumb.no-border.no-radius.b-b.b-light.pull-in
-  - breadcrumbs(display_single_fragment: true) do |links|
+  - breadcrumbs(display_single_fragment: true).tap do |links|
     - links.each do |link|
       %li
         - if link.current?

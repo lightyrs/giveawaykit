@@ -120,7 +120,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= (User.find_by_id(session[:user_id]) ||
-      Identity.find_by_uid(cookies.encrypted[:_sg_uid]).user if cookies.encrypted[:_sg_uid])
+      Identity.find_by_uid(cookies.signed[:_sg_uid]).user if cookies.signed[:_sg_uid])
   rescue StandardError
     nil
   end
