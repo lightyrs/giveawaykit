@@ -6,6 +6,13 @@ GIT
       kaminari
 
 GIT
+  remote: git://github.com/fs/dotiw.git
+  revision: 8022b0c1dbf4019853af61a47cfce4a5919f2060
+  specs:
+    dotiw (1.1.1)
+      actionpack (>= 3)
+
+GIT
   remote: git://github.com/gazay/gon.git
   revision: c1e5ffc19b161b86bb5d7311fb6aa842b85c2b54
   specs:
@@ -61,14 +68,6 @@ GIT
   specs:
     omniauth-facebook (2.0.0.pre1)
       omniauth-oauth2 (~> 1.1)
-
-GIT
-  remote: git://github.com/rarestep/dotiw.git
-  revision: 70e373a7998fc12bee2b378cc885d74c112a5d08
-  branch: rails4
-  specs:
-    dotiw (1.1.1)
-      actionpack (~> 4)
 
 GEM
   remote: https://rubygems.org/
