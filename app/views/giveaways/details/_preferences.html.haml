@@ -9,7 +9,10 @@
           %span.editable-error
         %a.pull-right{href: "#"}
           %i.fa.fa-pencil
-      = editable giveaway, :email_required, url: facebook_page_giveaway_path(giveaway.facebook_page, giveaway), value: to_bool(giveaway.email_required), source: {"0" => "False", "1" => "True"}, classes: { "1" => 'label bg-primary', "0" => 'label bg-danger' }
+      - if giveaway.completed?
+        = boolean_label(giveaway.email_required)
+      - else
+        = editable giveaway, :email_required, url: facebook_page_giveaway_path(giveaway.facebook_page, giveaway), value: to_bool(giveaway.email_required), source: {"0" => "False", "1" => "True"}, classes: { "1" => 'label bg-primary', "0" => 'label bg-danger' }
     %li.list-group-item.editable-parent{class: "bool-#{to_bool(giveaway.autoshow_share_dialog)}"}
       .m-b-xs.editable-trigger
         %span.editable-label
@@ -17,7 +20,10 @@
           %span.editable-error
         %a.pull-right{href: "#"}
           %i.fa.fa-pencil
-      = editable giveaway, :autoshow_share_dialog, url: facebook_page_giveaway_path(giveaway.facebook_page, giveaway), value: to_bool(giveaway.autoshow_share_dialog), source: {"0" => "False", "1" => "True"}, classes: { "1" => 'label bg-primary', "0" => 'label bg-danger' }
+      - if giveaway.completed?
+        = boolean_label(giveaway.autoshow_share_dialog)
+      - else
+        = editable giveaway, :autoshow_share_dialog, url: facebook_page_giveaway_path(giveaway.facebook_page, giveaway), value: to_bool(giveaway.autoshow_share_dialog), source: {"0" => "False", "1" => "True"}, classes: { "1" => 'label bg-primary', "0" => 'label bg-danger' }
     %li.list-group-item.editable-parent{class: "bool-#{to_bool(giveaway.allow_multi_entries)}"}
       .m-b-xs.editable-trigger
         %span.editable-label
@@ -25,7 +31,10 @@
           %span.editable-error
         %a.pull-right{href: "#"}
           %i.fa.fa-pencil
-      = editable giveaway, :allow_multi_entries, url: facebook_page_giveaway_path(giveaway.facebook_page, giveaway), value: to_bool(giveaway.allow_multi_entries), source: {"0" => "False", "1" => "True"}, classes: { "1" => 'label bg-primary', "0" => 'label bg-danger' }
+      - if giveaway.completed?
+        = boolean_label(giveaway.allow_multi_entries)
+      - else
+        = editable giveaway, :allow_multi_entries, url: facebook_page_giveaway_path(giveaway.facebook_page, giveaway), value: to_bool(giveaway.allow_multi_entries), source: {"0" => "False", "1" => "True"}, classes: { "1" => 'label bg-primary', "0" => 'label bg-danger' }
     %li.list-group-item.editable-parent
       .m-b-xs.editable-trigger
         %span.editable-label
