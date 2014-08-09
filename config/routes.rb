@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  
+
   require 'sidekiq/web'
 
   constraint = lambda { |request| request.env["warden"].authenticate? and request.env['warden'].user }

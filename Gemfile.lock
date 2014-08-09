@@ -260,6 +260,8 @@ GEM
     gabba (1.0.1)
     gabbara (0.0.6)
       activesupport
+    gaffe (1.0.2)
+      rails (>= 3.2.0)
     garails (0.3.0)
       gabbara (~> 0.0.5)
     gretel (3.0.7)
@@ -631,6 +633,7 @@ DEPENDENCIES
   foreman
   friendly_id
   gabba
+  gaffe
   garails
   gon!
   gretel

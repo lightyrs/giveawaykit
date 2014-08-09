@@ -1,0 +1,28 @@
+!!!
+%html{lang: "en", class: "app"}
+  %head
+    %meta{charset: "utf-8"}
+    %title Giveaway Kit
+
+    %meta{content: "Easily create, deploy, and manage giveaways on your Facebook pages.", name: "description"}
+    %meta{content: "width=device-width, initial-scale=1, maximum-scale=1", name: "viewport"}
+
+    = google_analytics_tracking_javascript
+
+    /[if lt IE 9]
+      = javascript_include_tag "//html5shim.googlecode.com/svn/trunk/html5.js"
+
+    = stylesheet_link_tag :application, media: 'all'
+
+    = csrf_meta_tags
+
+  %body
+    %section.vbox
+      = render 'layouts/header'
+      %section
+        %section.hbox.stretch
+          = render 'layouts/content'
+          %aside#notes.bg-light.lter.b-l.aside-md.hide
+            .wrapper Notification
+
+    %noscript= utm_tag
