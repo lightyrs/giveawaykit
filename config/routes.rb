@@ -58,9 +58,13 @@ Rails.application.routes.draw do
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match '/logout', to: 'sessions#destroy', via: [:get, :post]
 
+  get '/help', to: 'help#index', as: 'help'
   get '/help/faq', to: 'help#faq', as: 'help_faq'
   get '/help/examples', to: 'help#examples', as: 'help_examples'
   get '/help/contact', to: 'help#contact', as: 'help_contact'
+
+  get '/about', to: 'about#index', as: 'about'
+  get '/about/subscription_plans', to: 'subscription_plans#index', as: 'subscription_plans'
 
   match '/:giveaway_id/enter', to: 'giveaways#enter', as: 'enter', via: [:get, :patch, :post]
 

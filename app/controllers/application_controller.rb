@@ -51,7 +51,7 @@ class ApplicationController < ActionController::Base
     if action_string == 'giveaways#tab'
       gon.paths = {}
       gon.currentGiveaway = {}
-    else
+    elsif signed_in?
       gon.paths ||= {}
       gon.currentUser ||= {}
       gon.currentPage ||= {}

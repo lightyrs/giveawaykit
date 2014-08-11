@@ -13,7 +13,7 @@
     /[if lt IE 9]
       = javascript_include_tag :ie, 'data-turbolinks-track' => true
 
-    - if controller.controller_name == 'subscription_plans'
+    - if signed_in? && controller.controller_name == 'subscription_plans'
       = javascript_include_tag "https://checkout.stripe.com/checkout.js", 'data-turbolinks-track' => false
 
     = javascript_include_tag :application, 'data-turbolinks-track' => true

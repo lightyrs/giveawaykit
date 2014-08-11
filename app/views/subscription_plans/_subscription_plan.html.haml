@@ -12,6 +12,7 @@
         = price_label(subscription_plan)
       %span.feature-list
         = render 'subscription_plans/features', subscription_plan: subscription_plan
-      %span.page-selector
-        = render 'subscription_plans/page_selector', subscription_plan: subscription_plan, is_current_plan: is_current_plan, is_next_plan: is_next_plan, sub_object: sub_object
+      - if sub_object
+        %span.page-selector
+          = render 'subscription_plans/page_selector', subscription_plan: subscription_plan, is_current_plan: is_current_plan, is_next_plan: is_next_plan, sub_object: sub_object
     = render 'subscription_plans/footer', is_current_plan: is_current_plan, is_next_plan: is_next_plan, sub_object: sub_object

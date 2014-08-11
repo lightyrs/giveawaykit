@@ -1,7 +1,7 @@
 SG.Subscriptions =
 
   initialize: ->
-    if @stripeEl().length
+    if _SG.currentUser? && @stripeEl().length
       @configureHandler()
       @attachListener()
       @initRadios()

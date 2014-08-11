@@ -3,7 +3,7 @@
     %section{class: "#{body_class.include?('users-edit') ? '' : 'scrollable padder'}"}
 
       - unless body_class.include?('users-edit')
-        = render 'layouts/navigation/breadcrumbs'
+        = render 'layouts/navigation/breadcrumbs' if signed_in?
         = render 'layouts/navigation/header'
 
       = yield

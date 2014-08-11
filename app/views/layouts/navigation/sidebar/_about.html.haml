@@ -1,0 +1,30 @@
+- within_section = body_class.match(/about-index|subscription_plans-index/)
+
+- if within_section
+
+  %li{class: "#{within_section ? 'active' : ''}"}
+    %a{href: "#about"}
+      %i.fa.fa-users.icon
+        %b.bg-success
+      %span.pull-right
+        %i.fa.fa-angle-down.text
+        %i.fa.fa-angle-up.text-active
+      %span About Us
+    %ul.nav.lt
+      = active_link_to about_path, active: :exclusive, wrap_tag: :li do
+        %i.fa.fa-angle-right
+        %span Features
+      = active_link_to subscription_plans_path, wrap_tag: :li do
+        %i.fa.fa-angle-right
+        %span Plans &amp; Pricing
+
+- else
+
+  %li{class: "#{within_section ? 'active' : ''}"}
+    = link_to about_path do
+      %i.fa.fa-users.icon
+        %b.bg-success
+      %span.pull-right
+        %i.fa.fa-angle-down.text
+        %i.fa.fa-angle-up.text-active
+      %span About Us

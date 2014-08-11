@@ -1,2 +1,2 @@
-= render 'layouts/navigation/my_pages'
-= render 'layouts/navigation/my_account'
+= render 'layouts/navigation/my_pages' if signed_in?
+= render 'layouts/navigation/my_account' if signed_in?

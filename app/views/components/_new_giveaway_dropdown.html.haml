@@ -1,9 +1,10 @@
-.btn-group#new_giveaway_dropdown
-  %button.btn.btn-sm.btn-dark.btn-icon.dropdown-toggle{title: "New Giveaway", type: "button", "data-toggle" => "dropdown"}
-    %i.fa.fa-plus
-  %button.hidden-nav-xs.btn.btn-sm.btn-primary.dropdown-toggle{"data-toggle" => "dropdown", type: "button"}
-    New Giveaway
-    %span.caret
-  %ul.dropdown-menu.text-left
-    - current_user.facebook_pages.each do |page|
-      = active_link_to page.name, new_facebook_page_giveaway_path(page), wrap_tag: :li
+%header.header.bg-primary.lter.text-center.clearfix
+  .btn-group#new_giveaway_dropdown
+    %button.btn.btn-sm.btn-dark.btn-icon.dropdown-toggle{title: "New Giveaway", type: "button", "data-toggle" => "dropdown"}
+      %i.fa.fa-plus
+    %button.hidden-nav-xs.btn.btn-sm.btn-primary.dropdown-toggle{"data-toggle" => "dropdown", type: "button"}
+      New Giveaway
+      %span.caret
+    %ul.dropdown-menu.text-left
+      - current_user.facebook_pages.each do |page|
+        = active_link_to page.name, new_facebook_page_giveaway_path(page), wrap_tag: :li

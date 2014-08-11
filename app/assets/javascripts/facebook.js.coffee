@@ -2,10 +2,10 @@ jQuery ->
 
   currentUser = _SG.currentUser
 
-  loggedIn = currentUser.name?
+  loggedIn = currentUser?
 
   fbAuthStatusChange = (response) ->
-    authorizeUser(response) if response? and loggedIn?
+    authorizeUser(response) if response? and loggedIn
 
   authorizeUser = (response) ->
     readableStatus = response.status in ["unknown", "not_authorized", "connected"]
@@ -20,7 +20,7 @@ jQuery ->
   doRedirect = ->
     window.location.href = "/logout?fb=true"
 
-  $(document).off 'fb:initialized' 
+  $(document).off 'fb:initialized'
   $(document).on 'fb:initialized', ->
     FB.getLoginStatus(fbAuthStatusChange)
 

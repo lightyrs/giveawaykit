@@ -1,1 +1,4 @@
-= render 'subscription_plans/plans', facebook_page: @page
+- if current_user
+  = render 'subscription_plans/plans', facebook_page: @page
+- else
+  = render 'subscription_plans/plans'

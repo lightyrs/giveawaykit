@@ -2,7 +2,10 @@
   .slim-scroll{"data-color" => "#333333", "data-disable-fade-out" => "true", "data-distance" => "0", "data-height" => "auto", "data-size" => "5px"}
     %nav.nav-primary.hidden-xs
       %ul.nav
-        = render 'layouts/navigation/sidebar/dashboard'
-        = render 'layouts/navigation/sidebar/facebook_pages'
-        = render 'layouts/navigation/sidebar/account'
+        - if signed_in?
+          = render 'layouts/navigation/sidebar/dashboard'
+          = render 'layouts/navigation/sidebar/facebook_pages'
+          = render 'layouts/navigation/sidebar/account'
+        - else
+          = render 'layouts/navigation/sidebar/about'
         = render 'layouts/navigation/sidebar/help'

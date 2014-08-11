@@ -1,6 +1,7 @@
 #stripe_page
 
-- sub_object = facebook_page ? facebook_page : current_user
+- if current_user
+  - sub_object = facebook_page ? facebook_page : current_user
 
 .subscription-plans.clearfix.m-b-sm
 
