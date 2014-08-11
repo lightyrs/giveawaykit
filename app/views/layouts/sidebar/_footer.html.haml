@@ -2,11 +2,11 @@
   #chat.dropup
     %section.dropdown-menu.on.aside-md.m-l-n
       %section.panel.bg-white
-        %header.panel-heading.b-b.b-light Active chats
-        .panel-body.animated.fadeInRight
-          %p.text-sm No active chats.
-          %p
-            %a.btn.btn-sm.btn-default{href: "#"} Start a chat
+        %script{src: "//s3.amazonaws.com/assets.freshdesk.com/widget/freshwidget.js", type: "text/javascript"}
+        %style{media: "screen, projection", type: "text/css"}
+          :cdata
+            @import url(//s3.amazonaws.com/assets.freshdesk.com/widget/freshwidget.css);
+        %iframe#freshwidget-embedded-form.freshwidget-embedded-form{frameborder: "0", height: "300px", scrolling: "yes", src: "//giveawaykit.freshdesk.com/widgets/feedback_widget/new?&widgetType=embedded&screenshot=no", width: "100%"}
   #invite.dropup
     %section.dropdown-menu.on.aside-md.m-l-n
       %section.panel.bg-white
