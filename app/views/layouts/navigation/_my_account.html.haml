@@ -34,13 +34,7 @@
       %b.caret
     %ul.dropdown-menu.animated.fadeInRight
       %span.arrow.top
-      %li= link_to 'Account', edit_user_path(current_user)
-      %li
-        %a{href: "#"}
-          %span.badge.bg-danger.pull-right 3
-          Notifications
-      %li
-        %a{href: "docs.html"} Help
+      = active_link_to 'Account', edit_user_path(current_user), wrap_tag: :li
+      = active_link_to 'Help', help_path, wrap_tag: :li
       %li.divider
-      %li
-        = link_to 'Logout', logout_path
+      %li= link_to 'Logout', logout_path
