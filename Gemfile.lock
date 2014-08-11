@@ -303,6 +303,8 @@ GEM
     interactive_editor (0.0.10)
       spoon (>= 0.0.1)
     interception (0.5)
+    intercom-rails (0.2.24)
+      activesupport (> 3.0)
     ipaddress (0.8.0)
     jbuilder (2.1.1)
       activesupport (>= 3.0.0, < 5)
@@ -643,6 +645,7 @@ DEPENDENCIES
   html2haml
   impressionist!
   interactive_editor
+  intercom-rails (~> 0.2.24)
   jbuilder (~> 2.0)
   jc-validates_timeliness
   jquery-turbolinks

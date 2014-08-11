@@ -26,6 +26,19 @@ class User < ActiveRecord::Base
     user.save!
   end
 
+  def overview
+    {
+      id: self.try(:id),
+      name: self.try(:name),
+      email: self.try(:email),
+      fb_uid: self.try(:fb_uid),
+      member_since: self.try(:member_since),
+      subscription_plan: self.try(:subscription_plan_name),
+      facebook_pages_count: self.facebook_pages.try(:size),
+      giveaways_count: self.giveaways.try(:size)
+    }
+  end
+
   def giveaways
     facebook_pages.map(&:giveaways).flatten
   end
@@ -70,19 +83,23 @@ class User < ActiveRecord::Base
   end
 
   def email
-    current_identity.email
+    current_identity.email rescue nil
   end
 
   def avatar
-    current_identity.avatar
+    current_identity.avatar rescue nil
+  end
+
+  def member_since
+    self.created_at.to_formatted_s(:date) rescue nil
   end
 
   def fb_uid
-    identities.where("provider = 'facebook'").first.uid
+    identities.where("provider = 'facebook'").first.uid rescue nil
   end
 
   def fb_token
-    identities.where("provider = 'facebook'").first.token
+    identities.where("provider = 'facebook'").first.token rescue nil
   end
 
   def first_name

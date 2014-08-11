@@ -12,7 +12,7 @@
                 #{current_user.facebook_pages.size} Facebook Pages
           %div
             %small.text-uc.text-xs.text-muted member since
-            %p= current_user.created_at.to_formatted_s(:date)
+            %p= current_user.member_since
             .line
             %small.text-uc.text-xs.text-muted email
             %p= current_user.email
