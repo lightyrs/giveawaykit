@@ -11,7 +11,7 @@
     = google_analytics_tracking_javascript
 
     /[if lt IE 9]
-      = javascript_include_tag "//html5shim.googlecode.com/svn/trunk/html5.js", 'data-turbolinks-track' => true
+      = javascript_include_tag :ie, 'data-turbolinks-track' => true
 
     - if controller.controller_name == 'subscription_plans'
       = javascript_include_tag "https://checkout.stripe.com/checkout.js", 'data-turbolinks-track' => false

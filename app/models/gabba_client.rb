@@ -1,7 +1,7 @@
 class GabbaClient
 
   def initialize
-    @client = Gabba::Gabba.new( Garails.ga_account, "simplegiveaways.com" )
+    @client = Gabba::Gabba.new( Garails.ga_account, "giveawaykit.com" )
   end
 
   def event(*args)

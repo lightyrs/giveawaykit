@@ -13,7 +13,7 @@
     %meta{property: "og:image", content: "#{@giveaway.feed_image.feed.url.gsub('https://', 'http://')}"}
     = stylesheet_link_tag :tab
     /[if lt IE 9]
-      = javascript_include_tag "//html5shim.googlecode.com/svn/trunk/html5.js"
+      = javascript_include_tag :ie, 'data-turbolinks-track' => true
     = javascript_include_tag :tab
     = csrf_meta_tags
   %body

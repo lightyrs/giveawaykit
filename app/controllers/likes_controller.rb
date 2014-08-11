@@ -9,7 +9,7 @@ class LikesController < ApplicationController
       @giveaway_cookie.is_fan = true
       @giveaway_cookie.like_counted = true
       render json: @like.id, status: :ok
-      ga_event("Likes", "Like#create", @like.giveaway.title, @like.id)
+      GabbaClient.new.event(category: "Likes", action: "Like#create", label: @like.giveaway.title, id: @like.id)
     else
       head :not_acceptable
     end

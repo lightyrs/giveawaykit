@@ -11,7 +11,7 @@ class CanvasController < ApplicationController
   def index
     if @giveaway_found
       render 'giveaways/apprequest', layout: false
-      ga_event('Canvas', 'Canvas#index', @giveaway.title, JSON.parse(@request['data'])['referrer_id'].to_i)
+      GabbaClient.new.event(category: "Canvas", action: "Canvas#index", label: @giveaway.title, value: JSON.parse(@request['data'])['referrer_id'].to_i)
     elsif params['request_ids']
       redirect_to 'http://facebook.com'
     else

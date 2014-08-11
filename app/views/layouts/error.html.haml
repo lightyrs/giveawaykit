@@ -10,19 +10,32 @@
     = google_analytics_tracking_javascript
 
     /[if lt IE 9]
-      = javascript_include_tag "//html5shim.googlecode.com/svn/trunk/html5.js"
+      = javascript_include_tag :ie, 'data-turbolinks-track' => true
 
     = stylesheet_link_tag :application, media: 'all'
 
     = csrf_meta_tags
 
   %body
-    %section.vbox
-      = render 'layouts/header'
-      %section
-        %section.hbox.stretch
-          = render 'layouts/content'
-          %aside#notes.bg-light.lter.b-l.aside-md.hide
-            .wrapper Notification
+    %section#content
+      .row.m-n
+        .col-sm-4.col-sm-offset-4
+          .text-center.m-b-lg.error-container
+            = yield
+          .list-group.m-b-sm.bg-white.m-b-lg
+            %a.list-group-item{href: root_url}
+              %i.fa.fa-chevron-right.icon-muted
+              %i.fa.fa-fw.fa-home.icon-muted
+              Home
+            %a.list-group-item{href: "#"}
+              %i.fa.fa-chevron-right.icon-muted
+              %i.fa.fa-fw.fa-question.icon-muted
+              Send us a tip
+            %a.list-group-item{href: "#"}
+              %i.fa.fa-chevron-right.icon-muted
+              %span.badge 021-215-584
+              %i.fa.fa-fw.fa-phone.icon-muted
+              Call us
+    = render 'layouts/footer'
 
     %noscript= utm_tag

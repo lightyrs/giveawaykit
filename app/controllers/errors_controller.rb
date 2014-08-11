@@ -13,5 +13,6 @@ class ErrorsController < ApplicationController
   layout 'error'
 
   def show
+    GabbaClient.new.event(category: "Errors", action: "Error#show", label: @exception.class, id: @exception.message.first(250))
   end
 end

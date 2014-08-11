@@ -58,7 +58,7 @@ Rails.application.routes.draw do
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match '/logout', to: 'sessions#destroy', via: [:get, :post]
 
-  match '/:giveaway_id', to: 'giveaways#enter', as: 'enter', via: [:get, :patch, :post]
+  match '/:giveaway_id/enter', to: 'giveaways#enter', as: 'enter', via: [:get, :patch, :post]
 
   root to: 'welcome#index'
 end

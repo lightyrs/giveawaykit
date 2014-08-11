@@ -24,7 +24,7 @@ class EntriesController < ApplicationController
         if @giveaway.allow_multi_entries.truthy?
           @entry.update_attributes(entry_count: @entry.entry_count += 1)
           render json: @entry.as_json(only: %w(id shortlink)), status: :created
-          ga_event("Entries", "Entry#multi", @entry.giveaway.title, @entry.id)
+          GabbaClient.new.event(category: "Entries", action: "Entry#multi", label: @entry.giveaway.title, id: @entry.id)
         else
           render json: @entry.as_json(only: %w(id shortlink wall_post_count request_count)), status: :not_acceptable
         end
@@ -33,7 +33,7 @@ class EntriesController < ApplicationController
       elsif @entry.save
         @giveaway_cookie.entry_id = @entry.id
         render json: @entry.as_json(only: %w(id shortlink)), status: :created
-        ga_event("Entries", "Entry#create", @entry.giveaway.title, @entry.id)
+        GabbaClient.new.event(category: "Entries", action: "Entry#create", label: @entry.giveaway.title, id: @entry.id)
       else
         head :not_acceptable
       end
@@ -46,7 +46,7 @@ class EntriesController < ApplicationController
     @entry = Entry.find(params[:id])
     if @entry.update_attributes(params[:entry])
       render text: @entry.id, status: :accepted
-      ga_event("Entries", "Entry#update", @entry.id, nil)
+      GabbaClient.new.event(category: "Entries", action: "Entry#update", label: @entry.giveaway.title, id: @entry.id)
     else
       head :not_acceptable
     end

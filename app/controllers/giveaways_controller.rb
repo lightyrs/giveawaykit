@@ -65,7 +65,7 @@ class GiveawaysController < FacebookController
     @giveaway.giveaway_url = "#{@page.url}?sk=app_#{FB_APP_ID}&ref=ts"
 
     if @giveaway.save
-      ga_event("Giveaways", "Giveaway#create", @giveaway.title, @giveaway.id)
+      GabbaClient.new.event(category: "Giveaways", action: "Giveaway#create", label: @giveaway.title, id: @giveaway.id)
 
       flash[:success] = { title: t('flash.giveaways.create.success.title'), content: t('flash.giveaways.create.success.content', giveaway: @giveaway.title).html_safe }
 
@@ -160,7 +160,7 @@ class GiveawaysController < FacebookController
         count_uncounted_like
         log_unique_visit
 
-        ga_event('Giveaways', 'Giveaway#tab', @giveaway.title, @giveaway.id)
+        GabbaClient.new.event(category: "Giveaways", action: "Giveaway#tab", label: @giveaway.title, id: @giveaway.id)
         render layout: 'tab'
       end
     else
@@ -172,7 +172,7 @@ class GiveawaysController < FacebookController
     @giveaway = Giveaway.find(params[:giveaway_id])
     @page = @giveaway.facebook_page
     if @giveaway.active?
-      ga_event("Giveaways", "Giveaway#enter", @giveaway.title, @giveaway.id)
+      GabbaClient.new.event(category: "Giveaways", action: "Giveaway#enter", label: @giveaway.title, id: @giveaway.id)
       render layout: "enter"
     else
       redirect_to root_path
@@ -200,7 +200,7 @@ class GiveawaysController < FacebookController
 
   def export_entries
     return false unless send_data(@giveaway.csv, type: 'text/csv', filename: 'entries_export.csv')
-    ga_event("Giveaways", "Giveaway#export_entries", @giveaway.title, @giveaway.id)
+    GabbaClient.new.event(category: "Giveaways", action: "Giveaway#export_entries", label: @giveaway.title, id: @giveaway.id)
   end
 
   def clone
