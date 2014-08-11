@@ -1,4 +1,4 @@
-%li
+%li{class: "#{body_class.match(/help-faq|help-examples|help-contact/) ? 'active' : ''}"}
   %a{href: "#help"}
     %i.fa.fa-question-circle.icon
       %b.bg-warning
@@ -7,12 +7,12 @@
       %i.fa.fa-angle-up.text-active
     %span Help
   %ul.nav.lt
-    = active_link_to "#faq", wrap_tag: :li do
+    = active_link_to help_faq_path, wrap_tag: :li do
       %i.fa.fa-angle-right
       %span FAQ
-    = active_link_to "#examples", wrap_tag: :li do
+    = active_link_to help_examples_path, wrap_tag: :li do
       %i.fa.fa-angle-right
       %span Examples
-    = active_link_to "#contact", wrap_tag: :li do
+    = active_link_to help_contact_path, wrap_tag: :li do
       %i.fa.fa-angle-right
       %span Contact

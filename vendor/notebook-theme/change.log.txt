@@ -1,0 +1,94 @@
+v.1.0.1
+
+Fix IE11 layouts (flex layout)
+Fix Form wizard
+
+v.1.0.2
+
+1:fix the off screen nav
+bug:when open the nav, the page can sroll left to right
+
+changed app.nav.less, 
+the content position: absolute -> relative and use a '.open' class on the html tag. 
+
+<a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
+
+2:fix the firefox '.nav-xs' have no icons.
+bug: no text show on ff when use '.nav-xs'
+
+changed app.nav.less
+
+3:fix the focus on navbar a link
+bug: a link have a grey background when it foucs.
+
+changed app.mixin.less,
+add &:focus on .nav > li > a
+
+4:add vector map
+
+
+v.1.0.3
+
+1: upgrade to bootstrap3.1
+   update the "css/bootstrap.css" and "js/bootstrap.js"
+   change navbar-nav in the header, add "m-n" on the navbar last child to fix the .navbar-nav.navbar-right:last-child{margin-right:-15px}
+
+2: include open sans font(63kb) for load fast
+   locate at folder "fonts/opensans" and change the "css/font.css" to load local fonts
+   also changed "label" to normal font in the app.reset.less. only .woff font type included, check more info on http://caniuse.com/woff
+
+3: changed the "less/less.php" 
+   if you locate "less/less.php?app.less" it will auto save to "css/app.css"
+   and removed the "/9" less compile error
+
+4: fix fullcalendar day/week/month view for firefox
+   use custom event to change calendar view, "js/fullcalendar/demo.js", "js/fullcalendar/theme.css"
+
+5: add event listener on the slimscroll. when the nav-primary clicked, it will update the slimscroll.
+   js/app.plugin.js and js/app.js
+
+v.1.1.0
+
+1: add ui psd file
+   "psd/ui.psd"
+
+2: add boxed layout
+   "layout-boxed.html"
+
+3: add fluid layout
+   "layout-fluid.html", "less/app.layout.less", changed "js/app.js" add setHeight() function for min-height
+
+4: fix off screen nav
+   "less/app.nav.less"
+
+v.1.1.1
+
+1: fix wizard
+   changed js/app.plugin.js // wizard
+   js/fuelux/fuelux.css
+   add '.wizard-steps' class and move the '.wizard' to panel
+
+2: add dashboard
+   dashboard.html
+
+3: change easypiechart
+   js/charts/easypiechart/jquery.easy-pie-chart.js  support data-rotate attribute
+
+
+v.1.2.0
+
+1: upgrade Bootstrap to 3.2.0
+   js/bootstrap.js
+   css/bootstrap.css
+2: upgrade bootstrap-slider.js to v3.0.0
+   js/slider/bootstrap-slider.js
+
+3: upgrade datatables to 1.10
+   js/datatables/
+
+4: fix ipad landscape body height issue
+   less/app.layout.less
+   js/app.js
+
+5: fix off screen nav toogle back issue on iphone
+   <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen, open" data-target="#nav,html"></a>

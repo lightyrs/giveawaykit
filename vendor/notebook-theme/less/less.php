@@ -9,10 +9,16 @@
 	}
 	$lc = new lessc($input);
 	try{
-		header("Content-Type: text/css");
-		print $lc->parse();
+		if($input == "app.less"){
+			$fp = fopen('../css/app.css',"wb");
+			fwrite($fp, $lc->parse());
+			fclose($fp);
+		}else{
+			header("Content-Type: text/css");
+			echo $lc->parse();
+		}		
 	} catch (exception $ex){
-		print "LESSC Error:";
-		print $ex->getMessage();
+		echo "LESSC Error:";
+		echo $ex->getMessage();
 	}
 ?>

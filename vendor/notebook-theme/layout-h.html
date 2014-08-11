@@ -8,22 +8,22 @@
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="css/animate.css" type="text/css" />
   <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
-  <link rel="stylesheet" href="css/font.css" type="text/css" cache="false" />
+  <link rel="stylesheet" href="css/font.css" type="text/css" />
     <link rel="stylesheet" href="css/app.css" type="text/css" />
   <!--[if lt IE 9]>
-    <script src="js/ie/html5shiv.js" cache="false"></script>
-    <script src="js/ie/respond.min.js" cache="false"></script>
-    <script src="js/ie/excanvas.js" cache="false"></script>
+    <script src="js/ie/html5shiv.js"></script>
+    <script src="js/ie/respond.min.js"></script>
+    <script src="js/ie/excanvas.js"></script>
   <![endif]-->
 </head>
-<body>
+<body class="">
     <section class="hbox stretch">
     <!-- .aside -->
     <aside class="bg-dark aside-md" id="nav">        
       <section class="vbox">
         <header class="header dker navbar navbar-fixed-top-xs">
               <div class="navbar-header">
-                <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav">
+                <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
                   <i class="fa fa-bars"></i>
                 </a>
                 <a href="#" class="navbar-brand" data-toggle="fullscreen">
@@ -82,8 +82,26 @@
                         <i class="fa fa-dashboard icon">
                           <b class="bg-danger"></b>
                         </i>
+                        <span class="pull-right">
+                          <i class="fa fa-angle-down text"></i>
+                          <i class="fa fa-angle-up text-active"></i>
+                        </span>
                         <span>Workset</span>
                       </a>
+                      <ul class="nav lt">
+                        <li >
+                          <a href="index.html" >                                                        
+                            <i class="fa fa-angle-right"></i>
+                            <span>Dashboard v1</span>
+                          </a>
+                        </li>
+                        <li >
+                          <a href="dashboard.html" >                                                        
+                            <i class="fa fa-angle-right"></i>
+                            <span>Dashboard v2</span>
+                          </a>
+                        </li>
+                      </ul>
                     </li>
                     <li  class="active">
                       <a href="#layout"   class="active">
@@ -112,7 +130,19 @@
                         <li  class="active">
                           <a href="layout-h.html"  class="active">                                                        
                             <i class="fa fa-angle-right"></i>
-                            <span>H-Layout</span>
+                            <span>Hbox Layout</span>
+                          </a>
+                        </li>
+                        <li >
+                          <a href="layout-boxed.html" >                                                        
+                            <i class="fa fa-angle-right"></i>
+                            <span>Boxed Layout</span>
+                          </a>
+                        </li>
+                        <li >
+                          <a href="layout-fluid.html" >                                                        
+                            <i class="fa fa-angle-right"></i>
+                            <span>Fluid Layout</span>
                           </a>
                         </li>
                       </ul>
@@ -296,6 +326,12 @@
                           </a>
                         </li>
                         <li >
+                          <a href="jvectormap.html" >                                                        
+                            <i class="fa fa-angle-right"></i>
+                            <span>Vector Map</span>
+                          </a>
+                        </li>
+                        <li >
                           <a href="signin.html" >                                                        
                             <i class="fa fa-angle-right"></i>
                             <span>Signin</span>
@@ -399,16 +435,15 @@
               </section>              
             </section>
           </section>
-      <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+      <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav.html"></a>
     </section>
   </section>
   <script src="js/jquery.min.js"></script>
   <!-- Bootstrap -->
   <script src="js/bootstrap.js"></script>
   <!-- App -->
-  <script src="js/app.js"></script>
-  <script src="js/app.plugin.js"></script>
+  <script src="js/app.js"></script> 
   <script src="js/slimscroll/jquery.slimscroll.min.js"></script>
-  
+    <script src="js/app.plugin.js"></script>
 </body>
 </html>

@@ -8,19 +8,19 @@
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="css/animate.css" type="text/css" />
   <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
-  <link rel="stylesheet" href="css/font.css" type="text/css" cache="false" />
+  <link rel="stylesheet" href="css/font.css" type="text/css" />
     <link rel="stylesheet" href="css/app.css" type="text/css" />
   <!--[if lt IE 9]>
-    <script src="js/ie/html5shiv.js" cache="false"></script>
-    <script src="js/ie/respond.min.js" cache="false"></script>
-    <script src="js/ie/excanvas.js" cache="false"></script>
+    <script src="js/ie/html5shiv.js"></script>
+    <script src="js/ie/respond.min.js"></script>
+    <script src="js/ie/excanvas.js"></script>
   <![endif]-->
 </head>
-<body>
+<body class="">
   <section class="vbox">
     <header class="bg-black dk header navbar navbar-fixed-top-xs">
       <div class="navbar-header aside-md">
-        <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav">
+        <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
           <i class="fa fa-bars"></i>
         </a>
         <a href="#" class="navbar-brand" data-toggle="fullscreen"><img src="images/logo.png" class="m-r-sm">Notebook</a>
@@ -72,8 +72,8 @@
             <a href="price.html" class="dropdown-toggle btn btn-xs btn-primary" title="Upgrade"><i class="fa fa-long-arrow-up"></i></a>
           </div>
         </li>
-      </ul>      
-      <ul class="nav navbar-nav navbar-right hidden-xs nav-user">
+      </ul>
+      <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user">
         <li class="hidden-xs">
           <a href="#" class="dropdown-toggle dk" data-toggle="dropdown">
             <i class="fa fa-bell"></i>
@@ -160,7 +160,7 @@
     <section>
       <section class="hbox stretch">
         <!-- .aside -->
-        <aside class="bg-black lter aside-md hidden-print" id="nav">          
+        <aside class="bg-black lter aside-md hidden-print hidden-xs" id="nav">          
           <section class="vbox">
             <header class="header bg-primary lter text-center clearfix">
               <div class="btn-group">
@@ -189,8 +189,26 @@
                         <i class="fa fa-dashboard icon">
                           <b class="bg-danger"></b>
                         </i>
+                        <span class="pull-right">
+                          <i class="fa fa-angle-down text"></i>
+                          <i class="fa fa-angle-up text-active"></i>
+                        </span>
                         <span>Workset</span>
                       </a>
+                      <ul class="nav lt">
+                        <li >
+                          <a href="index.html" >                                                        
+                            <i class="fa fa-angle-right"></i>
+                            <span>Dashboard v1</span>
+                          </a>
+                        </li>
+                        <li >
+                          <a href="dashboard.html" >                                                        
+                            <i class="fa fa-angle-right"></i>
+                            <span>Dashboard v2</span>
+                          </a>
+                        </li>
+                      </ul>
                     </li>
                     <li  class="active">
                       <a href="#layout"   class="active">
@@ -219,7 +237,19 @@
                         <li >
                           <a href="layout-h.html" >                                                        
                             <i class="fa fa-angle-right"></i>
-                            <span>H-Layout</span>
+                            <span>Hbox Layout</span>
+                          </a>
+                        </li>
+                        <li >
+                          <a href="layout-boxed.html" >                                                        
+                            <i class="fa fa-angle-right"></i>
+                            <span>Boxed Layout</span>
+                          </a>
+                        </li>
+                        <li >
+                          <a href="layout-fluid.html" >                                                        
+                            <i class="fa fa-angle-right"></i>
+                            <span>Fluid Layout</span>
                           </a>
                         </li>
                       </ul>
@@ -403,6 +433,12 @@
                           </a>
                         </li>
                         <li >
+                          <a href="jvectormap.html" >                                                        
+                            <i class="fa fa-angle-right"></i>
+                            <span>Vector Map</span>
+                          </a>
+                        </li>
+                        <li >
                           <a href="signin.html" >                                                        
                             <i class="fa fa-angle-right"></i>
                             <span>Signin</span>
@@ -494,7 +530,7 @@
               <p>This is a footer</p>
             </footer>
           </section>
-          <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+          <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen, open" data-target="#nav,html"></a>
         </section>
         <aside class="bg-light lter b-l aside-md hide" id="notes">
           <div class="wrapper">Notification</div>
@@ -506,9 +542,8 @@
   <!-- Bootstrap -->
   <script src="js/bootstrap.js"></script>
   <!-- App -->
-  <script src="js/app.js"></script>
-  <script src="js/app.plugin.js"></script>
+  <script src="js/app.js"></script> 
   <script src="js/slimscroll/jquery.slimscroll.min.js"></script>
-  
+    <script src="js/app.plugin.js"></script>
 </body>
 </html>

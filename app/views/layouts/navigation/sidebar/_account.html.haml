@@ -1,5 +1,5 @@
 %li{class: "#{body_class.match(/users-edit|subscription_plans-index/) ? 'active' : ''}"}
-  = active_link_to edit_user_path(current_user), wrap_tag: nil do
+  %a{href: "#account"}
     %i.fa.fa-user.icon
       %b.bg-primary
     %span.pull-right

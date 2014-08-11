@@ -1,6 +1,10 @@
 /*layout*/
 @media (min-width: 768px) {
-
+	body.container{
+		.box-shadow(0 3px 60px rgba(0,0,0,0.3));
+		border-left: 1px solid darken(@border-color, 10%);
+		border-right: 1px solid darken(@border-color, 10%);
+	}
 	.app{
 		&,
 		body{
@@ -129,6 +133,24 @@
 	.scrollable{
 		-webkit-overflow-scrolling:touch;
 	}
+
+	::-webkit-scrollbar {
+		width: 7px;
+		height: 7px;
+	}
+	::-webkit-scrollbar-thumb {	
+		background-color:rgba(50,50,50,0.3);
+	}
+	::-webkit-scrollbar-thumb:hover{
+		background-color:rgba(50,50,50,0.6);
+	}
+	::-webkit-scrollbar-track {
+		background-color:rgba(50,50,50,0.1);
+	}
+	::-webkit-scrollbar-track:hover{
+		background-color:rgba(50,50,50,0.2);
+	}
+
 }
 .hbox > aside, 
 .hbox > section{
@@ -194,6 +216,16 @@
 	}
 }
 
+@media (orientation:landscape) {
+    html.ios7.ipad > body {
+        padding-bottom: 20px;
+    }
+}
+
+body.container{
+	padding: 0;
+}
+
 .scrollable{
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -225,21 +257,4 @@
 
 .slimScrollBar{
 	border-radius: 0 !important;
-}
-
-::-webkit-scrollbar {
-	width: 7px;
-	height: 7px;
-}
-::-webkit-scrollbar-thumb {	
-	background-color:rgba(50,50,50,0.3);
-}
-::-webkit-scrollbar-thumb:hover{
-	background-color:rgba(50,50,50,0.6);
-}
-::-webkit-scrollbar-track {
-	background-color:rgba(50,50,50,0.1);
-}
-::-webkit-scrollbar-track:hover{
-	background-color:rgba(50,50,50,0.2);
 }

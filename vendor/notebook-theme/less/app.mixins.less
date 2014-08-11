@@ -53,8 +53,10 @@
     }
 		> li {
 			> a{
-				color: lighten(@color, @link-percent);		
-				&:hover{
+				color: lighten(@color, @link-percent);
+				&:hover,
+        &:focus
+        {
           color: @hover-color;
 					background-color: darken(@color, 5%);
           .caret{

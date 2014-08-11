@@ -8,15 +8,15 @@
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="css/animate.css" type="text/css" />
   <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
-  <link rel="stylesheet" href="css/font.css" type="text/css" cache="false" />
+  <link rel="stylesheet" href="css/font.css" type="text/css" />
     <link rel="stylesheet" href="css/app.css" type="text/css" />
   <!--[if lt IE 9]>
-    <script src="js/ie/html5shiv.js" cache="false"></script>
-    <script src="js/ie/respond.min.js" cache="false"></script>
-    <script src="js/ie/excanvas.js" cache="false"></script>
+    <script src="js/ie/html5shiv.js"></script>
+    <script src="js/ie/respond.min.js"></script>
+    <script src="js/ie/excanvas.js"></script>
   <![endif]-->
 </head>
-<body>
+<body class="">
     <section class="hbox stretch">
     <!-- .aside -->
     <aside class="bg-light aside b-r animated fadeInLeftBig">
@@ -34,8 +34,9 @@
               <li><a href="#icons">Icons</a></li>
               <li><a href="#animate">Animate</a></li>
               <li><a href="#colors">Colors</a></li>
-              <li><a href="#layout">Layout</a></li> 
-              <li><a href="#offscreen">Off screen</a></li>                           
+              <li><a href="#layout">Layout</a></li>
+              <li><a href="#offscreen">Off screen</a></li>
+              <li><a href="#utilities">Utilities</a></li>                  
               <li class="dropdown-header b-b b-light"><em>Components</em></li>
               <li><a href="#toggle-class">Toggle class</a></li>
               <li><a href="#shift">Shift</a></li>
@@ -232,6 +233,223 @@
         <pre><code class="html"><a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen push-right" data-target="body">
         <i class="icon-reorder"></i>
         </a></code></pre>
+
+
+              <h3 id="utilities" class="text-danger">CSS Utilities</h3>
+              <table class="table table-border">
+                <tbody>
+                  <tr class="bg-light">
+                    <td colspan="2">Button size <em>(Specific button size)</em></td>
+                  </tr>
+                  <tr>
+                    <td>.btn-s-xs</td>
+                    <td>width:90px</td>
+                  </tr>
+                  <tr>
+                    <td>.btn-s-sm</td>
+                    <td>width:100px</td>
+                  </tr>
+                  <tr>
+                    <td>.btn-s-md</td>
+                    <td>width:120px</td>
+                  </tr>
+                  <tr>
+                    <td>.btn-s-lg</td>
+                    <td>width:150px</td>
+                  </tr>
+                  <tr>
+                    <td>.btn-s-xl</td>
+                    <td>width:200px</td>
+                  </tr>
+                  <tr class="bg-light">
+                    <td colspan="2">Vertical align <em>(When you use the .hbox you can use these classes on the aside)</em></td>
+                  </tr>
+                  <tr>
+                    <td>.v-middle</td>
+                    <td>vertical align: middle</td>
+                  </tr>
+                  <tr>
+                    <td>.v-top</td>
+                    <td>vertical align: top</td>
+                  </tr>
+                  <tr>
+                    <td>.v-bottom</td>
+                    <td>vertical align: bottom</td>
+                  </tr>
+                  <tr class="bg-light">
+                    <td colspan="2">Margin</td>
+                  </tr>
+                  <tr>
+                    <td>.m</td>
+                    <td>margin: 15px</td>
+                  </tr>
+                  <tr>
+                    <td>.m-xs</td>
+                    <td>margin: 5px</td>
+                  </tr>
+                  <tr>
+                    <td>.m-sm</td>
+                    <td>margin: 10px</td>
+                  </tr>
+                  <tr>
+                    <td>.m-md</td>
+                    <td>margin: 20px</td>
+                  </tr>
+                  <tr>
+                    <td>.m-lg</td>
+                    <td>margin: 30px</td>
+                  </tr>
+                  <tr>
+                    <td>.m-n</td>
+                    <td>margin: 0px</td>
+                  </tr>
+                  <tr>
+                    <td>.m-l</td>
+                    <td>margin-left: 15px</td>
+                  </tr>
+                  <tr>
+                    <td>.m-l-xs</td>
+                    <td>margin-left: 5px</td>
+                  </tr>
+                  <tr>
+                    <td>.m-l-sm</td>
+                    <td>margin-left: 10px</td>
+                  </tr>
+                  <tr>
+                    <td>.m-l-md</td>
+                    <td>margin-left: 20px</td>
+                  </tr>
+                  <tr>
+                    <td>.m-l-lg</td>
+                    <td>margin-left: 30px</td>
+                  </tr>
+                  <tr>
+                    <td>.m-l-xl</td>
+                    <td>margin-left: 40px</td>
+                  </tr>
+                  <tr>
+                    <td>.m-l-none</td>
+                    <td>margin-left: 0px</td>
+                  </tr>
+                  <tr>
+                    <td>.m-l-n</td>
+                    <td>margin-left: -15px</td>
+                  </tr>
+                  <tr>
+                    <td>.m-l-n-xxs</td>
+                    <td>margin-left: -1px</td>
+                  </tr>
+                  <tr>
+                    <td>.m-l-n-xs</td>
+                    <td>margin-left: -5px</td>
+                  </tr>
+                  <tr>
+                    <td>.m-l-n-sm</td>
+                    <td>margin-left: -10px</td>
+                  </tr>
+                  <tr>
+                    <td>.m-l-n-md</td>
+                    <td>margin-left: -20px</td>
+                  </tr>
+                  <tr>
+                    <td>.m-l-n-lg</td>
+                    <td>margin-left: -30px</td>
+                  </tr>
+                  <tr>
+                    <td>.m-l-n-xl</td>
+                    <td>margin-left: -40px</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">.m-r <em>(margin right)</em> , m-t <em>(margin top)</em> , m-b <em>(margin bottom)</em> have the same classes as the .m-l.</td>
+                  </tr>
+                  <tr class="bg-light">
+                    <td colspan="2">Border</td>
+                  </tr>
+                  <tr>
+                    <td>.b-a</td>
+                    <td>border:1px solid @border-color(see app.variables.less)</td>
+                  </tr>
+                  <tr>
+                    <td>.b-l</td>
+                    <td>border left</td>
+                  </tr>
+                  <tr>
+                    <td>.b-t</td>
+                    <td>border top</td>
+                  </tr>
+                  <tr>
+                    <td>.b-r</td>
+                    <td>border right</td>
+                  </tr>
+                  <tr>
+                    <td>.b-b</td>
+                    <td>border bottom</td>
+                  </tr>
+                  <tr>
+                    <td>.b-light, .b-dark, .b-primary, .b-success, .b-info, .b-warning, .b-danger, .b-black, .b-white</td>
+                    <td>border with specific color.</td>
+                  </tr>
+                  <tr>
+                    <td>.b-2x</td>
+                    <td>border width with 2px</td>
+                  </tr>
+                  <tr>
+                    <td>.b-3x</td>
+                    <td>border width with 3px</td>
+                  </tr>
+                  <tr class="bg-light">
+                    <td colspan="2">Radius</td>
+                  </tr>
+                  <tr>
+                    <td>.r</td>
+                    <td>border-radius: @border-radius-base</td>
+                  </tr>
+                  <tr>
+                    <td>.r-l</td>
+                    <td>border-radius: @border-radius-base 0 0 @border-radius-base</td>
+                  </tr>
+                  <tr>
+                    <td>.r-r</td>
+                    <td>border-radius: 0 @border-radius-base @border-radius-base 0</td>
+                  </tr>
+                  <tr>
+                    <td>.r-t</td>
+                    <td>border-radius: @border-radius-base @border-radius-base 0 0</td>
+                  </tr>
+                  <tr>
+                    <td>.r-b</td>
+                    <td>border-radius: 0 0 @border-radius-base @border-radius-base</td>
+                  </tr>
+                  <tr class="bg-light">
+                    <td colspan="2">Others</td>
+                  </tr>
+                  <tr>
+                    <td>.padder</td>
+                    <td>padding-left:15px; padding-right:15px</td>
+                  </tr>
+                  <tr>
+                    <td>.padder-v</td>
+                    <td>padding-top:15px; padding-bottom:15px</td>
+                  </tr>
+                  <tr>
+                    <td>.wrapper</td>
+                    <td>padding:15px</td>
+                  </tr>
+                  <tr>
+                    <td>.text-uc</td>
+                    <td>text uppercase</td>
+                  </tr>
+                  <tr>
+                    <td>.text-lt</td>
+                    <td>text line through</td>
+                  </tr>
+                  <tr>
+                    <td>.text-ul</td>
+                    <td>text under line</td>
+                  </tr>
+                </tbody>
+              </table>
+              
               <h3 class="text-info">Components <small>Lightweight components to best practice on mobile</small></h3>
               <div class="line"></div>
 
@@ -431,9 +649,9 @@
               <h4 class="m-t-lg">Cross browser compatibility</h4>
               <p>Use response.js to support IE8 media queries and html5.js to support html5 markups.</p>
         <pre><code class="html"><!--[if lt IE 9]>
-        <script src="js/ie/respond.min.js" cache="false"></script>
-        <script src="js/ie/html5.js" cache="false"></script>
-        <script src="js/ie/excanvas.js" cache="false"></script>
+        <script src="js/ie/respond.min.js"></script>
+        <script src="js/ie/html5.js"></script>
+        <script src="js/ie/excanvas.js"></script>
         <![endif]--></code></pre>       
             </div>
           </section>
@@ -445,9 +663,8 @@
   <!-- Bootstrap -->
   <script src="js/bootstrap.js"></script>
   <!-- App -->
-  <script src="js/app.js"></script>
-  <script src="js/app.plugin.js"></script>
+  <script src="js/app.js"></script> 
   <script src="js/slimscroll/jquery.slimscroll.min.js"></script>
-  
+    <script src="js/app.plugin.js"></script>
 </body>
 </html>

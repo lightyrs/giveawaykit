@@ -12,9 +12,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: @font-family-base;
+.h1, .h2, .h3, .h4, .h5, .h6{
+  margin: 0;
 }
 
 // Links
@@ -44,7 +43,7 @@ a:focus {
   padding: 2px 5px !important;
 }
 
-label{font-weight: 600}
+label{font-weight: normal}
 
 .label-sm{
   padding-top: 0;
@@ -623,4 +622,10 @@ small{font-size:90%}
 .navbar-inverse .navbar-collapse, 
 .navbar-inverse .navbar-form{
   border-color:transparent;
+}
+
+.navbar-fixed-top{
+  + *{
+      padding-top: 50px;
+    }
 }
