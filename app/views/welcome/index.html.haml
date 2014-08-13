@@ -3,7 +3,7 @@
   .container
     .navbar-header
       %a.navbar-brand{href: "#"}
-        %img.m-r-sm{src: "images/logo.png"}/
+        = image_tag 'notebook-logo.png', class: 'm-r-sm'
         %span.text-muted Notebook
       %button.btn.btn-link.visible-xs{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
         %i.fa.fa-bars
@@ -52,14 +52,14 @@
                 %i.fa.fa-minus.fa-2x.m-b-n-xs.block
               %div
                 .m-l-xs.m-r-xs
-                  %img.img-full{src: "images/phone-2.png"}/
+                  = image_tag 'phone-2.png', class: 'img-full'
         %aside.col-sm-10.col-md-6
           %section.panel.bg-dark.m-b-n-lg.no-border.device.animated.fadeInUp
             %header.panel-heading.text-left
               %i.fa.fa-circle.fa-fw
               %i.fa.fa-circle.fa-fw
               %i.fa.fa-circle.fa-fw
-            %img.img-full{src: "images/main.png"}/
+            = image_tag 'main.png', class: 'img-full'
         %aside.col-md-3.v-bottom
           .hidden-sm.hidden-xs
             %section.panel.bg-light.m-b-n-lg.m-l-n-lg.aside.no-border.device.phone.animated.fadeInRightBig
@@ -67,7 +67,7 @@
                 %i.fa.fa-minus.fa-2x.text-white.m-b-n-xs.block
               %div
                 .m-l-xs.m-r-xs
-                  %img.img-full{src: "images/phone-1.png"}/
+                  = image_tag 'phone-1.png', class: 'img-full'
     .dker.pos-rlt
       .container.wrapper
         .m-t-lg.m-b-lg.text-center
