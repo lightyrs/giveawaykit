@@ -1,35 +1,212 @@
 !!!
-%html{lang: "en", class: "app"}
+%html{lang: "en"}
   %head
     %meta{charset: "utf-8"}
     %meta{content: "#{FB_APP_ID}", property: "fb:app_id"}
     %title Giveaway Kit
-
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
     %meta{content: "Easily create, deploy, and manage giveaways on your Facebook pages.", name: "description"}
 
     = google_analytics_tracking_javascript
 
     /[if lt IE 9]
-      = javascript_include_tag :ie, 'data-turbolinks-track' => true
-
-    = javascript_include_tag :jquery
-    = javascript_include_tag :sg
+      = javascript_include_tag :ie
 
     = stylesheet_link_tag :welcome, media: 'all'
 
     = csrf_meta_tags
 
-  %body.welcome
-    = include_gon(init: true, namespace: '_SG', need_type: true)
-
+  %body
+    / header
+    %header#header.navbar.navbar-fixed-top.bg-white.box-shadow.b-b.b-light{"data-offset-top" => "1", "data-spy" => "affix"}
+      .container
+        .navbar-header
+          %a.navbar-brand{href: "#"}
+            %img.m-r-sm{src: "images/logo.png"}/
+            %span.text-muted Notebook
+          %button.btn.btn-link.visible-xs{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+            %i.fa.fa-bars
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav.navbar-right
+            %li.active
+              %a{href: "landing.html"} Home
+            %li
+              %a{href: "features.html"} Features
+            %li
+              %a{href: "price.html"} Plans & Pricing
+            %li
+              %a{href: "blog.html"} Blog
+            %li
+              .m-t-sm
+                %a.btn.btn-link.btn-sm{href: "signin.html"} Sign in
+                %a.btn.btn-sm.btn-success.m-l{href: "signup.html"}
+                  %strong Sign up
+    / / header
+    %section#content
+      .bg-primary.dk
+        .text-center.wrapper
+          .m-t-xl.m-b-xl
+            .text-uc.h1.font-bold.inline
+              .pull-left.m-r-sm.text-white
+                Web Application
+                %span.font-thin.text-muted Built
+              .carousel.slide.carousel-fade.inline.auto.aside.text-left.pull-left.pull-none-xs{"data-interval" => "2000"}
+                .carousel-inner
+                  .item.active.text-warning
+                    Easier
+                  .item.text-dark
+                    Faster
+                  .item
+                    Funny
+            .h4.text-muted.m-t-sm Modern, Clean & Flat User Interface Kit Made with Love & Passion
+          %p.text-center.m-b-xl
+            %a.btn.btn-lg.btn-dark.m-sm{href: "http://themeforest.net/user/Flatfull/portfolio?ref=flatfull", target: "_blank"} Download it
+            %a.btn.btn-lg.btn-warning.b-white.bg-empty.m-sm{href: "index.html", target: "_blank"} Live Preview
+        .padder
+          .hbox
+            %aside.col-md-3.v-bottom.text-right
+              .hidden-sm.hidden-xs
+                %section.panel.bg-dark.inline.m-b-n-lg.m-r-n-lg.aside-sm.no-border.device.phone.animated.fadeInLeftBig
+                  %header.panel-heading.text-center
+                    %i.fa.fa-minus.fa-2x.m-b-n-xs.block
+                  %div
+                    .m-l-xs.m-r-xs
+                      %img.img-full{src: "images/phone-2.png"}/
+            %aside.col-sm-10.col-md-6
+              %section.panel.bg-dark.m-b-n-lg.no-border.device.animated.fadeInUp
+                %header.panel-heading.text-left
+                  %i.fa.fa-circle.fa-fw
+                  %i.fa.fa-circle.fa-fw
+                  %i.fa.fa-circle.fa-fw
+                %img.img-full{src: "images/main.png"}/
+            %aside.col-md-3.v-bottom
+              .hidden-sm.hidden-xs
+                %section.panel.bg-light.m-b-n-lg.m-l-n-lg.aside.no-border.device.phone.animated.fadeInRightBig
+                  %header.panel-heading.text-center
+                    %i.fa.fa-minus.fa-2x.text-white.m-b-n-xs.block
+                  %div
+                    .m-l-xs.m-r-xs
+                      %img.img-full{src: "images/phone-1.png"}/
+        .dker.pos-rlt
+          .container.wrapper
+            .m-t-lg.m-b-lg.text-center
+              For your faster and easier web development.
+      #about
+        .container
+          .m-t-xl.m-b-xl.text-center.wrapper
+            %h3 Responsive web application and admin dashboard template
+            %p.text-muted This web based app template give you much power to build your great application.
+          .row.m-t-xl.m-b-xl.text-center
+            .col-sm-4{"data-animation" => "fadeInLeft", "data-delay" => "300", "data-ride" => "animated"}
+              %p.h3.m-b-lg
+                %i.fa.fa-lightbulb-o.fa-3x.text-info
+              %div
+                %h4.m-t-none Web Application
+                %p.text-muted.m-t-lg Many mobile app widgets and components, it's fully responsive, it can run on all the size of the screens. Start work on your great idea today!
+            .col-sm-4{"data-animation" => "fadeInLeft", "data-delay" => "600", "data-ride" => "animated"}
+              %p.h3.m-b-lg
+                %i.fa.fa-signal.fa-3x.text-info
+              %div
+                %h4.m-t-none Admin Dashboard
+                %p.text-muted.m-t-lg It also can be used as admin dashboard, it has tables, charts and other useful components for system management, graph data shows and analysis.
+            .col-sm-4{"data-animation" => "fadeInLeft", "data-delay" => "900", "data-ride" => "animated"}
+              %p.h3.m-b-lg
+                %i.fa.fa-rocket.fa-3x.text-info
+              %div
+                %h4.m-t-none App Landing
+                %p.text-muted.m-t-lg This template also have a front end site that for your application landing, It have the features introduction, blog section, and a price table included.
+          .m-t-xl.m-b-xl.text-center.wrapper
+            %p.h5
+              You can use it to build your
+              = succeed "," do
+                %span.text-primary Content manage system
+              = succeed "," do
+                %span.text-primary Travel app
+              = succeed "..." do
+                %span.text-primary Medical app
+      #responsive.bg-dark
+        .text-center
+          .container
+            .m-t-xl.m-b-xl.wrapper
+              %h3.text-white Your application will works no matter where you are
+              %p
+                You can use your application at anywhere in the world.
+                = succeed "This" do
+                  %br/
+                %span.text-primary.text-ul mobile device
+                too.
+            .row.m-t-xl.m-b-xl
+              .col-sm-4.wrapper-xl{"data-animation" => "fadeInLeft", "data-delay" => "300", "data-ride" => "animated"}
+                %p.text-center.h2.m-b-lg.m-t-lg
+                  %span.fa-stack.fa-2x
+                    %i.fa.fa-circle.fa-stack-2x.text-dark
+                    %i.fa.fa-mobile.fa-stack-1x.text-muted
+                %p Mobile
+              .col-sm-4.wrapper-xl{"data-animation" => "fadeInLeft", "data-delay" => "600", "data-ride" => "animated"}
+                %p.text-center.h1.m-b-lg
+                  %span.fa-stack.fa-2x
+                    %i.fa.fa-circle.fa-stack-2x.text-dark
+                    %i.fa.fa-tablet.fa-stack-1x.text-muted
+                %p Tablet
+              .col-sm-4.wrapper-xl{"data-animation" => "fadeInLeft", "data-delay" => "900", "data-ride" => "animated"}
+                %p.text-center.h2.m-b-lg.m-t-lg
+                  %span.fa-stack.fa-2x
+                    %i.fa.fa-circle.fa-stack-2x.text-dark
+                    %i.fa.fa-desktop.fa-stack-1x.text-muted.text-md
+                %p Desktop
+      #newsletter.bg-white.clearfix.wrapper-lg
+        .container.text-center.m-t-xl.m-b-xl{"data-animation" => "fadeIn", "data-ride" => "animated"}
+          %h2 Newsletter
+          %p Do not want to miss anything? Subscribe to our newsletter box
+          %form.form-inline.m-t-xl.m-b-xl
+            .form-group
+              %input.form-control.input-lg{"data-animation" => "fadeInLeftBig", "data-delay" => "300", "data-ride" => "animated", placeholder: "Your email"}/
+            %button.btn.btn-default.btn-lg{"data-animation" => "fadeInRightBig", "data-delay" => "600", "data-ride" => "animated", type: "submit"} Subscribe
+    / footer
+    %footer#footer
+      .bg-primary.text-center
+        .container.wrapper
+          .m-t-xl.m-b
+            For your faster and easier web development.
+            %a.btn.btn-lg.btn-dark.b-white.bg-empty.m-sm{href: "http://themeforest.net/user/Flatfull/portfolio?ref=flatfull", target: "_blank"} Download it
+            %a.btn.btn-lg.btn-warning.b-white.bg-empty.m-sm{href: "index.html", target: "_blank"} Live Preview
+        %i.fa.fa-caret-down.fa-4x.text-primary.m-b-n-lg.block
+      .bg-dark.dker.wrapper
+        .container.text-center.m-t-lg
+          .row.m-t-xl.m-b-xl
+            .col-sm-4{"data-animation" => "fadeInLeft", "data-delay" => "300", "data-ride" => "animated"}
+              %i.fa.fa-map-marker.fa-3x.icon-muted
+              %h5.text-uc.m-b.m-t-lg Find Us
+              %p.text-sm
+                23 soe Midlokls
+                %br/
+                120002 Loki — UNITED KINGDOM
+            .col-sm-4{"data-animation" => "fadeInUp", "data-delay" => "600", "data-ride" => "animated"}
+              %i.fa.fa-envelope-o.fa-3x.icon-muted
+              %h5.text-uc.m-b.m-t-lg Mail Us
+              %p.text-sm
+                %a{href: "mailto:hey@example.com"} info@example.com
+            .col-sm-4{"data-animation" => "fadeInRight", "data-delay" => "900", "data-ride" => "animated"}
+              %i.fa.fa-globe.fa-3x.icon-muted
+              %h5.text-uc.m-b.m-t-lg Join Us
+              %p.text-sm
+                Send your resume to
+                %br/
+                %a{href: "mailto:hey@example.com"} recruit@example.com
+          .m-t-xl.m-b-xl
+            %p
+              %a.btn.btn-icon.btn-rounded.btn-facebook.bg-empty.m-sm{href: "#"}
+                %i.fa.fa-facebook
+              %a.btn.btn-icon.btn-rounded.btn-twitter.bg-empty.m-sm{href: "#"}
+                %i.fa.fa-twitter
+              %a.btn.btn-icon.btn-rounded.btn-gplus.bg-empty.m-sm{href: "#"}
+                %i.fa.fa-google-plus
+            %p
+              %a.btn.btn-icon.btn-rounded.btn-dark.b-dark.bg-empty.m-sm.text-muted{"data-jump" => "true", href: "#content"}
+                %i.fa.fa-angle-up
+    / / footer
     #fb-root.logged-out
-
     = render 'shared/flash', flash: flash
-
-    .container-narrow
-      = yield
-
+    = include_gon(init: true, namespace: '_SG', need_type: true)
     = javascript_include_tag :welcome
-
     %noscript= utm_tag

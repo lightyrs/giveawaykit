@@ -1,17 +1,13 @@
-//= require lodash/lodash.underscore
-//= require ../../../vendor/assets/javascripts/jquery.noisy
-//= require ui/loader
+//= require jquery
+//= require ../../../vendor/notebook-theme/js/bootstrap
+//= require ../../../vendor/notebook-theme/js/app
+//= require ../../../vendor/notebook-theme/js/slimscroll/jquery.slimscroll.min
+//= require ../../../vendor/notebook-theme/js/appear/jquery.appear
+//= require ../../../vendor/notebook-theme/js/landing
+//= require ../../../vendor/notebook-theme/js/app.plugin
+//= require sg
 //= require ui/flash_messages
 
 $(function() {
-
-  $('body').noisy({
-    'intensity' : 0.061,
-    'size' : '300',
-    'opacity' : 0.08,
-    'fallback' : '#DFE3E8',
-    'monochrome' : false
-  }).css('background-color', '#DFE3E8');
-
   SG.UI.FlashMessages.initialize();
 });
