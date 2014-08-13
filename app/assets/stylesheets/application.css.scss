@@ -141,6 +141,42 @@
   @include avatar-wrapper(32px, 32px, 1px);
 }
 
+.nav {
+
+  .avatar {
+    margin-top: 0;
+    margin-right: 0;
+  }
+
+  .avatar-wrapper-32 {
+    position: relative;
+    top: -6px;
+    left: -6px;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .nav-user {
+
+    .avatar-wrapper-32 {
+      width: 160px !important;
+      height: 160px !important;
+      float: none !important;
+      display: block;
+      margin: 0 auto 20px;
+      /*padding: 5px;
+      background-color: rgba(255,255,255,0.1);*/
+      position: relative;
+
+      .thumb.masked.avatar {
+        width: 160px;
+        height: 160px;
+      }
+    }
+  }
+}
+
 .giveaway-start-date-warning,
 .giveaway-end-date-warning {
   cursor: pointer;

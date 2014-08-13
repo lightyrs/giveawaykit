@@ -1,5 +1,5 @@
 //= require jquery
-//= require ../../../vendor/notebook-theme/js/bootstrap
+//= require ../../../vendor/assets/javascripts/bootstrap
 //= require ../../../vendor/notebook-theme/js/app
 //= require ../../../vendor/notebook-theme/js/slimscroll/jquery.slimscroll.min
 //= require ../../../vendor/notebook-theme/js/appear/jquery.appear
