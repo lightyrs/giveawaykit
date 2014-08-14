@@ -1,6 +1,7 @@
 class SubscriptionPlansController < ApplicationController
 
   def index
+    @subscription_plans = SubscriptionPlan.visible
     if current_user
       if request.post? && params[:starting]
         session[:proposed_end_date] = params[:end_date]
@@ -11,7 +12,8 @@ class SubscriptionPlansController < ApplicationController
         @scheduling = true if params[:scheduling]
         @page = FacebookPage.find(params[:facebook_page_id]) if params[:facebook_page_id]
       end
+    else
+      render layout: 'welcome'
     end
-    @subscription_plans = SubscriptionPlan.visible
   end
 end

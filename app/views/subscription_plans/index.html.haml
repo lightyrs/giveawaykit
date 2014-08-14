@@ -1,4 +1,21 @@
 - if current_user
-  = render 'subscription_plans/plans', facebook_page: @page
+
+  #stripe_page
+  - sub_object = @page ? @page : current_user
+  = render 'subscription_plans/plans', sub_object: sub_object
+
 - else
-  = render 'subscription_plans/plans'
+
+  %section#content
+    .bg-dark.lt
+      .container
+        .m-b-lg.m-t-lg
+          %h3.m-b-none Plans & Pricing
+          %small.text-muted Find the Right Pricing Plan For You
+    .bg-white.b-b.b-light
+      .container
+        %ul.breadcrumb.no-border.bg-empty.m-b-none.m-l-n-sm
+          %li= link_to 'Home', root_path
+          %li.active Plans & Pricing
+    .container
+      = render 'subscription_plans/plans', sub_object: nil

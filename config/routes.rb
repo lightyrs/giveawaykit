@@ -64,6 +64,7 @@ Rails.application.routes.draw do
   get '/help/contact', to: 'help#contact', as: 'help_contact'
 
   get '/about', to: 'about#index', as: 'about'
+  get '/about/features', to: 'about#features', as: 'features'
   get '/about/subscription_plans', to: 'subscription_plans#index', as: 'subscription_plans'
 
   match '/:giveaway_id/enter', to: 'giveaways#enter', as: 'enter', via: [:get, :patch, :post]

@@ -1,0 +1,18 @@
+%header#header.navbar.navbar-fixed-top.bg-white.box-shadow.b-b.b-light{"data-offset-top" => "1", "data-spy" => "affix"}
+  .container
+    .navbar-header
+      %a.navbar-brand{href: root_url}
+        = image_tag 'notebook-logo.png', class: 'm-r-sm'
+        %span.text-muted Notebook
+      %button.btn.btn-link.visible-xs{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+        %i.fa.fa-bars
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li= link_to 'Home', root_path
+        %li= link_to 'Features', features_path
+        %li= link_to 'Plans & Pricing', subscription_plans_path
+        %li
+          .m-t-sm
+            %a.btn.btn-link.btn-sm{href: "signin.html"} Sign in
+            %a.btn.btn-sm.btn-success.m-l{href: "signup.html"}
+              %strong Sign up
