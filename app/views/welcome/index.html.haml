@@ -8,9 +8,9 @@
             %span.font-thin.text-muted Made
             Easy
         .h4.text-muted.m-t-sm Create, Deploy & Manage Giveaways without a Social Media Expert
-      %p.text-center.m-b-xl
-        %a.btn.btn-lg.btn-dark.m-sm{href: "http://themeforest.net/user/Flatfull/portfolio?ref=flatfull", target: "_blank"} Download it
-        %a.btn.btn-lg.btn-warning.b-white.bg-empty.m-sm{href: "index.html", target: "_blank"} Live Preview
+      .buttons.text-center.m-b-xl
+        %a.btn.btn-lg.btn-dark.b-white.bg-empty.m-sm{href: "/auth/facebook"} Sign Up with Facebook
+        %a.btn.btn-lg.btn-warning.b-white.bg-empty.m-sm{href: "index.html", target: "_blank"} See an Example
     .padder
       .hbox
         %aside.col-md-3.v-bottom.text-right
@@ -39,8 +39,10 @@
     .dker.pos-rlt
       .container.wrapper
         .m-t-lg.m-b-lg.text-center
-          %strong Giveaway Kit
-          is faster and easier to use than other services.
+          %p.lead 
+            = succeed "." do
+              The first giveaway for each Facebook Page is 
+              %span.f-w-600 free
   #about
     .container
       .m-t-xl.m-b-xl.text-center.wrapper
@@ -106,7 +108,7 @@
   #newsletter.bg-white.clearfix.wrapper-lg
     .container.text-center.m-t-xl.m-b-xl{"data-animation" => "fadeIn", "data-ride" => "animated"}
       %h2 Newsletter
-      %p Do not want to miss anything? Subscribe to our newsletter box
+      %p For special offers and tips on running successful giveaways.
       %form.form-inline.m-t-xl.m-b-xl
         .form-group
           %input.form-control.input-lg{"data-animation" => "fadeInLeftBig", "data-delay" => "300", "data-ride" => "animated", placeholder: "Your email"}/
