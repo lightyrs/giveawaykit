@@ -7,3 +7,30 @@
 *= require ../../../vendor/assets/stylesheets/app
 *= require_self
 */
+
+body.welcome {
+
+  .headline {
+
+    .carousel.aside {
+      width: 151px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+
+  body.welcome {
+
+    .headline {
+
+      .m-r-sm {
+        margin-right: 6px;
+      }
+
+      .carousel.aside {
+        width: 73px;
+      }
+    }
+  }
+}
