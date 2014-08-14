@@ -3,7 +3,7 @@
     .navbar-header
       %a.navbar-brand{href: root_url}
         = image_tag 'notebook-logo.png', class: 'm-r-sm'
-        %span.text-muted Notebook
+        %span.text-muted Giveaway Kit
       %button.btn.btn-link.visible-xs{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
         %i.fa.fa-bars
     .collapse.navbar-collapse
@@ -13,6 +13,4 @@
         %li= link_to 'Plans & Pricing', subscription_plans_path
         %li
           .m-t-sm
-            %a.btn.btn-link.btn-sm{href: "signin.html"} Sign in
-            %a.btn.btn-sm.btn-success.m-l{href: "signup.html"}
-              %strong Sign up
+            = link_to 'Sign In With Facebook', '/auth/facebook', class: 'btn btn-sm btn-dark m-l'
