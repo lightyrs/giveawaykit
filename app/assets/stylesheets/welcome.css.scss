@@ -3,38 +3,119 @@
 *= require ../../../vendor/assets/stylesheets/animate
 *= require font-awesome
 *= require ../../../vendor/assets/stylesheets/font
-*= require ../../../vendor/assets/stylesheets/landing
 *= require ../../../vendor/assets/stylesheets/app
 *= require_self
 */
 
+@import "bourbon";
+@import "mixins";
+@import "variables";
+@import "flash";
+
 body.welcome {
-
-  .headline {
-
-    .carousel.aside {
-      width: 151px;
-    }
-  }
+  overflow-x: hidden;
 
   .f-w-600 {
     font-weight: 600;
   }
+
+  .navbar-fixed-top + section {
+    padding-top: 50px;
+  }
+
+  .appear {
+    visibility: hidden;
+  }
+
+  .animated {
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -ms-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+  }
+
+  .h1 {
+    font-size: 42px;
+  }
+
+  .device {
+    border-radius: 6px !important;
+    box-shadow: -15px 15px 0 rgba(0, 0, 0, 0.15);
+
+    header {
+      border-radius: 5px 5px 0 0;
+    }
+
+    &.phone {
+      border-radius: 15px !important;
+
+      header {
+        border-radius: 14px 14px 0 0;
+      }
+
+      footer {
+        border-radius: 0 0 14px 14px;
+      }
+    }
+  }
+
+  .navbar {
+    border: none;
+    @include transition(padding 0.2s ease-in-out);
+
+    &.affix-top {
+      padding: 10px 0;
+      @include transition(padding 0.2s ease-in-out);
+    }
+  }
+
+  .navbar-nav {
+
+    > li > a {
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .dropdown-submenu .dropdown-menu {
+      left: 0;
+      top: 100%;
+      border: none;
+      background-color: #f5f5f5;
+      min-width: 220px;
+    }
+  }
+
+  #responsive {
+    background: asset-url("render-1.png") #25313e center top no-repeat;
+    background-size: cover;
+
+    > div {
+      background-color: #25313e;
+      background-color: rgba(37, 49, 62, 0.95);
+    }
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 
   body.welcome {
 
-    .headline {
+    .navbar-fixed-top + section {
+      padding-top: 50px;
+    }
 
-      .m-r-sm {
-        margin-right: 6px;
-      }
+    .navbar.affix-top {
+      padding: 0;
+    }
 
-      .carousel.aside {
-        width: 73px;
-      }
+    .navbar-brand {
+      float: left !important;
+    }
+
+    .h1 {
+      font-size: 20px;
     }
   }
 }

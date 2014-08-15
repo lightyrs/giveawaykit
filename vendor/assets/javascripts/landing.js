@@ -13,20 +13,6 @@ jQuery.extend( jQuery.easing,
 
   $(function(){
 
-    $('[data-ride="animated"]').appear();
-    if( !$('html').hasClass('ie no-ie10') ) {
-        $('[data-ride="animated"]').addClass('appear');
-    	$('[data-ride="animated"]').on('appear', function() {
-	        var $el = $(this), $ani = ($el.data('animation') || 'fadeIn'), $delay;
-	        if ( !$el.hasClass('animated') ) {
-	        	$delay = $el.data('delay') || 0;
-                setTimeout(function(){
-                    $el.removeClass('appear').addClass( $ani + " animated" );
-                }, $delay);
-	        }
-	    });
-    };
-    
     $(document).on('click.app','[href^="#"]',function (e) {
         e.preventDefault();
         var $target = this.hash;
@@ -37,6 +23,6 @@ jQuery.extend( jQuery.easing,
             window.location.hash = $target;
         });
     });
-    
+
   });
 }(window.jQuery);

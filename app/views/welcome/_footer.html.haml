@@ -13,7 +13,7 @@
         .col-sm-4{"data-animation" => "fadeInLeft", "data-delay" => "300", "data-ride" => "animated"}
         .col-sm-4{"data-animation" => "fadeInUp", "data-delay" => "600", "data-ride" => "animated"}
           %i.fa.fa-envelope-o.fa-3x.icon-muted
-          %h5.text-uc.m-b-sm.m-t-lg Questions or Comments? 
+          %h5.text-uc.m-b-sm.m-t-lg Questions or Comments?
           %h5.m-b We'll get back to you right away.
           %p.text-sm
             %a{href: "mailto:support@giveawaykit.com"} support@giveawaykit.com
@@ -30,7 +30,6 @@
           %a.btn.btn-icon.btn-rounded.btn-dark.b-dark.bg-empty.m-sm.text-muted{"data-jump" => "true", href: "#content"}
             %i.fa.fa-angle-up
 #fb-root.logged-out
-= render 'shared/flash', flash: flash
 = include_gon(init: true, namespace: '_SG', need_type: true)
 = javascript_include_tag :welcome
 %noscript= utm_tag

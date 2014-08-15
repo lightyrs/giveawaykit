@@ -1136,7 +1136,7 @@ button {
     width: 0;
     background: $bg-primary;
     border-radius: 3px;
-    @include transition (width 2.50s ease);
+    @include transition(width 2.50s ease);
 
     &.loading {
       width: 134px;

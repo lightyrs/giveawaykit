@@ -4,15 +4,15 @@
     %meta{charset: "utf-8"}
     %meta{content: "#{FB_APP_ID}", property: "fb:app_id"}
     %title Giveaway Kit
-    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
+    %meta{content: "width=device-width, initial-scale=1, maximum-scale=1", name: "viewport"}
     %meta{content: "Easily create, deploy, and manage giveaways on your Facebook pages.", name: "description"}
 
     = google_analytics_tracking_javascript
 
+    = stylesheet_link_tag :welcome, media: 'all'
+
     /[if lt IE 9]
       = javascript_include_tag :ie
-
-    = stylesheet_link_tag :welcome, media: 'all'
 
     = csrf_meta_tags
 

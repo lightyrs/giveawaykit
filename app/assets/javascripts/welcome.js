@@ -1,13 +1,7 @@
 //= require jquery
+//= require jquery.fb.js
 //= require ../../../vendor/assets/javascripts/bootstrap
-//= require ../../../vendor/notebook-theme/js/app
-//= require ../../../vendor/notebook-theme/js/slimscroll/jquery.slimscroll.min
-//= require ../../../vendor/notebook-theme/js/appear/jquery.appear
-//= require ../../../vendor/notebook-theme/js/landing
-//= require ../../../vendor/notebook-theme/js/app.plugin
-//= require sg
+//= require ../../../vendor/assets/javascripts/app
+//= require ../../../vendor/assets/javascripts/landing
+//= require sg_welcome
 //= require ui/flash_messages
-
-$(function() {
-  SG.UI.FlashMessages.initialize();
-});
