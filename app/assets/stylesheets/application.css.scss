@@ -16,13 +16,6 @@
 *= require_self
 */
 
-#bp-pane pre {
-  font-size: 13px;
-  font-family: 'Bitstream Vera Sans Mono', 'Consolas', 'Inconsolata', monospace !important;
-  line-height: 20px;
-  padding: 2px;
-}
-
 @import 'bourbon';
 @import 'mixins';
 @import 'variables';
@@ -33,6 +26,20 @@
   font-family: 'Glyphicons Halflings';
   src: asset-url('glyphicons-halflings-regular.eot', font);
   src: asset-url('glyphicons-halflings-regular.eot?#iefix', font) format('embedded-opentype'), asset-url('glyphicons-halflings-regular.woff', font) format('woff'), asset-url('glyphicons-halflings-regular.ttf', font) format('truetype'), asset-url('glyphicons-halflings-regular.svg#glyphicons_halflingsregular', font) format('svg');
+}
+
+#bp-pane pre {
+  font-size: 13px;
+  font-family: 'Bitstream Vera Sans Mono', 'Consolas', 'Inconsolata', monospace !important;
+  line-height: 20px;
+  padding: 2px;
+}
+
+a, button {
+
+  &:focus {
+    outline: none !important;
+  }
 }
 
 .panel-footer {

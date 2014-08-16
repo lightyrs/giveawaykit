@@ -53,22 +53,22 @@
       .row.m-t-xl.m-b-xl.text-center
         .col-sm-4{"data-animation" => "fadeInLeft", "data-delay" => "300", "data-ride" => "animated"}
           %p.h3.m-b-lg
-            %i.fa.fa-coffee.fa-3x.text-info
+            %i.fa.fa-bullseye.fa-3x.text-info
           %div
-            %h4.m-t-none We Do the Work
-            %p.text-muted.m-t-lg Something about how we have less features so that you don't have to make every single choice.  We filter options and strategies into only the ones that actually work.
+            %h4.m-t-none We Keep it Simple
+            %p.text-muted.m-t-lg Other services use complex pricing plans that lead to overpaying for features you don't even need. We keep our plans basic and transparent so that you get exactly what you want for the lowest price possible.
         .col-sm-4{"data-animation" => "fadeInLeft", "data-delay" => "600", "data-ride" => "animated"}
           %p.h3.m-b-lg
             %i.fa.fa-magic.fa-3x.text-info
           %div
             %h4.m-t-none We Make it Shine
-            %p.text-muted.m-t-lg Something about how we make your giveaway pretty so that you don't need a graphic designer.  We take your uploaded image and make a beautiful giveaway entry form.
+            %p.text-muted.m-t-lg Other services give you the choice of a plain, boring form or a custom design that requires access to expensive graphic designers. We take a simple image of your product or logo and generate a beautiful giveaway.
         .col-sm-4{"data-animation" => "fadeInLeft", "data-delay" => "900", "data-ride" => "animated"}
           %p.h3.m-b-lg
-            %i.fa.fa-bullseye.fa-3x.text-info
+            %i.fa.fa-coffee.fa-3x.text-info
           %div
-            %h4.m-t-none We Keep it Simple
-            %p.text-muted.m-t-lg Something about how we have very simple pricing plans and/or feature sets.  You don't have to become a 'special partner' or call us to get the features you want.
+            %h4.m-t-none We Do the Work
+            %p.text-muted.m-t-lg Other services leave it up to you to figure out the most successful giveaway strategies. We research best-practices and tweak our giveaways to reflect our findings. This way, your giveaways are always state-of-the-art.
       .m-t-xl.m-b-l.text-center.wrapper
   #responsive.bg-dark
     .text-center
@@ -86,7 +86,7 @@
                 %i.fa.fa-thumbs-o-up.fa-stack-1x.text-muted
             %div
               %h4.m-t-none Like
-              %p.text-muted.m-t-lg A description of the state of the customer at the point at which they Like your page.
+              %p.text-muted.m-t-lg Likes are great but they're difficult to convert into paying customers. Facebook will tell you how many likes you've gotten but they don't help you communicate with the individual that liked your page.
           .col-sm-4.wrapper-l{"data-animation" => "fadeInLeft", "data-delay" => "600", "data-ride" => "animated"}
             %p.text-center.h2.m-b-lg.m-t-lg
               %span.fa-stack.fa-2x
@@ -94,7 +94,7 @@
                 %i.fa.fa-user.fa-stack-1x.text-muted
             %div
               %h4.m-t-none Fan
-              %p.text-muted.m-t-lg A description of the state of the customer at the point at which they have Liked your page.
+              %p.text-muted.m-t-lg Once a person likes your page, they become a fan. As a fan, they'll occassionally see your posts in their feed, however, these mass-messages don't have the power and personal touch of targeted communication.
           .col-sm-4.wrapper-l{"data-animation" => "fadeInLeft", "data-delay" => "900", "data-ride" => "animated"}
             %p.text-center.h2.m-b-lg.m-t-lg
               %span.fa-stack.fa-2x
@@ -102,13 +102,16 @@
                 %i.fa.fa-usd.fa-stack-1x.text-muted
             %div
               %h4.m-t-none Customer
-              %p.text-muted.m-t-lg A description of the state of the customer at the point at which they have been a fan for a while.
+              %p.text-muted.m-t-lg Giveaway Kit turns these anonymous fans into contacts with email addresses and demographic information. Now you have the power to communicate with real people over whatever channels your business desires.
         .m-t-xl.m-b-l.text-center.wrapper
   #newsletter.bg-white.clearfix.wrapper-lg
     .container.text-center.m-t-xl.m-b-xl{"data-animation" => "fadeIn", "data-ride" => "animated"}
       %h2 Newsletter
       %p For special offers and tips on running successful giveaways.
-      %form.form-inline.m-t-xl.m-b-xl
+      %form#mc-embedded-subscribe-form.validate.form-inline.m-t-xl.m-b-xl{:action => "//giveawaykit.us8.list-manage.com/subscribe/post?u=5b80b707633a9636f38b39d19&id=a6e353efd3", :method => "post", :name => "mc-embedded-subscribe-form", :novalidate => "", :target => "_blank"}
         .form-group
-          %input.form-control.input-lg{"data-animation" => "fadeInLeftBig", "data-delay" => "300", "data-ride" => "animated", placeholder: "Your email"}/
-        %button.btn.btn-default.btn-lg{"data-animation" => "fadeInRightBig", "data-delay" => "600", "data-ride" => "animated", type: "submit"} Subscribe
+          %input#mce-EMAIL.required.email.form-control.input-lg{"data-animation" => "fadeInLeftBig", "data-delay" => "300", "data-ride" => "animated", placeholder: "Your email", :name => "EMAIL", :type => "email", :value => ""}/
+          / real people should not fill this in and expect good things - do not remove this or risk form bot signups
+          %div{:style => "position: absolute; left: -5000px;"}
+            %input{:name => "b_5b80b707633a9636f38b39d19_a6e353efd3", :tabindex => "-1", :type => "text", :value => ""}/
+        %button#mc-embedded-subscribe.btn.btn-default.btn-lg{"data-animation" => "fadeInRightBig", "data-delay" => "600", "data-ride" => "animated", type: "submit", :name => "subscribe", :value => "Subscribe"} Subscribe

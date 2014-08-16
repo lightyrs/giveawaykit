@@ -1,7 +1,10 @@
 .subscription-plans.clearfix.m-b-sm
 
-  .m-b-xl.text-center
-    %h2 Find the Right Pricing Plan For You
+  .m-b-xl.m-t-xl.text-center
+    %p.lead
+      = succeed "." do
+        The first giveaway for each Facebook Page is
+        %span.f-w-600 free
 
   #plan_columns.row.m-b-xl{ 'data-is-user-centric' => "#{sub_object.is_a?(User) ? 'true' : nil}" }
     = render SubscriptionPlan.visible, sub_object: sub_object

@@ -7,10 +7,10 @@
 *= require_self
 */
 
-@import "bourbon";
-@import "mixins";
-@import "variables";
-@import "flash";
+@import 'bourbon';
+@import 'mixins';
+@import 'variables';
+@import 'flash';
 
 body.welcome {
   overflow-x: hidden;
@@ -63,11 +63,6 @@ body.welcome {
   .navbar {
     border: none;
     @include transition(padding 0.2s ease-in-out);
-
-    &.affix-top {
-      padding: 10px 0;
-      @include transition(padding 0.2s ease-in-out);
-    }
   }
 
   .navbar-nav {
@@ -88,7 +83,7 @@ body.welcome {
   }
 
   #responsive {
-    background: asset-url("render-1.png") #25313e center top no-repeat;
+    background: asset-url('render-1.png') #25313e center top no-repeat;
     background-size: cover;
 
     > div {
@@ -117,5 +112,12 @@ body.welcome {
     .h1 {
       font-size: 20px;
     }
+  }
+}
+
+a, button {
+
+  &:focus {
+    outline: none !important;
   }
 }
