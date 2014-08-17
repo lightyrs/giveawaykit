@@ -27,16 +27,32 @@
   font-style: normal;
 }
 
-.flaticon-analytics:before {
-  content: "\e000";
+.flaticon-analytics {
+  height: 238px;
+  line-height: 265px;
+
+  &:before {
+    content: "\e000";
+  }
 }
 
-.flaticon-schedule:before {
-  content: "\e001";
+.flaticon-schedule {
+  height: 168px;
+  line-height: 210px;
+
+  &:before {
+    content: "\e001";
+    font-size: 156px;
+  }
 }
 
-.flaticon-free:before {
-  content: "\e002";
+.flaticon-free {
+  height: 188px;
+  line-height: 199px;
+
+  &:before {
+    content: "\e002";
+  }
 }
 
 .flaticon-infinity {
@@ -49,16 +65,33 @@
   }
 }
 
-.flaticon-shortlink:before {
-  content: "\e004";
+.flaticon-shortlink {
+  height: 195px;
+  line-height: 226px;
+
+  &:before {
+    content: "\e004";
+    font-size: 156px;
+  }
 }
 
-.flaticon-viral:before {
-  content: "\e005";
+.flaticon-viral {
+  height: 188px;
+  line-height: 195px;
+
+  &:before {
+    content: "\e005";
+  }
 }
 
-.flaticon-white-label:before {
-  content: "\e006";
+.flaticon-white-label {
+  height: 195px;
+  line-height: 206px;
+
+  &:before {
+    content: "\e006";
+    font-size: 172px;
+  }
 }
 
 body.welcome {
@@ -165,6 +198,41 @@ body.welcome {
 
     .h1 {
       font-size: 20px;
+    }
+
+    .features-page {
+
+      [class^="flaticon-"], [class*=" flaticon-"] {
+        display: none;
+      }
+
+      h2 {
+        margin-top: 5px;
+
+        &.m-b-lg {
+          margin-bottom: 20px;
+        }
+      }
+
+      .m-t-xl {
+        margin-top: 30px;
+      }
+
+      .m-t-lg {
+        margin-top: 20px;
+      }
+
+      .m-b-xl {
+        margin-bottom: 20px;
+      }
+
+      .m-b-xs-lg {
+        margin-bottom: 20px;
+      }
+
+      .m-b-lg {
+        margin-bottom: 20px;
+      }
     }
   }
 }
