@@ -12,11 +12,65 @@
 @import 'variables';
 @import 'flash';
 
+@font-face {
+  font-family: "Flaticon";
+  src: asset-url('flaticon.eot', font);
+  src: asset-url('flaticon.eot#iefix', font) format('embedded-opentype'), asset-url('flaticon.woff', font) format('woff'), asset-url('flaticon.ttf', font) format('truetype'), asset-url('flaticon.svg', font) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+  font-family: Flaticon;
+  font-size: 256px;
+  font-style: normal;
+}
+
+.flaticon-analytics:before {
+  content: "\e000";
+}
+
+.flaticon-schedule:before {
+  content: "\e001";
+}
+
+.flaticon-free:before {
+  content: "\e002";
+}
+
+.flaticon-infinity {
+  height: 128px;
+  line-height: 139px;
+  padding-top: 10px;
+
+  &:before {
+    content: "\e003";
+  }
+}
+
+.flaticon-shortlink:before {
+  content: "\e004";
+}
+
+.flaticon-viral:before {
+  content: "\e005";
+}
+
+.flaticon-white-label:before {
+  content: "\e006";
+}
+
 body.welcome {
   overflow-x: hidden;
 
   .f-w-600 {
     font-weight: 600;
+  }
+
+  .icon-container {
+    height: 150px;
+    overflow: hidden;
   }
 
   .navbar-fixed-top + section {
