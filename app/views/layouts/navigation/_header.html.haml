@@ -1,6 +1,7 @@
-.m-b-md.layouts-header
+- if content_for?(:page_subheading) || content_for?(:page_heading)
+  .m-b-md.layouts-header
 
-  %h3.m-b-none= yield :page_heading
+    %h3.m-b-none= yield :page_heading
 
-  - if content_for? :page_subheading
-    %small= yield :page_subheading
+    - if content_for? :page_subheading
+      %small= yield :page_subheading
