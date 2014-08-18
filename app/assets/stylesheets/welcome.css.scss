@@ -271,15 +271,6 @@ body.welcome {
 
       .feature-row {
         text-align: center;
-
-        .container.m-t-xl,
-        .row.m-t-xl {
-          margin-top: 20px;
-        }
-
-        ul {
-          text-align: left;
-        }
       }
 
       .icon-muted.visible-xs {
@@ -349,14 +340,10 @@ body.welcome {
 
       h2 {
         margin-top: 5px;
-
-        &.m-b-lg {
-          margin-bottom: 20px;
-        }
       }
 
       .m-t-xl {
-        margin-top: 30px;
+        margin-top: 20px;
       }
 
       .m-t-lg {
@@ -373,6 +360,13 @@ body.welcome {
 
       .m-b-lg {
         margin-bottom: 20px;
+      }
+    }
+
+    .subscription-plans {
+
+      .first-giveaway-free {
+        margin-bottom: 30px;
       }
     }
   }
