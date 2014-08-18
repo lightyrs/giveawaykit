@@ -33,6 +33,7 @@
 
   &:before {
     content: "\e000";
+    font-size: 226px;
   }
 }
 
@@ -99,11 +100,6 @@ body.welcome {
 
   .f-w-600 {
     font-weight: 600;
-  }
-
-  .icon-container {
-    height: 150px;
-    overflow: hidden;
   }
 
   .navbar-fixed-top + section {
@@ -268,8 +264,87 @@ body.welcome {
 
     .features-page {
 
-      [class^="flaticon-"], [class*=" flaticon-"] {
-        display: none;
+      .descriptive-text {
+        max-width: 380px;
+        margin: 0 auto;
+      }
+
+      .feature-row {
+        text-align: center;
+
+        .container.m-t-xl,
+        .row.m-t-xl {
+          margin-top: 20px;
+        }
+
+        ul {
+          text-align: left;
+        }
+      }
+
+      .icon-muted.visible-xs {
+        text-align: center;
+        height: 66px;
+        line-height: 59px;
+        padding-top: 0;
+        margin-bottom: 10px;
+
+        &.flaticon-free {
+          height: 90px;
+          line-height: 91px;
+        }
+
+        &.flaticon-analytics {
+          height: 81px;
+          line-height: 77px;
+
+          &:before {
+            font-size: 108px;
+          }
+        }
+
+        &.flaticon-schedule {
+          height: 87px;
+          line-height: 86px;
+
+          &:before {
+            font-size: 80px;
+          }
+        }
+
+        &.flaticon-viral {
+          height: 87px;
+          line-height: 79px;
+        }
+
+        &.flaticon-shortlink {
+          height: 77px;
+          line-height: 74px;
+
+          &:before {
+            font-size: 74px;
+          }
+        }
+
+        &.flaticon-white-label {
+          height: 75px;
+          line-height: 73px;
+
+          &:before {
+            font-size: 86px;
+          }
+        }
+
+        &:before, &:after {
+          font-size: 128px;
+        }
+      }
+
+      .icon-col {
+
+        [class^="flaticon-"], [class*=" flaticon-"] {
+          display: none;
+        }
       }
 
       h2 {
