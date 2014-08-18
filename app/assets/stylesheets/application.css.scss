@@ -42,6 +42,10 @@ a, button {
   }
 }
 
+.f-w-600 {
+  font-weight: 600;
+}
+
 .panel-footer {
 
   &.paging-footer {
@@ -1345,5 +1349,12 @@ section.giveaways-edit {
 
   .dropdown-menu {
     width: 500px;
+  }
+}
+
+.subscription_plans-index {
+
+  ul.breadcrumb {
+    margin-bottom: 0;
   }
 }
