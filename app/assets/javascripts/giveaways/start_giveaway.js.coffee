@@ -12,7 +12,7 @@ SG.Giveaways.Start =
     $(document).off 'hidden.bs.modal', '#start_giveaway_modal'
     $(document).on 'hidden.bs.modal', '#start_giveaway_modal', ->
       $('#start_giveaway_modal').removeData('bs.modal')
-      
+
     $(document).off 'ajaxSuccess'
     $(document).on 'ajaxSuccess', (response) =>
       @attachModalEvents()

@@ -29,7 +29,7 @@
       .text-center.paging-info
         = pagination_info @giveaways, model: "#{'giveaway'.pluralize(@giveaways.size)}"
 
-    #start_giveaway_modal.modal.fade
+    = render 'giveaways/pending/start_modal_wrapper'
 
   - else
 
