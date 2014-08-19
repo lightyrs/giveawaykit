@@ -1283,9 +1283,9 @@ button {
 
     .meta {
 
-      p.like-count {
+      > p {
         position: relative;
-        top: 1px;
+        top: 2px;
       }
     }
 
