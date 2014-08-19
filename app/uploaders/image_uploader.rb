@@ -4,6 +4,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::MiniMagick
   include CarrierWave::Compatibility::Paperclip
+  include CarrierWave::Processing::DominantColor
 
   storage :fog
 
@@ -28,6 +29,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   version :tab do
     process resize_to_fit: [810, 5000]
     process :strip
+    process :store_dominant_color
   end
 
   def extension_white_list

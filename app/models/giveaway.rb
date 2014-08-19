@@ -583,6 +583,7 @@ class Giveaway < ActiveRecord::Base
       enter_url: Rails.application.routes.url_helpers.enter_url(self, host: SG_DOMAIN),
       image_url: self.image.tab.url.gsub("http://", "https://"),
       feed_image_url: self.feed_image.url.gsub("http://", "https://"),
+      dominant_color: dominant_color_image,
       bonus_value: bonus_value,
       terms_text: terms_text,
       terms_link: terms_link,

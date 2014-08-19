@@ -1,5 +1,5 @@
 !!!
-%html{lang: "en"}
+%html{lang: "en", style: "height: 100%; overflow: hidden"}
   %head
     %meta{charset: "utf-8"}
     %meta{content: "#{FB_APP_ID}", property: "fb:app_id"}
@@ -18,14 +18,14 @@
     /[if lt IE 9]
       = javascript_include_tag :ie
 
-    = stylesheet_link_tag :tab, media: 'all'
+    / = stylesheet_link_tag :tab, media: 'all'
 
     = csrf_meta_tags
 
-  %body
+  %body{style: "height: 100%"}
     = include_gon(init: true, namespace: '_SG', need_type: true)
     = javascript_include_tag :tab
-    #tab_container
+    #tab_container{style: "height: 100%; background-color: #{@giveaway_hash.giveaway.dominant_color}"}
       = yield
 
     %noscript= utm_tag
