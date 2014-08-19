@@ -1281,6 +1281,14 @@ button {
 
   &.preview {
 
+    .meta {
+
+      p.like-count {
+        position: relative;
+        top: 1px;
+      }
+    }
+
     .stats {
 
       a {
