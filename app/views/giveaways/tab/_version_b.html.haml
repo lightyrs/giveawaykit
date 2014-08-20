@@ -1,7 +1,11 @@
 :scss
+  #tab_container {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+  }
+
   .giveaway-widget {
     width: 553px;
-    height: 542px;
+    min-height: 542px;
     overflow: hidden;
     margin: 0 auto;
     background-color: #fff;
@@ -9,13 +13,67 @@
     box-shadow: 0 0 3px rgba(0,0,0,.2), inset 0 2px 4px rgba(255,255,255,.3);
     position: relative;
     top: 60px;
-  }
 
-  #giveaway_image {
-    height: 226px;
-    overflow: hidden;
+    .giveaway-image {
+      height: 226px;
+      overflow: hidden;
+    }
+
+    .giveaway-meta {
+      padding: 30px 40px 0;
+
+      .giveaway-title {
+        color: #324648;
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 16px;
+        margin: 0;
+        padding-bottom: 10px;
+
+        &:before {
+          content: '';
+          width: 16px;
+          height: 16px;
+          display: inline-block;
+          margin-right: 30px;
+          background-color: #2dcb71;
+        }
+      }
+
+      .giveaway-prize {
+        color: #76888c;
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 18px;
+        margin: 0;
+        padding-left: 51px;
+        padding-bottom: 26px;
+      }
+    }
+
+    .giveaway-description {
+      background-color: #eff2f1;
+      padding: 23px 40px 26px;
+      margin: 0;
+
+      .description-text {
+        padding-left: 51px;
+        color: #75898d;
+        font-size: 17px;
+        font-weight: 300;
+        margin: 0;
+      }
+    }
   }
 
 .giveaway-widget.version-b
-  #giveaway_image
+  .giveaway-image
     = image_tag @giveaway_hash.giveaway.image_url
+  .giveaway-meta
+    %h1.giveaway-title
+      = @giveaway_hash.giveaway.title
+    %h2.giveaway-prize
+      = "Win #{@giveaway_hash.giveaway.prize}"
+  .giveaway-description
+    %h3.description-text
+      = @giveaway_hash.giveaway.description_text

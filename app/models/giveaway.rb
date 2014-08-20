@@ -577,6 +577,7 @@ class Giveaway < ActiveRecord::Base
     OpenStruct.new({
       id: id,
       title: title,
+      prize: prize,
       description: description,
       description_text: ActionView::Base.full_sanitizer.sanitize(description),
       giveaway_url: giveaway_url,
