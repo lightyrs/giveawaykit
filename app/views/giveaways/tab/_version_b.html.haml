@@ -3,6 +3,71 @@
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
   }
 
+  .btn {
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    padding: 25px 80px;
+    display: inline-block;
+    margin: 30px auto;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+
+    &:before {
+      font-family: 'FontAwesome';
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+
+  .btn-4 {
+    border-radius: 50px;
+    border: 3px solid #2dcb71;
+    color: #2dcb71;
+    overflow: hidden;
+
+    &:before {
+      position: absolute;
+      height: 100%;
+      font-size: 125%;
+      line-height: 3.5;
+      color: #2dcb71;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      transition: all 0.3s;
+    }
+  }
+
+  .btn-4a {
+
+    &:hover {
+
+      &:before {
+        left: 80%;
+      }
+    }
+
+    &:before {
+      left: 130%;
+      top: 0;
+    }
+  }
+
   .giveaway-widget {
     width: 553px;
     min-height: 542px;
@@ -53,16 +118,44 @@
 
     .giveaway-description {
       background-color: #eff2f1;
-      padding: 23px 40px 26px;
+      padding: 26px 40px 26px;
       margin: 0;
 
       .description-text {
-        padding-left: 51px;
+        padding-left: 99px;
         color: #75898d;
         font-size: 17px;
         font-weight: 300;
         margin: 0;
       }
+
+      .avatar-wrapper {
+        width: 67px;
+        height: 67px;
+        border: 0 none;
+        border-radius: 500px;
+        overflow: hidden;
+
+        .thumb {
+
+          &.masked.avatar {
+            width: 67px;
+            height: 67px;
+            display: inline-block;
+            overflow: hidden;
+            background-position: center center !important;
+            -webkit-background-size: cover !important;
+            background-size: cover !important;
+            position: relative;
+            left: 0;
+            top: 0;
+          }
+        }
+      }
+    }
+
+    .giveaway-actions {
+      text-align: center;
     }
   }
 
@@ -75,5 +168,13 @@
     %h2.giveaway-prize
       = "Win #{@giveaway_hash.giveaway.prize}"
   .giveaway-description
+    .pull-left.avatar-wrapper
+      %span.thumb.masked.avatar{:style => "background-image: url(#{@giveaway_hash.page_avatar})"}
     %h3.description-text
       = @giveaway_hash.giveaway.description_text
+  .giveaway-actions
+    - if @giveaway_hash.has_liked
+      %button#enter_giveaway.btn.btn-4.btn-4a.fa.fa-arrow-right Enter Giveaway
+    - else
+      #like_page_button Like
+      %button#enter_giveaway.btn.btn-4.btn-4a.fa.fa-arrow-right Enter Giveaway

@@ -524,7 +524,7 @@ class Giveaway < ActiveRecord::Base
     def tab(signed_request)
       app_data = signed_request["app_data"]
       referrer_id = app_data.split("ref_")[1] rescue []
-      current_page = FacebookPage.select("id, url, name, slug, subscription_id").find_by(pid: signed_request["page"]["id"])
+      current_page = FacebookPage.select("id, url, name, slug, subscription_id, avatar_large").find_by(pid: signed_request["page"]["id"])
       giveaway = current_page.active_giveaway
 
       OpenStruct.new({
@@ -532,6 +532,7 @@ class Giveaway < ActiveRecord::Base
         referrer_id: referrer_id,
         has_liked: signed_request["page"]["liked"],
         current_page: current_page,
+        page_avatar: current_page.avatar_large,
         giveaway: giveaway.tab_attrs,
         tab_height: giveaway.tab_height,
         canhaz_white_label: giveaway.facebook_page.canhaz_white_label?,
