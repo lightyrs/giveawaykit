@@ -1,19 +1,26 @@
-.giveaway-widget.version-b
-  .giveaway-image
-    = image_tag @giveaway_hash.giveaway.image_url
-  .giveaway-meta
-    %h1.giveaway-title
-      = @giveaway_hash.giveaway.title
-    %h2.giveaway-prize
-      = "Win #{@giveaway_hash.giveaway.prize}"
-  .giveaway-description
-    .pull-left.avatar-wrapper
-      %span.thumb.masked.avatar{:style => "background-image: url(#{@giveaway_hash.page_avatar})"}
-    %h3.description-text
-      = @giveaway_hash.giveaway.description_text
-  .giveaway-actions
-    - if @giveaway_hash.has_liked
-      %button#enter_giveaway.btn.btn-4.btn-4a.fa.fa-arrow-right Enter Now
-    - else
-      #like_page_button Like
-      %button#enter_giveaway.btn.btn-4.btn-4a.fa.fa-arrow-right Enter Now
+.gk-version-b
+  .giveaway-widget
+    .giveaway-image
+      .inset-shadow
+      = image_tag @giveaway_hash.giveaway.image_url
+    .giveaway-meta
+      %h1.giveaway-title
+        = @giveaway_hash.giveaway.title
+      %h2.giveaway-prize
+        = "Win #{@giveaway_hash.giveaway.prize}"
+    .giveaway-description
+      .pull-left.avatar-wrapper
+        %span.thumb.masked.avatar{:style => "background-image: url(#{@giveaway_hash.page_avatar})"}
+      %h3.description-text
+        = @giveaway_hash.giveaway.description_text
+    .giveaway-actions
+      - if @giveaway_hash.has_liked
+        %a#enter_giveaway{href: '#enter'} Enter Now
+      - else
+        #like_page_button Like
+        %a#enter_giveaway{href: '#enter'} Enter Now
+  .giveaway-terms
+    - unless @giveaway_hash.canhaz_white_label
+      %p.powered-by Powered by <a href='http://giveawaykit.com' target='_blank'>Giveaway Kit</a>.
+    %p This promotion is in no way sponsored, endorsed or administered by, or associated with, Facebook. You understand that you are providing your information to "#{@giveaway_hash.current_page.name}" and not to Facebook. Your information will only be used to administer this promotion. Entry in this promotion is subject to the #{@giveaway_hash.giveaway.terms_link}.
+    .terms-text.hidden{style: "display:none"}= @giveaway_hash.giveaway.terms_text
