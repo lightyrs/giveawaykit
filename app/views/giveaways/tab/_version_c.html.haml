@@ -1,5 +1,12 @@
 .giveaway-widget.version-b
   .giveaway-image
+    .hover-panel
+      .giveaway-actions
+        - if @giveaway_hash.has_liked
+          %button#enter_giveaway.btn.btn-4.btn-4a.fa.fa-arrow-right Enter Now
+        - else
+          #like_page_button Like
+          %button#enter_giveaway.btn.btn-4.btn-4a.fa.fa-arrow-right Enter Now
     = image_tag @giveaway_hash.giveaway.image_url
   .giveaway-meta
     %h1.giveaway-title
