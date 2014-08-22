@@ -2,6 +2,20 @@
 
 #tab_container {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+
+  &.gk-dark {
+
+    .giveaway-terms {
+      color: rgba(255,255,255,.6);
+    }
+  }
+
+  &.gk-light {
+
+    .giveaway-terms {
+      color: rgba(0,0,0,.6);
+    }
+  }
 }
 
 .gk-version-b {
@@ -10,7 +24,7 @@
     width: 553px;
     min-height: 542px;
     overflow: hidden;
-    margin: 0 auto;
+    margin: 0 auto 60px;
     background-color: #fff;
     border-radius: 3px;
     @include box-shadow(0 0 3px rgba(0,0,0,.2), inset 0 2px 4px rgba(255,255,255,.3));
@@ -140,7 +154,10 @@
 
   .giveaway-terms {
     width: 553px;
-    margin: 0 auto;
+    margin: 0 auto 40px;
+    padding: 20px 0;
+    font-size: 13px;
     font-weight: 300;
+    text-align: center;
   }
 }

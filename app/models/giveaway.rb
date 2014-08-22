@@ -586,6 +586,7 @@ class Giveaway < ActiveRecord::Base
       image_url: self.image.tab.url.gsub("http://", "https://"),
       feed_image_url: self.feed_image.url.gsub("http://", "https://"),
       dominant_color: dominant_color_image,
+      dominant_color_lightness: dominant_color_image_lightness,
       bonus_value: bonus_value,
       terms_text: terms_text,
       terms_link: terms_link,
@@ -643,6 +644,12 @@ class Giveaway < ActiveRecord::Base
       end
     end
     shares.compact.flatten
+  end
+
+  def dominant_color_image_lightness
+    rgb = dominant_color_image.last(6).scan(/../).map { |color| color.to_i(16) }
+    color = Sass::Script::Color.new(rgb)
+    color.lightness > 50 ? 'light' : 'dark'
   end
 
   private

@@ -25,7 +25,7 @@
   %body{style: "height: 100%"}
     = include_gon(init: true, namespace: '_SG', need_type: true)
     = javascript_include_tag :tab
-    #tab_container{style: "height: 100%; background-color: #{@giveaway_hash.giveaway.dominant_color}"}
+    #tab_container{class: "gk-#{@giveaway_hash.giveaway.dominant_color_lightness}", style: "height: 100%; background-color: #{@giveaway_hash.giveaway.dominant_color}"}
       = yield
 
     %noscript= utm_tag
