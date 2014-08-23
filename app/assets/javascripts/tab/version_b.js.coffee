@@ -175,17 +175,18 @@ Giveaway =
   onEntrySuccess: ->
     console.log 'onEntrySuccess'
 
-    @ladda.stop()
-    $('.giveaway-actions').addClass('entry-success')
-    @initializeSharing()
+    @onEntryComplete()
     $('a.app-request').click() if @autoshow()
 
   onEntryError: (message) ->
     console.log 'onEntryError', message
     console.log @entry
 
+    @onEntryComplete()
+
+  onEntryComplete: ->
     @ladda.stop()
-    $('.giveaway-actions').addClass('entry-error')
+    $('.giveaway-actions').addClass('entry-complete')
     @initializeSharing()
 
   initializeSharing: ->

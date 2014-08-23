@@ -22,6 +22,8 @@
         %button#enter_giveaway.ladda-button{"data-style" => "zoom-in", "data-spinner-size" => "65"}
           %span.ladda-label Enter Now
       .after-entry
+        = image_tag @giveaway_hash.giveaway.image_url, class: 'bg'
+        %p.message
   .giveaway-terms
     - unless @giveaway_hash.canhaz_white_label
       %p.powered-by Powered by <a href='http://giveawaykit.com' target='_blank'>Giveaway Kit</a>

@@ -140,29 +140,31 @@
 
       .after-entry {
         z-index: 0;
+        opacity: 0;
         position: absolute;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
+        overflow: hidden;
+        @include transition(all 0.3s);
+
+        .bg {
+          opacity: 0.2;
+          top: -70px;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          position: absolute;
+          z-index: 15;   
+        }
       }
 
-      &.entry-success {
+      &.entry-complete {
 
         .after-entry {
           z-index: 20;
-        }
-
-        #enter_giveaway {
-          opacity: 0;
-          cursor: default;
-        }
-      }
-
-      &.entry-error {
-
-        .after-entry {
-          z-index: 20;
+          opacity: 1;
         }
 
         #enter_giveaway {
@@ -192,7 +194,7 @@
     text-decoration: none;
     position: relative;
     overflow: hidden;
-    @include transition(all 0.3s ease);
+    @include transition(all 0.3s);
 
     &:hover {
       background-color: shade(#2dcba1, 10%);
