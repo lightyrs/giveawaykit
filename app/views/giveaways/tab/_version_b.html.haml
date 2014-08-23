@@ -1,4 +1,4 @@
-.gk-version-b
+#gk_giveaway.gk-version-b
   .giveaway-widget
     .giveaway-image
       .inset-shadow
@@ -15,12 +15,15 @@
         = @giveaway_hash.giveaway.description_text
     .giveaway-actions
       - if @giveaway_hash.has_liked
-        %a#enter_giveaway{href: '#enter'} Enter Now
+        %button#enter_giveaway.ladda-button{"data-style" => "zoom-in", "data-spinner-size" => "65"}
+          %span.ladda-label Enter Now
       - else
         #like_page_button Like
-        %a#enter_giveaway{href: '#enter'} Enter Now
+        %button#enter_giveaway.ladda-button{"data-style" => "zoom-in", "data-spinner-size" => "65"}
+          %span.ladda-label Enter Now
+      .after-entry
   .giveaway-terms
     - unless @giveaway_hash.canhaz_white_label
-      %p.powered-by Powered by <a href='http://giveawaykit.com' target='_blank'>Giveaway Kit</a>.
+      %p.powered-by Powered by <a href='http://giveawaykit.com' target='_blank'>Giveaway Kit</a>
     %p This promotion is in no way sponsored, endorsed or administered by, or associated with, Facebook. You understand that you are providing your information to "#{@giveaway_hash.current_page.name}" and not to Facebook. Your information will only be used to administer this promotion. Entry in this promotion is subject to the #{@giveaway_hash.giveaway.terms_link}.
     .terms-text.hidden{style: "display:none"}= @giveaway_hash.giveaway.terms_text

@@ -2,7 +2,7 @@ class LikesController < ApplicationController
 
   before_filter :assign_giveaway_cookie, only: [:create]
 
-   after_filter :set_giveaway_cookie, only: [:create]
+  after_filter :set_giveaway_cookie, only: [:create]
 
   def create
     if @like = Like.create_from_cookie(@giveaway_cookie)

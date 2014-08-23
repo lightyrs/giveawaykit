@@ -48,7 +48,7 @@ class ApplicationController < ActionController::Base
   end
 
   def init_js_vars
-    if action_string == 'giveaways#tab'
+    if tab_action_strings.include?(action_string) && !request.xhr?
       gon.paths = {}
       gon.currentGiveaway = {}
     elsif signed_in?
@@ -60,9 +60,9 @@ class ApplicationController < ActionController::Base
   end
 
   def assign_js_vars
-    if action_string == 'giveaways#tab'
+    if tab_action_strings.include?(action_string) && !request.xhr?
       assign_gon_tab_vars
-    else
+    elsif signed_in?
       assign_gon_page_vars if @page
       assign_gon_giveaway_vars if @giveaway
       assign_gon_user_vars if current_user && current_user.fb_uid
@@ -134,6 +134,10 @@ class ApplicationController < ActionController::Base
   def current_user=(user)
     @current_user = user
     session[:user_id] = user.nil? ? user : user.id
+  end
+
+  def tab_action_strings
+    %w(giveaways#tab entries#create entries#update likes#create)
   end
 
   def action_string

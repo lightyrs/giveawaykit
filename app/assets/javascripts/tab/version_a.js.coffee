@@ -50,7 +50,7 @@ jQuery ->
   Giveaway =
 
     init: ->
-      FB.Canvas.setSize height: "#{giveaway_hash.tab_height}"
+      FB.Canvas.setSize height: $("#gk_giveaway").outerHeight(true)
 
       FB.Event.subscribe 'edge.create', (href, widget) ->
         $just_liked = true
@@ -84,7 +84,7 @@ jQuery ->
     termsLink: ->
       $("a.terms-link.terms-text").click (e) ->
         $(".terms-text.hidden").show()
-        FB.Canvas.setSize(height: ($("#tab_container").height() + 40))
+        FB.Canvas.setSize(height: ($("#gk_giveaway").outerHeight(true) + 40))
         e.preventDefault()
 
     eligible: ->
