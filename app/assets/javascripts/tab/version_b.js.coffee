@@ -78,7 +78,7 @@ Giveaway =
       @doEligibleEntryFlow()
     else
       console.log 'not eligible'
-    e.preventDefault()
+    e?.preventDefault()
 
   onGiveawayImageClick: ->
     console.log 'onGiveawayImageClick'
@@ -126,7 +126,6 @@ Giveaway =
       else
         @onEntryError "You must grant permissions in order to enter the giveaway."
     , scope: "email, user_location, user_birthday, user_likes"
-    e.preventDefault()
 
   initializeForm: ->
     @ladda.stop()
@@ -161,46 +160,53 @@ Giveaway =
 
         406: (response) =>
           @entry = jQuery.parseJSON(response.responseText)
-          @onEntryError "You have already entered the giveaway.<br />Entry is limited to one per person."
+          @onEntryError "You have already entered the giveaway.<br /><span class='f-w-300'>Entry is limited to one per person.</span>"
 
         412: =>
           @ladda.stop()
 
         404: =>
-          @onEntryError "There was an unexpected error.<br />Please reload the page and try again."
+          @onEntryError "There was an unexpected error.<br /><span class='f-w-300'>Please reload the page and try again.</span>"
 
         424: =>
-          @onEntryError "There was an unexpected error.<br />Please reload the page and try again."
+          @onEntryError "There was an unexpected error.<br /><span class='f-w-300'>Please reload the page and try again.</span>"
 
   onEntrySuccess: ->
     console.log 'onEntrySuccess'
-
-    @onEntryComplete()
-    $('a.app-request').click() if @autoshow()
-
-  onEntryError: (message) ->
-    console.log 'onEntryError', message
     console.log @entry
 
-    @onEntryComplete()
+    @onEntryComplete("Congratulations! You have successfully entered the giveaway.")
+    $('a.app-request').click() if @autoshow
 
-  onEntryComplete: ->
+  onEntryError: (message) ->
+    console.log 'onEntryError'
+    console.log @entry
+
+    @onEntryComplete(message)
+
+  onEntryComplete: (message) ->
     @ladda.stop()
-    $('.giveaway-actions').addClass('entry-complete')
+    $('.giveaway-actions').find('p.message').html(message).end()
+      .find('.points strong').text("#{@entry.total_points}").end()
+      .find('.rank strong').text("#{@entry.overall_rank}").end()
+      .find('.days-left strong').text("#{@entry.days_left}").end()
+      .addClass('entry-complete')
     @initializeSharing()
 
   initializeSharing: ->
+    _.bindAll(@, 'onWallPostButtonClick', 'onAppRequestButtonClick')
+
     $('a.wall-post').on 'click', @onWallPostButtonClick
 
     $('a.app-request').on 'click', @onAppRequestButtonClick
 
     @initZClip()
 
-  onWallPostButtonClick: (e) =>
+  onWallPostButtonClick: (e) ->
     @triggerWallPost()
     e.preventDefault()
 
-  onAppRequestButtonClick: (e) =>
+  onAppRequestButtonClick: (e) ->
     @triggerAppRequest()
     e.preventDefault()
 
@@ -208,7 +214,7 @@ Giveaway =
     data =
       method: "feed"
       name: "#{@giveawayHash.current_page.name}"
-      link: "#{@giveawayObject.giveaway_url}&app_data=ref_#{@entryId}"
+      link: "#{@giveawayObject.giveaway_url}&app_data=ref_#{@entry.id}"
       picture: "#{@giveawayObject.feed_image_url}"
       caption: "#{@giveawayObject.title}"
       description: "#{@giveawayObject.description}"
@@ -221,33 +227,31 @@ Giveaway =
       method: "apprequests"
       message: "#{@giveawayObject.description_text.slice(0, 250)}..."
       data:
-        referrer_id: "#{@entryId}"
+        referrer_id: "#{@entry.id}"
         giveaway_id: "#{@giveawayObject.id}"
 
     @shareDialog(data)
 
   shareDialog: (data) ->
-    FB.ui data, (response) ->
+    FB.ui data, (response) =>
       if response and response.post_id
         json = entry:
-          wall_post_count: @wallPostCount + 1
+          wall_post_count: @entry.wall_post_count + 1
         @shareCallback json
       else if response and response.to
         json = entry:
-          request_count: @requestCount + response.to.length
+          request_count: @entry.request_count + response.to.length
         @shareCallback json
       else
         true
 
   shareCallback: (json) ->
+    console.log json
     $.ajax
       type: 'PUT'
-      url: "#{@paths.giveawayEntries}/#{@entryId}"
+      url: "#{@paths.giveawayEntries}/#{@entry.id}"
       dataType: 'text'
       data: json
-      statusCode:
-        404: ->
-          @onEntryError "There was an unexpected error.<br />Please reload the page and try again."
 
   initZClip: ->
     $el = $('a.zclip-trigger')
@@ -259,12 +263,11 @@ Giveaway =
 
     client.on 'ready', (event) =>
 
-      client.on 'copy', (event) ->
-        event.clipboardData.setData 'text/plain', @shortlink
+      client.on 'copy', (event) =>
+        event.clipboardData.setData 'text/plain', @entry.shortlink
 
       client.on 'aftercopy', (event) ->
-        $el.addClass('hide')
-        $('a.raw-shortlink.btn-success').removeClass('hide')
+        $el.addClass('success')
         $('body').trigger('click')
 
 jQuery ->

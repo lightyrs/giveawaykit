@@ -4,6 +4,7 @@ require 'open-uri'
 
 class CanvasController < ApplicationController
 
+  before_filter :allow_iframe_requests
   before_filter :giveaway_from_request, only: [:index]
 
   skip_before_filter :verify_authenticity_token
@@ -59,5 +60,9 @@ class CanvasController < ApplicationController
     end.compact.pop
   rescue StandardError
     false
+  end
+
+  def allow_iframe_requests
+    response.headers.delete('X-Frame-Options')
   end
 end

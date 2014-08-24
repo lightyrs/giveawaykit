@@ -4,7 +4,8 @@ class Entry < ActiveRecord::Base
   attr_accessible :email, :has_liked, :has_shared, :name, :fb_url,
                   :datetime_entered, :wall_post_count, :entry_count,
                   :request_count, :convert_count, :status, :uid, :ref_ids,
-                  :referrer_id, :is_viral, :shortlink, :bonus_entries
+                  :referrer_id, :is_viral, :shortlink, :bonus_entries,
+                  :total_points, :overall_rank
 
   attr_accessor :referrer_id
 
@@ -18,8 +19,9 @@ class Entry < ActiveRecord::Base
   serialize :ref_ids, Array
 
   before_validation(on: :update) do
-    self.has_shared = true if total_shares > 0
+    self.has_shared = (total_shares > 0)
     self.bonus_entries = calculate_bonus_entries
+    self.total_points = calculate_total_points
   end
 
   after_commit :create_shortlink, unless: -> { self.shortlink.present? }
@@ -27,10 +29,15 @@ class Entry < ActiveRecord::Base
   scope :shared, -> { where("has_shared IS TRUE") }
 
   def as_json(options = {})
-    { id: id,
+    {
+      id: id,
       shortlink: shortlink,
       wall_post_count: wall_post_count,
-      request_count: request_count }
+      request_count: request_count,
+      total_points: total_points,
+      overall_rank: overall_rank,
+      days_left: giveaway.days_left
+    }
   end
 
   def process(*args)
@@ -120,6 +127,15 @@ class Entry < ActiveRecord::Base
 
   def calculate_bonus_entries
     ( (giveaway.bonus_value.to_i * convert_count) + (entry_count - 1) ) rescue 0
+  end
+
+  def calculate_total_points
+    return 0 unless entry_count > 0
+    bonus_entries + 1
+  end
+
+  def overall_rank
+    Entry.where(giveaway_id: giveaway.id).order(:total_points).index(self) + 1
   end
 
   def referral_url

@@ -137,6 +137,8 @@
     .giveaway-actions {
       text-align: center;
       position: relative;
+      height: 147px;
+      @include transition(height 0.3s);
 
       .after-entry {
         z-index: 0;
@@ -156,11 +158,23 @@
           bottom: 0;
           right: 0;
           position: absolute;
-          z-index: 15;   
+          z-index: 15;
+        }
+
+        .fg {
+          position: relative;
+          z-index: 20;
+          color: #324648;
+          font-weight: 400;
+          padding: 10px 0;
+          height: 310px;
+          box-sizing: border-box;
+          @include background-image(linear-gradient(rgba(253,253,253,0.4),rgba(247,247,247,0.4)));
         }
       }
 
       &.entry-complete {
+        height: 310px;
 
         .after-entry {
           z-index: 20;
@@ -171,6 +185,47 @@
           opacity: 0;
           cursor: default;
         }
+      }
+
+      .stats {
+        text-align: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          list-style-image: none;
+          list-style-type: none;
+          display: -moz-inline-stack;
+          display: inline-block;
+          vertical-align: middle;
+          zoom: 1;
+          margin: 0 5px;
+          padding: 15px 5px;
+          border: 1px solid rgba(50,70,72,.25);
+          border-radius: 50px;
+          width: 100px;
+          height: 100px;
+          box-sizing: border-box;
+
+          small {
+            padding-top: 8px;
+            padding-bottom: 3px;
+            font-size: 12px;
+            font-weight: 400;
+            display: block;
+          }
+
+          strong {
+            font-weight: 400;
+            font-size: 24px;
+            display: block;
+          }
+        }
+      }
+
+      .how-to-earn {
+        font-weight: 300;
       }
     }
   }
@@ -207,7 +262,7 @@
 
   .giveaway-terms {
     width: 553px;
-    margin: 0 auto 30px;
+    margin: 0 auto 183px;
     padding: 20px 0;
     font-size: 13px;
     font-weight: 300;
@@ -227,4 +282,70 @@
       margin-bottom: 20px;
     }
   }
+}
+
+.share-buttons {
+  padding: 5px 0;
+
+  a {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 0 3px;
+    font-size: 13px;
+    border-radius: 2px;
+    background-clip: padding-box;
+    background-color: #F0EDED;
+    @include background-image(linear-gradient(to bottom, #FDFAFB, #F9F7F7 50%, #F6F3F4 50%, #F0EDED));
+    @include box-shadow(inset 0 1px rgba(255, 255, 255, 0.35), 0 0 0 1px rgba(140, 126, 126, 0.5));
+    color: #524D4D;
+    text-shadow: 0 1px rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover,
+    &.zeroclipboard-is-hover,
+    &.zeroclipboard-is-active {
+      @include background-image(linear-gradient(to top, #FDFAFB, #F9F7F7 50%, #F6F3F4 50%, #F0EDED));
+    }
+
+    &.raw-shortlink {
+      @include transition(all 0.3s);
+
+      span {
+        display: none;
+        margin-left: 5px;
+      }
+
+      &.success {
+
+        span {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+.f-w-300 {
+  font-weight: 300;
+}
+
+.f-w-400 {
+  font-weight: 400;
+}
+
+.f-w-600 {
+  font-weight: 600;
+}
+
+.f-w-700 {
+  font-weight: 700;
+}
+
+.hide {
+  display: none !important;
+}
+
+a {
+  outline: none !important;
 }

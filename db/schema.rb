@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140819190510) do
+ActiveRecord::Schema.define(version: 20140824181031) do
 
   create_table "active_admin_comments", force: true do |t|
     t.integer  "resource_id",   null: false
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20140819190510) do
     t.string   "shortlink"
     t.boolean  "has_shared",       default: false
     t.integer  "bonus_entries",    default: 0
+    t.integer  "total_points",     default: 0
   end
 
   add_index "entries", ["email", "giveaway_id"], name: "index_entries_on_email_and_giveaway_id", unique: true, using: :btree

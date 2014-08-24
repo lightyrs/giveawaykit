@@ -23,7 +23,32 @@
           %span.ladda-label Enter Now
       .after-entry
         = image_tag @giveaway_hash.giveaway.image_url, class: 'bg'
-        %p.message
+        .fg
+          %p.message
+          %ul.stats
+            %li.points
+              %small Your points
+              %strong
+            %li.rank
+              %small Your rank
+              %strong
+            %li.days-left
+              %small Days left
+              %strong
+          .call-to-action
+            %p.how-to-earn
+              - if @giveaway_hash.giveaway.bonus_value == "0" || !@giveaway_hash.canhaz_referral_tracking
+                Share this giveaway with your friends.
+              - elsif @giveaway_hash.giveaway.bonus_value == "1"
+                Share this giveaway to earn <strong class='badge badge-warning f-w-600'>1</strong> point for each friend who enters.
+              - else
+                = "Share this giveaway to earn <strong class='badge badge-warning f-w-600'>#{@giveaway_hash.giveaway.bonus_value}</strong> points for each friend who enters.".html_safe
+            .share-buttons
+              %a.wall-post{href: "#"} Post
+              %a.app-request{href: "#"} Invite
+              %a.raw-shortlink.zclip-trigger{href: "#"}
+                Copy Link
+                %span.fa.fa-check
   .giveaway-terms
     - unless @giveaway_hash.canhaz_white_label
       %p.powered-by Powered by <a href='http://giveawaykit.com' target='_blank'>Giveaway Kit</a>

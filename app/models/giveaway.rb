@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 require 'csv'
+require 'dotiw'
 
 class Giveaway < ActiveRecord::Base
 
@@ -7,6 +8,7 @@ class Giveaway < ActiveRecord::Base
   friendly_id :title, use: [:slugged, :finders]
 
   include ActionView::Helpers::UrlHelper
+  include ActionView::Helpers::DateHelper
 
   is_impressionable
 
@@ -242,6 +244,14 @@ class Giveaway < ActiveRecord::Base
       "Active"
     else
       nil
+    end
+  end
+
+  def days_left
+    if end_date.nil?
+      "?"
+    else
+      "#{distance_of_time_in_words(Time.now, end_date, include_seconds: false, only: %w(days), accumulate_on: :days)}".split(" days")[0]
     end
   end
 
