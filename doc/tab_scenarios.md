@@ -53,7 +53,7 @@
     - Entrant points are not updated
     - Entrant is given 'already entered' message
 
-3. Entry sharing
+3. Entry sharing ✔
   - Wall Post
     - Count is updated ✔
   - App Request
