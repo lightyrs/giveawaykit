@@ -48,10 +48,10 @@
   - For giveaway that allows multiple entries
     - Entry count is updated
     - Entrant points are updated
-  - For giveaway that does not allow multiple entries
-    - Entry count is not updated
-    - Entrant points are not updated
-    - Entrant is given 'already entered' message
+  - For giveaway that does not allow multiple entries ✔
+    - Entry count is not updated ✔
+    - Entrant points are not updated ✔
+    - Entrant is given 'already entered' message ✔
 
 3. Entry sharing ✔
   - Wall Post
