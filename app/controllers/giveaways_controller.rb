@@ -169,11 +169,13 @@ class GiveawaysController < FacebookController
   end
 
   def enter
-    @giveaway = Giveaway.find(params[:giveaway_id])
-    @page = @giveaway.facebook_page
+    @page = FacebookPage.find(params[:facebook_page_id])
+    @giveaway = @page.giveaways.find(params[:giveaway_id])
     if @giveaway.active?
       GabbaClient.new.event(category: "Giveaways", action: "Giveaway#enter", label: @giveaway.title, id: @giveaway.id)
       render layout: "enter"
+    elsif @page
+      redirect_to @page.url
     else
       redirect_to root_path
     end

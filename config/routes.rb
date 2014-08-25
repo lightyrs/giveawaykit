@@ -67,7 +67,7 @@ Rails.application.routes.draw do
   get '/about/features', to: 'about#features', as: 'features'
   get '/about/subscription_plans', to: 'subscription_plans#index', as: 'subscription_plans'
 
-  match '/:giveaway_id/enter', to: 'giveaways#enter', as: 'enter', via: [:get, :patch, :post]
+  match '/:facebook_page_id/:giveaway_id/enter', to: 'giveaways#enter', as: 'enter', via: [:get, :patch, :post]
 
   root to: 'welcome#index'
 end

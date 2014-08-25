@@ -212,6 +212,13 @@ Giveaway =
 
   triggerWallPost: ->
     data =
+      method: "share"
+      href: "#{@giveawayObject.canonical_url}?referral_id=#{@entry.id}"
+
+    @shareDialog(data)
+
+  triggerFeedPost: ->
+    data =
       method: "feed"
       name: "#{@giveawayHash.current_page.name}"
       link: "#{@giveawayObject.giveaway_url}&app_data=ref_#{@entry.id}"

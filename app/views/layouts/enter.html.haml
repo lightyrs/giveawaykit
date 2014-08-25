@@ -1,23 +1,24 @@
 !!!
-%html
-  %head
+%html{lang: "en", style: "height: 100%;"}
+  %head{prefix: "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# #{FB_NAMESPACE}: http://ogp.me/ns/fb/#{FB_NAMESPACE}#"}
     %meta{charset: "utf-8"}
-    %meta{content: "#{FB_APP_ID}", property: "fb:app_id"}
     %title= @giveaway.title
-    = google_analytics_tracking_javascript
-    %meta{content: @giveaway.description, name: "description"}/
-    %meta{property: "og:description", content: "#{@giveaway.description}"}
-    %meta{content: @page.name, name: "title"}
-    %meta{property: "og:title", content: "#{@page.name}"}
-    %meta{content: @giveaway.feed_image.feed.url.gsub('https://', 'http://'), name: "image"}
-    %meta{property: "og:image", content: "#{@giveaway.feed_image.feed.url.gsub('https://', 'http://')}"}
-    = stylesheet_link_tag :tab
-    /[if lt IE 9]
-      = javascript_include_tag :ie, 'data-turbolinks-track' => true
-    = javascript_include_tag :tab
-    = csrf_meta_tags
-  %body
-    #tab_container
-      = yield
 
-    %noscript= utm_tag
+    %meta{property: "fb:app_id", content: "#{FB_APP_ID}"}
+    %meta{property: "og:type", content: "#{FB_NAMESPACE}:giveaway"}
+    %meta{property: "og:url", content: "#{@giveaway.giveaway_url}"}
+    %meta{property: "og:title", content: "#{@giveaway.title}"}
+    %meta{property: "og:image", content: "#{@giveaway.feed_image.url}"}
+
+    /[if lt IE 9]
+      = javascript_include_tag :ie
+
+    = stylesheet_link_tag :tab, media: 'all'
+
+    = csrf_meta_tags
+
+  %body{style: "height: 100%; background-color: #{@giveaway.dominant_color_image}"}
+    = include_gon(init: true, namespace: '_SG', need_type: true)
+    = javascript_include_tag :tab
+    #tab_container{class: "gk-#{@giveaway.dominant_color_image_lightness}", style: "height: 100%;"}
+      = yield

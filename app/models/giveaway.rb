@@ -590,11 +590,11 @@ class Giveaway < ActiveRecord::Base
       title: title,
       prize: prize,
       description: description,
-      description_text: ActionView::Base.full_sanitizer.sanitize(description),
+      description_text: description_text,
       giveaway_url: giveaway_url,
-      enter_url: Rails.application.routes.url_helpers.enter_url(self, host: SG_DOMAIN),
-      image_url: self.image.tab.url.gsub("http://", "https://"),
-      feed_image_url: self.feed_image.url.gsub("http://", "https://"),
+      canonical_url: canonical_url,
+      image_url: self.image.tab.url,
+      feed_image_url: self.feed_image.url,
       dominant_color: dominant_color_image,
       dominant_color_lightness: dominant_color_image_lightness,
       bonus_value: bonus_value,
@@ -603,6 +603,10 @@ class Giveaway < ActiveRecord::Base
       autoshow_share: autoshow_share_dialog,
       auth_required: email_required
     })
+  end
+
+  def description_text
+    ActionView::Base.full_sanitizer.sanitize(description)
   end
 
   def shortlinks
@@ -660,6 +664,10 @@ class Giveaway < ActiveRecord::Base
     rgb = dominant_color_image.last(6).scan(/../).map { |color| color.to_i(16) }
     color = Sass::Script::Color.new(rgb)
     color.lightness > 50 ? 'light' : 'dark'
+  end
+
+  def canonical_url
+    Rails.application.routes.url_helpers.enter_url(facebook_page_id: facebook_page.slug, giveaway_id: self.slug, host: SG_SSL_DOMAIN, protocol: :https)
   end
 
   private

@@ -4,16 +4,6 @@
     %meta{charset: "utf-8"}
     %meta{content: "#{FB_APP_ID}", property: "fb:app_id"}
     %title= @giveaway_hash.giveaway.title
-    = google_analytics_tracking_javascript
-    %meta{property: "og:type", content: "website"}
-    %meta{content: @giveaway_hash.giveaway.feed_image_url.gsub('https://', 'http://'), name: "image"}
-    %meta{property: "og:image", content: "#{@giveaway_hash.giveaway.feed_image_url.gsub('https://', 'http://')}"}
-    %meta{content: @giveaway_hash.current_page.name, name: "title"}
-    %meta{property: "og:title", content: "#{@giveaway_hash.current_page.name}"}
-    %meta{content: @giveaway_hash.giveaway.description, name: "description"}/
-    %meta{property: "og:description", content: "#{@giveaway_hash.giveaway.description}"}
-    %meta{property: "og:url", content: "#{@giveaway_hash.giveaway.giveaway_url}"}
-    %link{rel: 'canonical', href: "#{@giveaway_hash.giveaway.giveaway_url}"}
 
     /[if lt IE 9]
       = javascript_include_tag :ie
@@ -27,5 +17,3 @@
     = javascript_include_tag :tab
     #tab_container{class: "gk-#{@giveaway_hash.giveaway.dominant_color_lightness}", style: "height: 100%; background-color: #{@giveaway_hash.giveaway.dominant_color}"}
       = yield
-
-    %noscript= utm_tag
