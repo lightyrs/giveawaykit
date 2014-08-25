@@ -20,13 +20,13 @@ class FeedImageUploader < CarrierWave::Uploader::Base
   # end
 
   version :feed do
-    process resize_to_limit: [90, 90]
-    process quality: 70
+    process resize_to_limit: [200, 200]
+    process quality: 75
     process :strip
   end
 
   version :thumb do
-    process resize_to_fill: [111, 74]
+    process resize_to_fill: [100, 100]
     process quality: 75
     process :strip
   end
