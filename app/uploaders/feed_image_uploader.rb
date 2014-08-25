@@ -19,6 +19,8 @@ class FeedImageUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
+  # Use images that are at least 1200 x 630 pixels for the best display on high resolution devices. At the minimum, you should use images that are 600 x 315 pixels to display link page posts with larger images.
+
   version :feed do
     process resize_to_limit: [200, 200]
     process quality: 75
