@@ -51,7 +51,7 @@ class ApplicationController < ActionController::Base
     if tab_action_strings.include?(action_string) && !request.xhr?
       gon.paths = {}
       gon.currentGiveaway = {}
-    elsif signed_in?
+    elsif signed_in? && action_string != 'canvas#index'
       gon.paths ||= {}
       gon.currentUser ||= {}
       gon.currentPage ||= {}
@@ -62,7 +62,7 @@ class ApplicationController < ActionController::Base
   def assign_js_vars
     if tab_action_strings.include?(action_string) && !request.xhr?
       assign_gon_tab_vars
-    elsif signed_in?
+    elsif signed_in? && action_string != 'canvas#index'
       assign_gon_page_vars if @page
       assign_gon_giveaway_vars if @giveaway
       assign_gon_user_vars if current_user && current_user.fb_uid

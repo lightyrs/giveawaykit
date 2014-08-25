@@ -37,7 +37,7 @@
 
 a, button {
 
-  &:focus {
+  &:focus, &:active {
     outline: none !important;
   }
 }
