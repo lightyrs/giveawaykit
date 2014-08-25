@@ -86,3 +86,9 @@
     - Referrer/s are credited (future)
   - From Entry
     - Like is counted and marked as from entry
+
+### Strategies
+
+1. Facebook Share
+  - Redirect the enter page to the tab page only if the request is coming from facebook
+  - Otherwise, show the enter form on giveawaykit (or wherever embedded)
