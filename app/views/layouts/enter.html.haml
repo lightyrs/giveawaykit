@@ -9,7 +9,9 @@
     %meta{property: "og:type", content: "#{FB_NAMESPACE}:giveaway"}
     %meta{property: "og:url", content: "#{@giveaway.canonical_url}"}
     %meta{property: "og:title", content: "#{@giveaway.title}"}
+    %meta{property: "og:description", content: "#{@giveaway.description_text}"}
     %meta{property: "og:image", content: "#{@giveaway.feed_image.url}"}
+
 
     /[if lt IE 9]
       = javascript_include_tag :ie
